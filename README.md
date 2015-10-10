@@ -1,13 +1,15 @@
 # FresherNote
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][hiphy]
 
-[heroku]: http://www.herokuapp.com
+[hiphy]: https://hiphy-app.herokuapp.com/
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails
-and React.js. FresherNote allows users to:
+Hiphy is a web application inspired by [giphy.com][giphy] built using Ruby on Rails
+and React.js. Hiphy allows users to:
+
+[giphy]: https://www.giphy.com/
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
@@ -64,7 +66,7 @@ extend this to a fuzzy search through every Note's content.
 
 ### Phase 4: Allow Complex Styling in Notes (1 day)
 
-Using quill.js, allow for complex styling of notes. 
+Using quill.js, allow for complex styling of notes.
 
 [Details][phase-four]
 
