@@ -6,26 +6,30 @@
 ## New Session
 ![new-session]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## Upload
+![upload]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
+## GifsIndex / GifIndexItem / SearchGifForm
+![gifs]
 
-## NoteBookForm
-![notebook-form]
+## GifsItem / LinkTab / GifTag / SearchGifForm
+![gifItem]
 
-## NotebooksIndex / NotebookIndexItem
+## CollectionIndex / CollectionIndexItem / SearchGifForm
+![collection]
+
+## SearchIndex / SearchIndexItem / SearchGifForm
 ![search]
 
 
-## Component Heirarchy
-![component-heirarchy]
+## Component Hierarchy
+![component-hierarchy]
 
 [new-user]: ./wireframes/new_user.png
 [new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+[gifs]: ./wireframes/component_Gif.png
+[gifItem]: ./wireframes/component_GifItem.png
+[collection]: ./wireframes/component_collection.png
 [search]: ./wireframes/component_searchIndex.png
-[component-heirarchy]: ./wireframes/component_heirarchy.png
+[upload]: ./wireframes/upload.png
+[component-heirarchy]: ./wireframes/component_hierarchy.png
