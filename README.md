@@ -1,6 +1,6 @@
-# FresherNote
+# Hiphy
 
-[Heroku link][hiphy]
+[Hiphy][hiphy] - A SF/ Bay Area themed gif viewer and sharer.
 
 [hiphy]: https://hiphy-app.herokuapp.com/
 
@@ -9,18 +9,18 @@
 Hiphy is a web application inspired by [giphy.com][giphy] built using Ruby on Rails
 and React.js. Hiphy allows users to:
 
-[giphy]: https://www.giphy.com/
+[giphy]: http://www.giphy.com/
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Create, read, edit, and delete notes
-- [ ] Organize notes within Notebooks
-- [ ] Tag notes with multiple tags and search notes by tag
-- [ ] Search through notes for blocks of text
-- [ ] Apply complex styling to notes while editing
-- [ ] Set reminders on notes
+- [ ] Upload gifs
+- [ ] Tag gifs with multiple tags and search gifs by tag
+- [ ] Share, tag gifs on the show page
+- [ ] Organize gifs within Collections
+- [ ] View on hover gifs on the index page
+- [ ] Share through gifs on facebook messenger
 
 ## Design Docs
 * [View Wireframes][view]
@@ -33,65 +33,57 @@ and React.js. Hiphy allows users to:
 
 ### Phase 1: User Authentication, Note Model and JSON API (1.5 days)
 
-In Phase 1, I will begin by implementing user signup and authentication (using
-BCrypt). There will be a basic landing page after signup that will contain the
-container for the application's root React component. Before building out the
-front end, I will begin by setting up a full JSON API for Notes.
+In Phase 1, I will begin by setting up user login and authentication area on the
+index page. There will be one model that holds the Gifs, one model that holds
+tags. The react view components for the index page and show page
+(each individual gif) will be created for the index and show pages. Show pages
+will also show the tags associated with that gif.
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture and Note CRUD (2.5 days)
+### Phase 2: Flux Architecture, Gif CRUD (3 days)
 
-Phase 2 is focused on setting up Flux, the React Router, and the React view
-structure for the main application. After the basic Flux architecture has been
-set up, a Note store will be implemented and a set of actions corresponding to
-the needed CRUD functionality created. Once this is done, I will create React
-views for the Notes `Index`, `IndexItem` and `Form`. At the end of Phase 2,
-Notes can be created, read, edited and destroyed in the browser. Notes should
-save to the database when the form loses focus or is left idle after editing.
-Lastly, while constructing the views I will start using basic bootstrap for
-styling.
+Phase 2 is focused on setting up the Flux architecture. After the basic Flux
+architecture has been set up, a Gif store will be set up. I will create the
+basic index view for all Gifs for the index page and a individual Gif view
+for all show pages. I will start using basic bootstrap for styling.
 
 [Details][phase-two]
 
-### Phase 3: Notebooks and Tags (2 days)
+### Phase 3: Collections and Search (2 days)
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook, which has
-its own `Index` view. Create JSON API for Notebooks. Notes can also now be
-tagged with multiple tags. Users can bring up notes in a separate `SearchIndex`
-view by searching for their tags. Once the tag search is implemented, I will
-extend this to a fuzzy search through every Note's content.
+Phase 3 adds organization to the Gifs. Gifs belong to a collection and each
+collection has its own `Index` view. Create React View for Collection. Collection
+is a term for a group of gifs within one category but not Tag.
 
 [Details][phase-three]
 
-### Phase 4: Allow Complex Styling in Notes (1 day)
+### Phase 4: Allow Complex Styling of Gifs and Sharing (2 day)
 
-Using quill.js, allow for complex styling of notes.
+- On hover Gif will play (using css)
+- On show page play Gif automatically
+- Show page for each Gif will feature share link with unique tag, that links
+back to the show page.
+- Tidy up all design across site
+- Add more seed data
+- Pagination / infinite scroll for gifs index
 
 [Details][phase-four]
 
-### Phase 5: Reminders and Garbage Collection (1 day)
+### Phase 5: Copy Paste on facebook or slack (1.5 day)
 
-Phase 5 introduces two new features. First, users can set reminders on notes
-which will at the time they are set for prompt the user to review and edit the
-given note. In addition, I will implement a feature that asks users to review
-notes once they reach a certain age and ask whether they should be kept,
-archived, or deleted.
+- Nest within iframes? Embed within iframes?
+-
 
 [Details][phase-five]
 
-### Phase 6: Styling Cleanup and Seeding (1 day)
-
-Bootstrap will have been used to keep things organized up until now, but in
-Phase 6 I will add styling flourishes and make modals out of some elements (like
-the NotebookForm).
-
 ### Bonus Features (TBD)
-- [ ] Prettify transitions
+- [ ] Pagination / infinite scroll for gifs Index
+- [ ] Gif converter from video
+- [ ] Share through gifs on slack
 - [ ] Use javascript library for cleaner tag selection
-- [ ] Changelogs for Notes
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Multiple sessions
+- [ ] User favorites
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

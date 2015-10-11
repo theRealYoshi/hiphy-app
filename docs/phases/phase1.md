@@ -1,23 +1,22 @@
-# Phase 1: User Authentication, Note Model and JSON API
+# Phase 1: User Authentication, Gif/Tag/Collection Models and JSON API (1.5 days)
 
 ## Rails
 ### Models
-* User
-* Note
+* Gif
+* Tag
+* Collection
 
 ### Controllers
-* UsersController (create, new)
-* SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* Api::GifsController (index, show, update, create, destroy)
 
 ### Views
-* users/new.html.erb
-* session/new.html.erb
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
+* gifs/index.json.jbuilder
+* gifs/gif.json.jbuilder
 
 ## Flux
 ### Views (React Components)
+* All gifs index page
+* Individual gif show page
 
 ### Stores
 
@@ -26,4 +25,3 @@
 ### ApiUtil
 
 ## Gems/Libraries
-* BCrypt

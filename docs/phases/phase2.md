@@ -1,4 +1,4 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+# Phase 2: Flux Architecture, Gif CRUD and Search Functionality (2.5 days)
 
 ## Rails
 ### Models
@@ -9,24 +9,23 @@
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* GifsIndex
+  - GifsIndexItem
+* GifShow
+* SearchTagsForm
 
 ### Stores
-* Note
+* Gif
 
 ### Actions
-* ApiActions.receiveAllNotes
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
+* ApiActions.receiveAllGifs
+* ApiActions.receiveSingleGif
+* ApiActions.receiveSearchTags
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchAllGifs
+* ApiUtil.fetchSingleGif
+* ApiUtil.fetchSearchGif
 
 ## Gems/Libraries
 * Flux Dispatcher

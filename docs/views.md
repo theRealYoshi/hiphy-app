@@ -15,6 +15,10 @@
 ## NoteBookForm
 ![notebook-form]
 
+## NotebooksIndex / NotebookIndexItem
+![search]
+
+
 ## Component Heirarchy
 ![component-heirarchy]
 
@@ -23,4 +27,5 @@
 [notes]: ./wireframes/root_notes.png
 [notebooks]: ./wireframes/root_notebooks.png
 [notebook-form]: ./wireframes/notebook_form.png
+[search]: ./wireframes/component_searchIndex.png
 [component-heirarchy]: ./wireframes/component_heirarchy.png
