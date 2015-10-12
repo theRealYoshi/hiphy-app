@@ -15,4 +15,3 @@
 ### Actions
 
 ## Gems/Libraries
-* Quill.js
