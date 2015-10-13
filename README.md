@@ -36,7 +36,7 @@ and React.js. Hiphy allows users to:
 In Phase 1, I will begin by setting up user login and authentication area on the
 index page. There will be one model that holds the Gifs, one model that holds
 tags and one model called Taggings that holds the relationships between Gifs
-and Tags.
+and Tags. Use Cloudinary to upload the Gifs
 [Details][phase-one]
 
 ### Phase 2: Flux Architecture, Gif CRUD (2 days)
@@ -48,26 +48,32 @@ for all show pages. I will start using basic bootstrap for styling.
 
 [Details][phase-two]
 
-### Phase 3: Collections and Search (2 days)
+### Phase 3: Search (1.5 days)
 
-Phase 3 adds organization to the Gifs. Gifs belong to a collection and each
-collection has its own `Index` view. Create React View for Collection. Collection
-is a term for a group of gifs within one category but not Tag. Create a Search
-index which will have its own view, index and react component
+Phase 3 adds organization to the Gifs. Search index based on an input in the
+search field. A search index will have it's own view, and component.
 
 [Details][phase-three]
 
-### Phase 4: Shortlink that plays in Facebook Messenger (1.5 days)
+### Phase 4: Collections (1.5 days)
 
-Phase 4 adds hiphy's main functionality, which is a shortlink that will play the
-gif in Facebook's messenger service. If a shortlink is not able to be created
-we will use Giphy's api to share links on facebook
+Gifs belong to a collection and each collection has its own
+`Index` view. Create React View for Collection. Collection
+is a term for a group of gifs within one category but not Tag.
 
 [Details][phase-four]
 
-### Phase 5:  Allow Complex Styling of Gifs and Sharing (2 days)
+### Phase 5: Shortlink that plays in Facebook Messenger (1.5 days)
 
-Phase 5 will focus on making the site look and feel like giphy.com with css and
+Phase 5 adds hiphy's main functionality, which is a shortlink that will play the
+gif in Facebook's messenger service. If a shortlink is not able to be created
+we will use Giphy's api to share links on facebook
+
+[Details][phase-five]
+
+### Phase 6:  Allow Complex Styling of Gifs and Sharing (1.5 days)
+
+Phase 6 will focus on making the site look and feel like giphy.com with css and
 React. Here are the examples of changes implemented:
 - On hover Gif will play (using css)
 - On show page play Gif automatically
@@ -76,9 +82,10 @@ back to the show page.
 - Tidy up all design across site
 - Add more seed data
 
-[Details][phase-five]
+[Details][phase-six]
 
 ### Bonus Features (TBD)
+- [ ] Voting System for each Gif (Call it Thizz)
 - [ ] Pagination / infinite scroll for gifs Index
 - [ ] Gif converter from video
 - [ ] Share through gifs on slack
@@ -89,5 +96,6 @@ back to the show page.
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
+[phase-four]: ./docs/phases/phase5.md
 [phase-five]: ./docs/phases/phase5.md
+[phase-six]: ./docs/phases/phase6.md

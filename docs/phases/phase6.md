@@ -1,4 +1,4 @@
-# Phase 5: Shortlink that plays in Facebook Messenger (1.5 days)
+# Phase 6: Allow Complex Styling of Gifs and Sharing
 
 ## Rails
 ### Models

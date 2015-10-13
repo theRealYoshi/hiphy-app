@@ -1,4 +1,4 @@
-# Phase 3: Notebooks and Tags (2 days)
+# Phase 3: Search (1.5 days)
 
 ## Rails
 ### Models
@@ -11,8 +11,6 @@
 
 ## Flux
 ### Views (React Components)
-* CollectionIndex
-  - CollectionIndexItem
 * SearchGifForm
 * SearchIndex
   - SearchIndexItem

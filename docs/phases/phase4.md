@@ -1,4 +1,4 @@
-# Phase 4: Allow Complex Styling in Notes (1 day)
+# Phase 4: Collections (1.5 days)
 
 ## Rails
 ### Models
@@ -6,12 +6,18 @@
 ### Controllers
 
 ### Views
+* CollectionIndex
+  - CollectionIndexItem
+
 
 ## Flux
 ### Views (React Components)
 
 ### Stores
+* Collection
 
 ### Actions
+* ApiActions.receiveAllCollections
+* ApiActions.singleCollection
 
 ## Gems/Libraries
