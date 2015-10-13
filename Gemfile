@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#image uploader
+gem 'cloudinary'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -38,16 +41,27 @@ gem 'flux-rails-assets'
 
 gem 'newrelic_rpm'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+group :development do
+
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'pry-rails'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+end
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+group :test do
+
+  gem 'factory_girl_rails', :require => false
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'rspec-rails', '~> 3.1.0'
+
+
 end
