@@ -37,6 +37,7 @@ In Phase 1, I will begin by setting up user login and authentication area on the
 index page. There will be one model that holds the Gifs, one model that holds
 tags and one model called Taggings that holds the relationships between Gifs
 and Tags. Use Cloudinary to upload the Gifs
+
 [Details][phase-one]
 
 ### Phase 2: Flux Architecture, Gif CRUD (2 days)
