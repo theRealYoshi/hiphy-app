@@ -11,7 +11,9 @@ class Api::GifsController < ApplicationController
   end
 
   def create
+    #create a response for 302 when user is not signed in
     #create a tagging table and a tag table
+
     tags = params[:gif][:tags].map {|tag| tag.strip }
     tags.each do |tag|
       #if tag is not created in the table

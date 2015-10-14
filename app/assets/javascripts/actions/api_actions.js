@@ -1,8 +1,8 @@
 ApiActions = {
-  receiveAll: function(benches){
+  receiveAll: function(gifs){
     AppDispatcher.dispatch({
-      actionType: BenchConstants.BENCHES_RECEIVED,
-      benches: benches
+      actionType: GifConstants.GIFS_RECEIVED,
+      gifs: gifs
     });
   }
 };
