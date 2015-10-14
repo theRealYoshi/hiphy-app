@@ -40,6 +40,9 @@ gem 'flux-rails-assets'
 
 gem 'newrelic_rpm'
 
+gem 'factory_girl_rails', :require => false
+gem 'faker'
+
 group :development do
 
   gem 'binding_of_caller'
@@ -56,8 +59,6 @@ end
 
 group :test do
 
-  gem 'factory_girl_rails', :require => false
-  gem 'faker'
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'

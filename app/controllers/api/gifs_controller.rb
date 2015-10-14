@@ -2,8 +2,7 @@ class Api::GifsController < ApplicationController
   before_action :require_login, only: [:create, :destroy]
 
   def index
-    @gifs = Gif.all
-    render json: @gifs
+    @gifs = Gif.includes(:tags)
   end
 
   def new
