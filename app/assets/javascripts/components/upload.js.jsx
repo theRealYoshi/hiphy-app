@@ -36,6 +36,7 @@ var UploadForm = React.createClass({
     ApiUtil.createGif(data, function(){
       this.props.history.pushState(null, '/');
     }.bind(this));
+    // ask how to redirect tomorrow.
   },
   _uploadGif: function(event){
     event.preventDefault();

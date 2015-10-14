@@ -1,4 +1,5 @@
 class Api::GifsController < ApplicationController
+  before_action :require_login, only: [:create, :destroy]
 
   def index
     @gifs = Gif.all
@@ -11,18 +12,25 @@ class Api::GifsController < ApplicationController
 
   def create
     #create a tagging table and a tag table
-    @tags = params[:gif][:tags]
-    @gif = Gif.create(
-      title: params[:gif][:title],
-      url: params[:gif][:url],
-      submitter_id: current_user.id
-      )
-    if @gif.save && @tag.save
-      #create tagging association here
+    tags = params[:gif][:tags].map {|tag| tag.strip }
+    tags.each do |tag|
+      #if tag is not created in the table
+      unless Tag.exists?(:tag_title => tag)
+        Tag.create(tag_title: tag)
+      end
     end
-    debugger
-    #@gif.submitter_id = @current_user.id
-    #else save failed
+    @gif = Gif.create(
+        title: params[:gif][:title],
+        url: params[:gif][:url],
+        submitter_id: current_user.id
+      )
+    if @gif.save
+      tags.each do |tag|
+        tag_id = Tag.find_by_tag_title(tag).id
+        Tagging.create!(gif_id: @gif.id, tag_id: tag_id)
+      end
+    end
+    render json: @gif
   end
 
   def show
@@ -39,7 +47,4 @@ class Api::GifsController < ApplicationController
     params.require(:gif).permit(:title, :url, :tags)
   end
 
-  def render_tags
-
-  end
 end

@@ -1,9 +1,14 @@
 require 'spec_helper'
 require 'rails_helper'
 
-describe Tagging, type: :model do
+describe Gif, type: :model do
   describe 'associations' do
-    it { should belong_to(:tag) }
-    it { should belong_to(:gif) }
+    it { should have_many(:tags) }
+  end
+
+  describe 'validations' do
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:submitter_id) }
+    it { should validate_presence_of(:url) }
   end
 end

@@ -10,14 +10,18 @@
 #  updated_at   :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+require 'spec_helper'
+require 'rails_helper'
 
-one:
-  title: MyString
-  submitter_id: 1
-  url: MyString
+describe Tagging, type: :model do
+  describe 'associations' do
+    it { should belong_to(:tag) }
+    it { should belong_to(:gif) }
+  end
 
-two:
-  title: MyString
-  submitter_id: 1
-  url: MyString
+  describe 'validations' do
+    it { should validate_presence_of(:tag_id) }
+    it { should validate_presence_of(:gif_id) }
+  end
+
+end

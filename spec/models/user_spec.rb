@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 require 'spec_helper'
 require 'rails_helper'
 
@@ -8,7 +20,6 @@ describe User do
       email: "jonathan@user.com",
       password: "good_password")
   end
-
 
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password_digest) }
