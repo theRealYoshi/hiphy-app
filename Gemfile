@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -54,6 +53,7 @@ end
   gem 'web-console', '~> 2.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
 group :test do
 
   gem 'factory_girl_rails', :require => false

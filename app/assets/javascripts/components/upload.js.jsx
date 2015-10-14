@@ -33,8 +33,9 @@ var UploadForm = React.createClass({
       title: this.state.title,
       url: result.url
     };
-    ApiUtil.createGif(data);
-    this.props.history.pushState(null, '/');
+    ApiUtil.createGif(data, function(){
+      this.props.history.pushState(null, '/');
+    }.bind(this));
   },
   _uploadGif: function(event){
     event.preventDefault();

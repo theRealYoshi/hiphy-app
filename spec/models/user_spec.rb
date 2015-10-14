@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rails_helper'
 
 describe User do
 
@@ -8,17 +9,18 @@ describe User do
       password: "good_password")
   end
 
-  it { should validate_presence_of(:email) }
-  it { should validate_presence_of(:password_digest) }
-  it { should ensure_length_of(:password).is_at_least(6) }
+
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:password_digest) }
+    it { should validate_length_of(:password).is_at_least(6) }
 
   it "creates a password digest when a password is given" do
     expect(user.password_digest).to_not be_nil
   end
 
   it "creates a session token before validation" do
-    user.valid?
     expect(user.session_token).to_not be_nil
+    user.valid?
   end
 
   describe "#reset_session_token!" do
@@ -38,11 +40,11 @@ describe User do
 
   describe "#is_password?" do
     it "verifies a password is correct" do
-      expect(user.is_password?("good_password")).to be_true
+      expect(user.is_password?("good_password")).to eq(true)
     end
 
     it "verifies a password is not correct" do
-      expect(user.is_password?("bad_password")).to be_false
+      expect(user.is_password?("bad_password")).to eq(false)
     end
   end
 
@@ -50,11 +52,11 @@ describe User do
     before { user.save! }
 
     it "returns user given good credentials" do
-      expect(User.find_by_credentials("jonathan", "good_password")).to eq(user)
+      expect(User.find_by_credentials("jonathan@user.com", "good_password")).to eq(user)
     end
 
     it "returns nil given bad credentials" do
-      expect(User.find_by_credentials("jonathan", "bad_password")).to eq(nil)
+      expect(User.find_by_credentials("jonathan@user.com", "bad_password")).to eq(nil)
     end
   end
 end
