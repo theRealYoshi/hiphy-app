@@ -36,6 +36,7 @@ var gifItem = React.createClass({
         <img src={gif.url} />
         Url: {gif.url},
         Submitter: {gif.submitter},
+        shortened_url: {gif.shortened_url}, 
         {delete_link}
         <br />
         {

@@ -11,7 +11,6 @@ class Api::GifsController < ApplicationController
 
   def create
     #create a response for 302 when user is not signed in
-
     tags = params[:gif][:tags].map {|tag| tag.strip }
     tags.each do |tag|
       #if tag is not created in the table
@@ -19,9 +18,11 @@ class Api::GifsController < ApplicationController
         Tag.create(tag_title: tag)
       end
     end
+
     @gif = Gif.create(
         title: params[:gif][:title],
         url: params[:gif][:url],
+        shortened_url: create_shorten_url,
         submitter_id: current_user.id
       )
     if @gif.save
@@ -48,6 +49,10 @@ class Api::GifsController < ApplicationController
 
   def gif_params
     params.require(:gif).permit(:title, :url, :tags)
+  end
+
+  def create_shorten_url
+    "http://hip.hy/#{SecureRandom::urlsafe_base64(8)}"
   end
 
 end

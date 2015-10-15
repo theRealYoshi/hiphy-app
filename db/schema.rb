@@ -11,20 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014023748) do
+ActiveRecord::Schema.define(version: 20151015211438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "gifs", force: :cascade do |t|
-    t.string   "title",        null: false
-    t.integer  "submitter_id", null: false
-    t.string   "url",          null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "title",         null: false
+    t.integer  "submitter_id",  null: false
+    t.string   "url",           null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "shortened_url"
   end
 
   add_index "gifs", ["submitter_id"], name: "index_gifs_on_submitter_id", using: :btree
+  add_index "gifs", ["url", "shortened_url"], name: "index_gifs_on_url_and_shortened_url", unique: true, using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",     null: false
