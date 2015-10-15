@@ -9,7 +9,7 @@
 require 'net/http'
 require 'json'
 def getUrl
-  keywords = ['san-francisco', 'bay-area', 'silicon-valley', 'oakland', 'hyphy', 'san jose', 'cats']
+  keywords = ['san-francisco', 'bay-area', 'silicon-valley', 'oakland', 'hyphy', 'san-jose', 'cats']
   url = 'http://api.giphy.com/v1/gifs/translate?s=' + keywords.sample.to_s + '&api_key=dc6zaTOxFJmzC'
   resp = Net::HTTP.get_response(URI.parse(url))
   buffer = resp.body
