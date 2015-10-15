@@ -1,5 +1,5 @@
 var UploadForm = React.createClass({
-    mixins: [React.addons.LinkedStateMixin],
+    mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
     getInitialState: function(){
     return {
       title: '',
@@ -33,10 +33,10 @@ var UploadForm = React.createClass({
       title: this.state.title,
       url: result.url
     };
-    ApiUtil.createGif(data, function(){
-      this.props.history.pushState(null, '/');
+    ApiUtil.createGif(data, function(id){
+      debugger;
+      this.history.pushState(null, '/gifs/' + id, {});
     }.bind(this));
-    // ask how to redirect tomorrow.
   },
   _uploadGif: function(event){
     event.preventDefault();

@@ -17,13 +17,15 @@ def getUrl
   result['data']['images']['fixed_height']['url'].to_s
 end
 
-100.times do |n|
+5.times do |n|
   fake_title = Faker::Book.title
+  cloudinary_hash = Cloudinary::Uploader.upload(getUrl)
   fake_gif = Gif.create(
     title: fake_title,
     submitter_id: n,
-    url: getUrl
+    url: cloudinary_hash["url"]
   )
   fake_tag = Tag.create( tag_title: Faker::Hacker.adjective)
   Tagging.create(gif_id: fake_gif.id, tag_id: fake_tag.id)
+  User.create(email: "user#{n}@user.com", password: "user#{n}user#{n}")
 end

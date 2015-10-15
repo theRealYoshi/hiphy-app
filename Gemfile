@@ -43,6 +43,9 @@ gem 'newrelic_rpm'
 gem 'factory_girl_rails', :require => false
 gem 'faker'
 
+#image manipulation
+
+gem "mini_magick"
 group :development do
 
   gem 'binding_of_caller'

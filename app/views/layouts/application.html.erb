@@ -13,7 +13,7 @@
    <li><%= button_to "Logout", session_url, method: :delete %></li>
  </ul>
 <% else %>
-  <%= link_to "Sign in!", new_session_url %>
+  <%= link_to "Sign in!", new_session_path %>
   <br><br>
 <% end %>
 <% if flash[:errors] %>

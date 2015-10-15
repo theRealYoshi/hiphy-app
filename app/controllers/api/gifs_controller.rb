@@ -30,13 +30,13 @@ class Api::GifsController < ApplicationController
         tag_id = Tag.find_by_tag_title(tag).id
         Tagging.create!(gif_id: @gif.id, tag_id: tag_id)
       end
+      @gif
     end
-    render json: @gif
+    debugger
   end
 
   def show
-    @gif = @gif.find(params[:id])
-    render json: @gif
+    @gif = Gif.includes(:tags).find(params[:id])
   end
 
   def destroy

@@ -12,7 +12,7 @@ $(function() {
       return (
           <div>
             <header><h1>Hiphy</h1></header>
-            // insert navbar here
+            <Search />
             {this.props.children}
           </div>
       );
@@ -21,8 +21,8 @@ $(function() {
 
   var routes = (
       <Route path="/" component={App}>
-        // add navbar here
-        <IndexRoute component={Search} />
+        <IndexRoute component={Index} />
+        <Route path="gifs/:gifId" component={gifItem}/>
         <Route path="upload" component={UploadForm}/>
       </Route>
   );

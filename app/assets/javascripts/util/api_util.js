@@ -5,10 +5,16 @@ ApiUtil = {
       ApiActions.receiveAll(gifs);
     });
   },
-  createGif: function(data){
-    $.post('/api/gifs', { gif: data }, function(responseData) {
-      console.log(responseData);
-      // ApiActions.receiveAll([bench]);
+  createGif: function(data, callback){
+    $.post('/api/gifs', { gif: data }, function(gif) {
+      ApiActions.receiveSingleGif(gif);
+      debugger;
+      callback(gif.id);
+    });
+  },
+  fetchSingleGif: function(id){
+    $.get('/api/gifs/' + id, function(gif){
+      ApiActions.receiveSingleGif(gif);
     });
   }
 };
