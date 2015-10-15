@@ -19,21 +19,31 @@ var gifItem = React.createClass({
   componentWillUnmount: function(){
     GifStore.removeChangeListener(this._onChange);
   },
+  _deleteLink: function(id){
+    ApiUtil.deleteSingleGif(id, function(){
+      this.history.pushState(null, '/', {});
+    }.bind(this));
+  },
   render: function(){
     if(this.state.gif === undefined) { return <div></div>; }
-      var gif = this.state.gif;
+    if(this.state.gif.submitter_id === CURRENT_USER_ID) {
+      var delete_link = <button onClick={this._deleteLink.bind(null, this.state.gif.id)}>Delete</button>;
+    } // use this .props for index?
+    var gif = this.state.gif;
     return (
       <div>
         {gif.title}
         <img src={gif.url} />
-        Url: {gif.url}, 
-        Submitter: {gif.submitter}
+        Url: {gif.url},
+        Submitter: {gif.submitter},
+        {delete_link}
         <br />
         {
           gif.tags.map(function(tag){
             return "#" + tag.tag_title;
           })
         }
+        <br />
       </div>
     );
   }

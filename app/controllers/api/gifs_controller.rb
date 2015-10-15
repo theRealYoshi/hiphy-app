@@ -39,6 +39,9 @@ class Api::GifsController < ApplicationController
   end
 
   def destroy
+    @gif = Gif.find(params[:id])
+    @gif.destroy
+    render :index
   end
 
   private

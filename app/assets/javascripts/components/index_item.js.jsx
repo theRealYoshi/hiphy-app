@@ -12,6 +12,11 @@ var IndexItem = React.createClass({
   _navigateShow:function(){
     this.history.pushState(null, '/gifs/' + this.props.gif.id, {});
   },
+  _deleteLink: function(id){
+    ApiUtil.deleteSingleGif(id, function(){
+      this.history.pushState(null, '/', {});
+    }.bind(this));
+  },
   render: function(){
     var gif = this.props.gif;
     var imgSrc = '';
@@ -20,7 +25,9 @@ var IndexItem = React.createClass({
     } else {
       imgSrc = gif.url.slice(0, -3) + 'png';
     }
-    // // set gif based on whether it's hovering
+    if(gif.submitter_id === CURRENT_USER_ID) {
+      var delete_link = <button onClick={this._deleteLink.bind(null, gif.id)}>Delete</button>;
+    }
     return (
       <div className='gif-index-item'>
         {gif.title}
@@ -36,6 +43,10 @@ var IndexItem = React.createClass({
           gif.tags.map(function(tag){
             return "#" + tag.tag_title;
           })
+        }
+        <br />
+        {
+          {delete_link}
         }
       </div>
     );

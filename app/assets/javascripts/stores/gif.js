@@ -6,7 +6,6 @@
   var resetGifs = function(gifs){
     _gifs = gifs.slice(0);
   };
-
   var resetGif = function(gif){
     if (_gifs.indexOf(gif) === -1){
       _gifs.push(gif);
