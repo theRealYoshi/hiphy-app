@@ -10,7 +10,6 @@ var IndexItem = React.createClass({
     this.setState({hovered: false});
   },
   _navigateShow:function(){
-    console.log("clicked");
     this.history.pushState(null, '/gifs/' + this.props.gif.id, {});
   },
   render: function(){

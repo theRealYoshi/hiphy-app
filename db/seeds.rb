@@ -22,10 +22,10 @@ end
   cloudinary_hash = Cloudinary::Uploader.upload(getUrl)
   fake_gif = Gif.create(
     title: fake_title,
-    submitter_id: n,
+    submitter_id: n + 1,
     url: cloudinary_hash["url"]
   )
   fake_tag = Tag.create( tag_title: Faker::Hacker.adjective)
   Tagging.create(gif_id: fake_gif.id, tag_id: fake_tag.id)
-  User.create(email: "user#{n}@user.com", password: "user#{n}user#{n}")
+  User.create(email: "user#{n + 1}@user.com", password: "user#{n + 1}user#{n + 1}")
 end

@@ -1,4 +1,5 @@
 var gifItem = React.createClass({
+  mixins: [ReactRouter.History],
   getStateFromStore: function () {
     return { gif: GifStore.find(parseInt(this.props.params.gifId)) };
   },
@@ -25,7 +26,8 @@ var gifItem = React.createClass({
       <div>
         {gif.title}
         <img src={gif.url} />
-        Url: {gif.url}
+        Url: {gif.url}, 
+        Submitter: {gif.submitter}
         <br />
         {
           gif.tags.map(function(tag){

@@ -34,7 +34,7 @@ var UploadForm = React.createClass({
       url: result.url
     };
     ApiUtil.createGif(data, function(id){
-      this.history.pushState(null, '/gifs/' + id, {});
+      this.history.pushState(null, 'gifs/' + id, {});
     }.bind(this));
   },
   _uploadGif: function(event){
@@ -42,7 +42,9 @@ var UploadForm = React.createClass({
     if (this._validateTitle() && this._validateTags() ){
       cloudinary.openUploadWidget({ cloud_name: 'dpbquh1uj', upload_preset: 'mnoe1mgq',
                                     sources: ['local', 'url'], max_files: 1,
-                                    client_allowed_formats: ['gif']},
+                                    client_allowed_formats: ['gif'],
+                                    min_image_height: 200,
+                                    min_image_width: 200},
       function(error, result){
         //on success
         if (result){

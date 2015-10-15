@@ -11,7 +11,6 @@ class Api::GifsController < ApplicationController
 
   def create
     #create a response for 302 when user is not signed in
-    #create a tagging table and a tag table
 
     tags = params[:gif][:tags].map {|tag| tag.strip }
     tags.each do |tag|
@@ -32,10 +31,11 @@ class Api::GifsController < ApplicationController
       end
       @gif
     end
+    render :show
   end
 
   def show
-    @gif = Gif.includes(:tags).find(params[:id])
+    @gif = Gif.includes(:tags, :user).find(params[:id])
   end
 
   def destroy
