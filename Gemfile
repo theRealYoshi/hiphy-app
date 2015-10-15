@@ -43,6 +43,8 @@ gem 'faker'
 
 #image manipulation
 
+gem 'bootstrap-sass'
+
 gem "mini_magick"
 group :development do
 

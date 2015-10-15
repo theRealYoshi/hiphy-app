@@ -19,3 +19,4 @@
 //= require eventemitter
 //= require components
 //= require_tree .
+//= require bootstrap

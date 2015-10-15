@@ -10,5 +10,11 @@ ApiActions = {
       actionType: GifConstants.GIF_RECEIVED,
       gif: gif
     });
+  },
+  removeSingleGif: function(gif){
+    AppDispatcher.dispatch({
+      actionType: GifConstants.GIF_REMOVED,
+      gif: gif
+    });
   }
 };

@@ -6,12 +6,30 @@
   var resetGifs = function(gifs){
     _gifs = gifs.slice(0);
   };
-  var resetGif = function(gif){
-    if (_gifs.indexOf(gif) === -1){
+
+  var addGif = function(gif){
+    var idx;
+    for (var i = 0; i < _gifs.length; i++) {
+     if (_gifs[i].id === gif.id) {
+       idx = i;
+     }
+    }
+    if (!idx){
       _gifs.push(gif);
     }
   };
 
+  var removeGif = function(gif){
+    var idx;
+    for (var i = 0; i < _gifs.length; i++) {
+     if (_gifs[i].id === gif.id) {
+       idx = i;
+     }
+    }
+    if (idx !== -1){
+      _gifs.splice(idx, 1);
+    }
+  };
 
   var GifStore = root.GifStore = $.extend({}, EventEmitter.prototype, {
     all: function(){
@@ -43,7 +61,11 @@
           GifStore.emit(CHANGE_EVENT);
           break;
         case GifConstants.GIF_RECEIVED:
-          var singleResult = resetGif(payload.gif);
+          var singleResult = addGif(payload.gif);
+          GifStore.emit(SINGLE_CHANGE_EVENT);
+          break;
+        case GifConstants.GIF_REMOVED:
+          var singleRemove = removeGif(payload.gif);
           GifStore.emit(SINGLE_CHANGE_EVENT);
           break;
       }

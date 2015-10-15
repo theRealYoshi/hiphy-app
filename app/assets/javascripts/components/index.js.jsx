@@ -12,10 +12,12 @@ var Index = React.createClass({
   },
   componentDidMount: function(){
     GifStore.addChangeListener(this._gifsChanged);
+    GifStore.addSingleChangeListener(this._gifsChanged);
     ApiUtil.fetchGifs();
   },
   componentWillUnmount: function(){
     GifStore.removeChangeListener(this._gifsChanged);
+    GifStore.removeSingleChangeListener(this._gifsChanged);
   },
   render: function(){
     return (

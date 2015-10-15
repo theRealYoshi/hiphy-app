@@ -13,7 +13,7 @@ var IndexItem = React.createClass({
     this.history.pushState(null, '/gifs/' + this.props.gif.id, {});
   },
   _deleteLink: function(id){
-    ApiUtil.deleteSingleGif(id, function(){
+    ApiUtil.deleteSingleGif(parseInt(id), function(){
       this.history.pushState(null, '/', {});
     }.bind(this));
   },

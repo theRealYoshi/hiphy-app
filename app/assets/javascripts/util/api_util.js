@@ -6,10 +6,6 @@ ApiUtil = {
     });
   },
   createGif: function(data, callback){
-    // $.post('/api/gifs', { gif: data }, function(gif) {
-    //   ApiActions.receiveSingleGif(gif);
-    //   callback(gif.id);
-    // });
     $.ajax({
       url: '/api/gifs',
       type: 'post',
@@ -32,8 +28,11 @@ ApiUtil = {
     $.ajax({
       url: '/api/gifs/' + id,
       type: 'DELETE',
-      success: function(){
-        callback();
+      success: function(gif){
+        ApiActions.removeSingleGif(gif);
+      },
+      error: function(){
+        console.log('error');
       }
     });
   }

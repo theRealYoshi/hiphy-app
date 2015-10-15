@@ -26,5 +26,7 @@ $(function() {
         <Route path="upload" component={UploadForm}/>
       </Route>
   );
-  React.render(<Router>{routes}</Router>, root);
+  if (root) {
+    React.render(<Router>{routes}</Router>, root);
+  }
 });
