@@ -30,6 +30,9 @@ ApiUtil = {
       type: 'DELETE',
       success: function(gif){
         ApiActions.removeSingleGif(gif);
+        if (callback){
+          callback();
+        }
       },
       error: function(){
         console.log('error');
