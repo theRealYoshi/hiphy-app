@@ -17,7 +17,7 @@ def getUrl
   result['data']['images']['fixed_height']['url'].to_s
 end
 
-5.times do |n|
+20.times do |n|
   fake_title = Faker::Book.title
   cloudinary_hash = Cloudinary::Uploader.upload(getUrl)
   fake_gif = Gif.create(

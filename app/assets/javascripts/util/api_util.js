@@ -8,7 +8,6 @@ ApiUtil = {
   createGif: function(data, callback){
     $.post('/api/gifs', { gif: data }, function(gif) {
       ApiActions.receiveSingleGif(gif);
-      debugger;
       callback(gif.id);
     });
   },

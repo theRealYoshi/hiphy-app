@@ -32,7 +32,6 @@ class Api::GifsController < ApplicationController
       end
       @gif
     end
-    debugger
   end
 
   def show
