@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require react
 //= require react_ujs
 //= require ReactRouter.min
@@ -19,4 +20,3 @@
 //= require eventemitter
 //= require components
 //= require_tree .
-//= require bootstrap

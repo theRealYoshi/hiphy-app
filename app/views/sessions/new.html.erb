@@ -1,24 +1,36 @@
-<h1>Login</h1>
+<div class='animated-background-wrapper-login'>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-4"></div>
+  <div id='user-content' class="col-xs-6 col-md-4">
+    <div id='user-join' >
+      <%= image_tag("hiphy-logo-red.png", :alt => "hiphy-logo") %>
+      <form class='user-form' id='join-form' action="<%= session_url %>" method="post">
+        <input type="hidden" name="authenticity_token"
+               value="<%= form_authenticity_token %>">
+        <div class='form-row'>
+        <input
+          class='form-control'
+          type="text"
+          name="user[email]"
+          placeholder='Email Address'
+          id="user_username">
+        </div>
 
-<form action="<%= session_url %>" method="post">
-  <input type="hidden"
-    name="authenticity_token"
-    id=""
-    value="<%= form_authenticity_token %>">
+        <div class='form-row'>
+        <input
+          class='form-control'
+          type="password"
+          name="user[password]"
+          placeholder='Choose a password'
+          id="user_password">
+        </div>
 
-  <label for="user_email">Email</label>
-  <input
-    type="text"
-    name="user[email]"
-    id="user_email">
-
-  <label for="user_password">Password</label>
-  <input
-    type="password"
-    name="user[password]"
-    id="user_password">
-
-  <input type="submit">
-</form>
+        <button class="btn btn-primary" type="submit" value='Join'>Login</button>
+      </form>
+    <div>
+  </div>
+  <div class="col-xs-6 col-md-4"></div>
+</div>
 
 <%= link_to "Sign up!", new_user_url %>
