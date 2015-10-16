@@ -16,5 +16,11 @@ ApiActions = {
       actionType: GifConstants.GIF_REMOVED,
       gif: gif
     });
+  },
+  updateTag: function(tag){
+    AppDispatcher.dispatch({
+      actionType: GifConstants.UPDATE_TAG,
+      tag: tag
+    });
   }
 };

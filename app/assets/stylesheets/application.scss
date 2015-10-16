@@ -16,3 +16,18 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.animated-background-wrapper-signup{
+  background-image: url('fog.gif');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 110%;
+    height: 110%;
+    z-index: -1000;
+    min-width: 960px;
+}

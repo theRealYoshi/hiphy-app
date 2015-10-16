@@ -2,7 +2,11 @@ class Api::GifsController < ApplicationController
   before_action :require_login, only: [:create, :destroy]
 
   def index
-    @gifs = Gif.includes(:tags)
+    if params[:tag]
+      @gifs = Gif.includes(:tags).references(:tags).where("tags.tag_title LIKE ?", "%#{params[:tag]}%")
+    else
+      @gifs = Gif.includes(:tags)
+    end
   end
 
   def new

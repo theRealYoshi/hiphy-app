@@ -63,7 +63,7 @@ var UploadForm = React.createClass({
       var error = this.state.errors;
     }
     return (
-      <div>
+      <div> 
         <p>{this.state.errors}</p>
         <h3>Upload A Gif!</h3>
          <form onSubmit={this._uploadGif}>

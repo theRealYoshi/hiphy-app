@@ -1,8 +1,12 @@
 ApiUtil = {
-  fetchGifs: function(){
-    // var filter = FilterParamsStore.params();
-    $.get('/api/gifs', function(gifs){
-      ApiActions.receiveAll(gifs);
+  fetchGifs: function(param){
+    $.ajax({
+      url: '/api/gifs',
+      type: 'GET',
+      data: param,
+      success: function(gifs){
+        ApiActions.receiveAll(gifs);
+      }
     });
   },
   createGif: function(data, callback){
