@@ -18,15 +18,20 @@ def getUrl
 end
 
 10.times do |n|
+  User.create(email: "user#{n + 1}@user.com", password: "user#{n + 1}user#{n + 1}")
+end
+
+50.times do |n|
   fake_title = Faker::Book.title
   cloudinary_hash = Cloudinary::Uploader.upload(getUrl)
   fake_gif = Gif.create(
     title: fake_title,
-    submitter_id: n + 1,
+    submitter_id: ((n + 1) % 5),
     url: cloudinary_hash["url"],
-    shortened_url: "http://hip.hy/#{SecureRandom.urlsafe_base64(8)}"
+    shortened_url: "http://hip.hy/#{SecureRandom.urlsafe_base64(6)}"
   )
-  fake_tag = Tag.create( tag_title: Faker::Hacker.adjective)
-  Tagging.create(gif_id: fake_gif.id, tag_id: fake_tag.id)
-  User.create(email: "user#{n + 1}@user.com", password: "user#{n + 1}user#{n + 1}")
+  fake_tag1 = Tag.create( tag_title: Faker::Hacker.adjective)
+  fake_tag2 = Tag.create( tag_title: Faker::Hacker.adjective)
+  Tagging.create(gif_id: fake_gif.id, tag_id: fake_tag1.id)
+  Tagging.create(gif_id: fake_gif.id, tag_id: fake_tag2.id)
 end
