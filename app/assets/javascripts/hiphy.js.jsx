@@ -11,7 +11,7 @@ $(function() {
     render: function(){
       return (
           <div>
-            <header><h1>Hiphy</h1></header>
+            <Navbar />
             <Search />
             {this.props.children}
           </div>

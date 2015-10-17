@@ -25,14 +25,13 @@
       } else {
         this.history.pushState(null, "/", {});
       }
-      this.setState({inputVal: str});
     },
     render: function(){
       var searchTag;
       if (this.state.inputVal){
         searchTag = <h2>Searching for: {this.state.inputVal}</h2>;
       } else {
-        searchTag = <h2></h2>;
+        searchTag = <h2>Gifs</h2>;
       }
       return (
         <div>

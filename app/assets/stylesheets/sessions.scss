@@ -18,6 +18,10 @@
 #user-content{
   margin-top: 40px;
   margin-bottom: auto;
+  img {
+    height: 240px;
+    width: 450px;
+  }
 }
 
 .user-form {
@@ -46,4 +50,17 @@
       font-size: 18px;
       letter-spacing: 3px;
     }
+    .signup-link {
+      height: 40px;
+      width: 350px;
+      margin-right: 70px;
+      letter-spacing: 1px;
+      text-align: center;
+      float: right;
+      font-weight: 200;
+      display: inline;
+      text-transform: capitalize;
+      color: #fff;
+    }
+
 }

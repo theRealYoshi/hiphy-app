@@ -20,6 +20,10 @@
 #user-content{
   margin-top: 40px;
   margin-bottom: auto;
+  img {
+    height: 240px;
+    width: 450px;
+  }
 }
 
 .user-form {
@@ -29,23 +33,39 @@
 
       .form-control{
         height: 40px;
-        width: 299px;
+        width: 350px;
         margin: 10px 20px 20px 10px;
         font-size: 16px;
         font-stretch: normal;
         font-style: normal;
         font-variant: normal;
         font-weight: normal;
+        box-sizing: border-box;
+
       }
 
     }
 
-    .btn-primary {
-      height: 40px;
-      width: 299px;
-      margin: 0px 10px 0px 10px;
-      font-family: 'Open Sans', 'Helvetica Neue', helvetica, sans-serif;
-      font-size: 18px;
-      letter-spacing: 3px;
-    }
+  .btn-primary {
+    height: 40px;
+    width: 350px;
+    margin: 0px 10px 0px 10px;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, sans-serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  .login-link {
+    height: 40px;
+    width: 350px;
+    margin-right: 70px;
+    letter-spacing: 1px;
+    text-align: center;
+    float: right;
+    font-weight: 200;
+    display: inline;
+    text-transform: capitalize;
+    color: #fff;
+  }
+
 }

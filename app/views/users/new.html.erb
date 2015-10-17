@@ -28,9 +28,13 @@
           </div>
 
           <button class="btn btn-primary" type="submit" value='Join'>Join</button>
+          <br />
+          <div class='login-link'>
+            <br />
+            Already a member? <%= link_to "Login", new_session_url %>
+          </div>
         </form>
       </div>
     </div>
     <div class="col-xs-6 col-md-4"></div>
   </div>
-<%= link_to "Login!", new_session_url %>

@@ -27,10 +27,13 @@
         </div>
 
         <button class="btn btn-primary" type="submit" value='Join'>Login</button>
+        <br />
+        <div class='signup-link'>
+          <br />
+          Not a member? <%= link_to "Sign up", new_user_url %>
+        </div>
       </form>
     <div>
   </div>
   <div class="col-xs-6 col-md-4"></div>
 </div>
-
-<%= link_to "Sign up!", new_user_url %>
