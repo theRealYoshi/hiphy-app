@@ -1,36 +1,27 @@
 (function(root) {
   root.Search = React.createClass({
-    mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
-    _getAllGifs: function(){
-      return GifStore.all();
-    },
+    mixins: [ReactRouter.History],
     getInitialState: function(){
-      return {
-        inputVal: '',
-        gifs: this._getAllGifs()};
-    },
-    _gifsChanged: function(){
-      this.setState({ gifs: this._getAllGifs()});
-    },
-    componentDidMount: function(){
-      GifStore.addChangeListener(this._gifsChanged);
-      GifStore.addSingleChangeListener(this._gifsChanged);
-      ApiUtil.fetchGifs();
-    },
-    componentWillUnmount: function(){
-      GifStore.removeChangeListener(this._gifsChanged);
-      GifStore.removeSingleChangeListener(this._gifsChanged);
+      return { inputVal: ''};
     },
     _handleInput: function (event) {
       event.preventDefault();
-      this.setState({inputVal: event.currentTarget.value});
-      ApiUtil.fetchGifs({tag: event.currentTarget.value});
-      this.history.pushState(null, "/search/?" + this.state.inputVal, {});
+      var str = event.currentTarget.value;
+      // this.setState({inputVal: event.currentTarget.value});
+      if (str === ""){
+        this.history.pushState(null, "/", {});
+      } else {
+        this.history.pushState(null, "/search/" + str, {});
+      }
+      this.setState({inputVal: str});
     },
     _handleSubmit: function (event) {
       event.preventDefault();
-      ApiUtil.fetchGifs({tag: this.state.inputVal});
-      this.history.pushState(null, "/search/?" + this.state.inputVal, {});
+      if (this.state.inputVal){
+        this.history.pushState(null, "/search/" + this.state.inputVal, {});
+      } else {
+        this.history.pushState(null, "/", {});
+      }
     },
     render: function(){
       return (
@@ -42,7 +33,6 @@
               value={this.state.inputVal}/>
             <input type="submit" value="change this to one of those cool looking search buttons"/>
           </form>
-          <Index gifs={this.state.gifs} />
         </div>
       );
     }
