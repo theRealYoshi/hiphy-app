@@ -32,7 +32,6 @@ var Index = React.createClass({
   render: function(){
     return (
       <div>
-        <h1>Gifs</h1>
         {
           this.state.gifs.map(function(gif){
             return <IndexItem gif={gif} key={gif.id} />;
