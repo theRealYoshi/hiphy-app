@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .animated-background-wrapper-login{
   background-image: url('sf.gif');
-  background-size: 100%;
+  background-size: 110%;
   background-repeat: no-repeat;
   background-position: center;
   position: fixed;
-    top: -10%;
-    left: -10%;
-    width: 110%;
-    height: 110%;
+    top: -30%;
+    left: -30%;
+    width: 130%;
+    height: 130%;
     z-index: -1000;
     min-width: 960px;
 }
