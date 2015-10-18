@@ -1,3 +1,144 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.header {
+  margin-top: 10px;
+  height: 90px;
+  position: relative;
+  z-index: 499;
+
+  .navbar-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 967px;
+
+    .logo-link{
+      float: left;
+      position: relative;
+      top: 0;
+      left: -11px;
+
+      img {
+        width: 200px;
+        height: 86px;
+      }
+    }
+  }
+  .nav-wrapper{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    .default-nav{
+      display: block;
+      a.upload-button {
+        background-color: #9840fb;
+        vertical-align: center;
+        line-height: 38px;
+        display: inline-block;
+        font-size: 15px;
+        font-weight: bold;
+        color: #fff !important;
+        float: right;
+      }
+    }
+  }
+}
+
+.search {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+    width: 967px;
+  .searchBar {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    height: 60px;
+    width: 967px;
+    #placeholder{
+      font-size: 20px;
+      height: 60px;
+      margin-top: 15px;
+      padding: 0 30px;
+    }
+    input {
+      font-size: 20px;
+      height: 60px;
+      width: 906px;
+      padding: 0 30px;
+      border: 0;
+      background: none;
+      position: relative;
+      z-index: 2;
+      float: left;
+    }
+
+    button{
+      height: 60px;
+      width: 61px;
+      float: right;
+      background-image: url('Search_Gradient_Grey.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    button.active{
+      cursor: pointer;
+      background-image: url('search_gradient_slow.gif');
+    }
+  }
+
+  .searchContent {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60px;
+    width: 967px;
+  }
+}
+
+.index {
+  margin-top: -10px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 967px;
+}
+
+.gif-index-item {
+  margin-top: -10px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 967px;
+}
+
+.upload-container {
+  margin-top: -10px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
+  width: 967px;
+  background-image: url("sanfranciscoshore.gif");
+  background-size: 110%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .upload-content{
+    position: relative;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    .upload-form{
+      position: relative;
+    }
+  }
+}

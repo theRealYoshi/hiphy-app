@@ -31,7 +31,7 @@ var gifItem = React.createClass({
     } // use this .props for index?
     var gif = this.state.gif;
     return (
-      <div>
+      <div className='gif-index-item'>
         {gif.title}
         <img src={gif.url} />
         Url: {gif.url},

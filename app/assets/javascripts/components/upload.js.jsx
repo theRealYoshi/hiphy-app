@@ -63,21 +63,23 @@ var UploadForm = React.createClass({
       var error = this.state.errors;
     }
     return (
-      <div> 
+      <div className="upload-container">
         <p>{this.state.errors}</p>
-        <h3>Upload A Gif!</h3>
-         <form onSubmit={this._uploadGif}>
-           <label>Title</label>
-           <input type="text" valueLink={this.linkState('title')}/>
-           <br/>
+        <div className="upload-content">
+          <h3>Upload</h3>
+           <form className="upload-form" onSubmit={this._uploadGif}>
+             <label>Title</label>
+             <input type="text" valueLink={this.linkState('title')}/>
+             <br/>
 
-           <p>Separate your tags with commas!</p>
-           <br/>
-           <label>Tags</label>
-           <input type="text" valueLink={this.linkState('tags')}/>
-           <br />
-           <input type="submit" value="upload"/>
-         </form>
+             <p>Separate your tags with commas!</p>
+             <br/>
+             <label>Tags</label>
+             <input type="text" valueLink={this.linkState('tags')}/>
+             <br />
+             <input type="submit" value="upload"/>
+           </form>
+         </div>
       </div>
     );
   }

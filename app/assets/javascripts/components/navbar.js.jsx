@@ -2,17 +2,21 @@
   root.Navbar = React.createClass({
     render: function(){
       return (
-        <div class='navbar'>
-            <div class='logo'>
-              <a href='/' class='logo-link'>
+        <div className='header'>
+          <div className='navbar-container'>
+            <div className='logo-container'>
+              <a href='/' className='logo-link'>
                 <img className='image' src="/assets/hiphy-logo-red.png" />
               </a>
             </div>
-            <ul>
-              <li>collections</li>
-              <li>Sign In</li>
-              <li>Upload</li>
-            </ul>
+            <div className='nav-wrapper'>
+              <div className='default-nav'>
+                <a className='collection-button'>collections</a>
+                <a className='sign-button'>Sign In</a>
+                <a className='upload-button'>Upload</a>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }

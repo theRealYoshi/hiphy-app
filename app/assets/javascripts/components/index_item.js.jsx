@@ -29,7 +29,7 @@ var IndexItem = React.createClass({
       var delete_link = <button onClick={this._deleteLink.bind(null, gif.id)}>Delete</button>;
     }
     return (
-      <div className='gif-index-item'>
+      <div className='index-item'>
         {gif.title}
         <br />
         Url: {imgSrc}

@@ -7,6 +7,11 @@
         searching: false
       };
     },
+    componentDidMount: function(){
+      $( "#search-input" ).focus(function() {
+        $("#submit-button").addClass("active");
+      });
+    },
     _handleInput: function (event) {
       event.preventDefault();
       var str = event.currentTarget.value;
@@ -29,19 +34,22 @@
     render: function(){
       var searchTag;
       if (this.state.inputVal){
-        searchTag = <h2>Searching for: {this.state.inputVal}</h2>;
+        searchTag = <div className='searchContent'><h2>Searching for: {this.state.inputVal}</h2></div>;
       } else {
-        searchTag = <h2>Gifs</h2>;
+        searchTag = <div className='searchContent'><h2></h2></div>;
       }
       return (
-        <div>
-          <form onSubmit={this._handleSubmit}>
-            <input
-              class='search-query'
-              onChange={this._handleInput}
-              value={this.state.inputVal}/>
-            <input type="submit" value="change this to one of those cool looking search buttons"/>
-          </form>
+        <div className='search'>
+          <div className='searchBar'>
+            <form className='searchBar-form' onSubmit={this._handleSubmit}>
+              <input
+                class='search-query'
+                id='search-input'
+                onChange={this._handleInput}
+                value={this.state.inputVal}/>
+              <button id='submit-button' type="submit" value="search"/>
+            </form>
+          </div>
           {searchTag}
         </div>
       );
