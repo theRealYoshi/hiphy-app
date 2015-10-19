@@ -15,7 +15,6 @@
     _handleInput: function (event) {
       event.preventDefault();
       var str = event.currentTarget.value;
-      // this.setState({inputVal: event.currentTarget.value});
       if (str === ""){
         this.history.pushState(null, "/", {});
       } else {
@@ -51,6 +50,7 @@
             </form>
           </div>
           {searchTag}
+          {this.props.children}
         </div>
       );
     }
