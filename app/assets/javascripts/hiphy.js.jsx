@@ -25,6 +25,7 @@ $(function() {
           <Route path="/search/:query" component={Index} />
           <Route path="/gifs/:gifId" component={gifItem}/>
         </Route>
+        <Route path="/profile/:userId" component={UserProfile} />
         <Route path="/upload" component={UploadForm}/>
       </Route>
   );

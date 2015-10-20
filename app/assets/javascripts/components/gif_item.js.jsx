@@ -14,7 +14,6 @@ var gifItem = React.createClass({
   },
   componentDidMount: function () {
     GifStore.addSingleChangeListener(this._onChange);
-    AlbumStore.addSingleChangeListener(this._onChange);
     ApiUtil.fetchSingleGif(parseInt(this.props.params.gifId));
   },
   componentWillUnmount: function(){

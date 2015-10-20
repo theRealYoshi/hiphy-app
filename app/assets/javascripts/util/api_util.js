@@ -73,8 +73,20 @@ ApiUtil = {
       type: 'POST',
       data: { album: data },
       success: function (album) {
-        ApiActions.removeSingleAlbum(album);
-        ApiActions.receiveSingleAlbum(album);
+        ApiActions.updateSingleAlbum(album);
+        console.log("added to Album");
+      },
+      error: function () {
+        console.log("this is the error");
+      }
+    });
+  },
+  fetchSingleUser: function(userId){
+    $.ajax({
+      url: '/users/' + userId,
+      type: 'GET',
+      success: function (user) {
+        ApiActions.fetchSingleUser(user);
         console.log("added to Album");
       },
       error: function () {

@@ -31,6 +31,23 @@
     }
   };
 
+  var updateAlbum = function(album){
+    var found;
+    _albums.forEach(function(a){
+      if(a.id === album.id){
+        found = true;
+      }
+    });
+    if (found){
+      var ids = _albums.map(function (album) {
+        return album.id;
+      });
+      var albumId = ids.indexOf(album.id);
+      _albums[albumId] = album;
+    }
+
+  };
+
   var AlbumStore = root.AlbumStore = $.extend({}, EventEmitter.prototype, {
     all: function(){
       return _albums.slice(0);
@@ -66,6 +83,10 @@
           break;
         case AlbumConstants.ALBUM_REMOVED:
           var singleRemove = removeAlbum(payload.album);
+          AlbumStore.emit(SINGLE_CHANGE_EVENT);
+          break;
+        case AlbumConstants.ALBUM_UPDATED:
+          var singleUpdate = updateAlbum(payload.album);
           AlbumStore.emit(SINGLE_CHANGE_EVENT);
           break;
       }

@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   validates :email, :session_token, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  has_many :gifs
+  has_many :gifs, foreign_key: :submitter_id
   has_many :albums
 
   def self.find_by_credentials(email, password)

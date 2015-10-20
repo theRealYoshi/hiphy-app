@@ -16,7 +16,11 @@ class UsersController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
+  end
 
+  def show
+    @user = User.includes(:gifs, :albums).where(id: params[:id])
+    render json: @user
   end
 
   private

@@ -40,5 +40,17 @@ ApiActions = {
       actionType: AlbumConstants.ALBUM_RECEIVED,
       album: album
     });
-  }
+  },
+  updateSingleAlbum: function(album){
+    AppDispatcher.dispatch({
+      actionType: AlbumConstants.ALBUM_UPDATED,
+      album: album
+    });
+  },
+  receiveSingleUser: function(user){
+    AppDispatcher.dispatch({
+      actionType: UserConstants.USER_RECEIVED,
+      user: user
+    });
+  },
 };
