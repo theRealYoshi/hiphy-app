@@ -19,13 +19,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:gifs, :albums).where(id: params[:id])
-    render json: @user
+    @user = User.includes(:gifs, :albums).where(id: params[:id]).first
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :username)
   end
 end

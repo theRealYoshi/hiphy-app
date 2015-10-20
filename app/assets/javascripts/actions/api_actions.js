@@ -52,5 +52,5 @@ ApiActions = {
       actionType: UserConstants.USER_RECEIVED,
       user: user
     });
-  },
+  }
 };

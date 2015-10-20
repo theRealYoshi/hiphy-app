@@ -73,19 +73,19 @@
     },
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
-        case UserConstants.UserS_RECEIVED:
+        case UserConstants.USERS_RECEIVED:
           var result = resetUsers(payload.users);
           UserStore.emit(CHANGE_EVENT);
           break;
-        case UserConstants.User_RECEIVED:
+        case UserConstants.USER_RECEIVED:
           var singleResult = addUser(payload.user);
           UserStore.emit(SINGLE_CHANGE_EVENT);
           break;
-        case UserConstants.User_REMOVED:
+        case UserConstants.USER_REMOVED:
           var singleRemove = removeUser(payload.user);
           UserStore.emit(SINGLE_CHANGE_EVENT);
           break;
-        case UserConstants.User_UPDATED:
+        case UserConstants.USER_UPDATED:
           var singleUpdate = updateUser(payload.user);
           UserStore.emit(SINGLE_CHANGE_EVENT);
           break;

@@ -86,8 +86,7 @@ ApiUtil = {
       url: '/users/' + userId,
       type: 'GET',
       success: function (user) {
-        ApiActions.fetchSingleUser(user);
-        console.log("added to Album");
+        ApiActions.receiveSingleUser(user);
       },
       error: function () {
         console.log("this is the error");

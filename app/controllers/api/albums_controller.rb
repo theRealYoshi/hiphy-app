@@ -2,10 +2,17 @@ class Api::AlbumsController < ApplicationController
   before_action :require_login, only: [:create, :destroy, :update]
 
   def index
-    if params[:user_id]
-      @albums = Album.includes(:gifs).where(user_id: params[:user_id])
-    else
+    if params[:tag].blank?
       @albums = Album.includes(:gifs)
+    else
+      sql_str = "album_title LIKE ?"
+      tags = params[:tag].split(" ").map {|tag| "%#{tag}%"}
+      if tags.count > 1
+        (1..(tags.count - 1)).each do
+          sql_str += " OR album_title LIKE ?"
+        end
+      end
+      @albums = Album.includes(:gifs).where(sql_str, *tags)
     end
   end
 

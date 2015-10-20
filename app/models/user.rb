@@ -15,13 +15,13 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  validates :email, :session_token, :password_digest, presence: true
+  validates :email, :session_token, :username, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   has_many :gifs, foreign_key: :submitter_id
   has_many :albums
 
-  def self.find_by_credentials(email, password)
-    user = User.find_by(email: email)
+  def self.find_by_credentials(username, password)
+    user = User.find_by(username: username)
     user.try(:is_password?, password) ? user : nil
   end
 
@@ -50,9 +50,6 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
   end
-
-
-
 
 
 end
