@@ -76,6 +76,15 @@ ApiUtil = {
       }
     });
   },
+  fetchUserAlbums: function(userId){
+    $.ajax({
+      url: '/users/' + userId,
+      type: 'GET',
+      success: function(user){
+        ApiActions.receiveAllAlbums(user.albums);
+      }
+    });
+  },
   addToAlbum: function(data){
     $.ajax({
       url: '/api/albums',

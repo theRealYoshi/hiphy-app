@@ -1,19 +1,19 @@
 var AlbumForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
-  _getAllAlbums: function(){
+  _getUserAlbums: function(){
     return AlbumStore.all();
   },
   getInitialState: function(){
     return {
       albumTitle: "",
       albumId: 0,
-      albums: this._getAllAlbums()
+      albums: this._getUserAlbums()
     };
   },
   componentDidMount: function(){
     AlbumStore.addChangeListener(this._albumsChanged);
     AlbumStore.addSingleChangeListener(this._albumsChanged);
-    ApiUtil.fetchAlbums({user_id: CURRENT_USER_ID});
+    ApiUtil.fetchUserAlbums(CURRENT_USER_ID);
   },
   componentWillUnmount: function(){
     AlbumStore.removeChangeListener(this._albumsChanged);
@@ -21,7 +21,7 @@ var AlbumForm = React.createClass({
   },
   _albumsChanged: function(){
     this.setState({
-      albums: this._getAllAlbums(),
+      albums: this._getUserAlbums(),
       albumTitle: ""
     });
   },
