@@ -42,6 +42,7 @@ var UserProfile = React.createClass({
         <ul>
           {albums}
         </ul>
+        {this.props.children}
       </div>
     );
   }

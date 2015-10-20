@@ -23,9 +23,10 @@ $(function() {
         <Route component={Search}>
           <Route path="/" component={Index} />
           <Route path="/search/:query" component={Index} />
-          <Route path="/gifs/:gifId" component={gifItem}/>
+          <Route path="/gifs/:gifId" component={GifItem}/>
+          <Route path="/album/:albumId" component={AlbumItem}/>
+          <Route path="/profile/:userId" component={UserProfile} />
         </Route>
-        <Route path="/profile/:userId" component={UserProfile} />
         <Route path="/upload" component={UploadForm}/>
       </Route>
   );

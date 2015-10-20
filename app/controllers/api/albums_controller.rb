@@ -39,7 +39,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.includes(:gifs, :users).find(params[:id])
+    @album = Album.includes(:gifs).find(params[:id])
   end
 
   def destroy

@@ -20,8 +20,12 @@ var AlbumIndexItem = React.createClass({
     this.setState({hovered: false});
   },
   _navigateShow:function(){
-    debugger;
-    this.history.pushState(null, '/albums/' + this.props.gif.id, {});
+    var userId = this.props.album.user_id;
+    var albumTitle = this.props.album.album_title.split(" ").concat("-");
+    var albumId = this.props.album.id;
+    this.history.pushState(null,
+                  '/album/' + albumId,
+                  {});
   },
   render: function(){
     var album = this.props.album;

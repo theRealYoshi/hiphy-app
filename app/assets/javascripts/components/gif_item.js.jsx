@@ -1,4 +1,4 @@
-var gifItem = React.createClass({
+var GifItem = React.createClass({
   mixins: [ReactRouter.History],
   getStateFromStore: function () {
     return { gif: GifStore.find(parseInt(this.props.params.gifId)) };

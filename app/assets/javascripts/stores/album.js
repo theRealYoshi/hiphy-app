@@ -59,6 +59,14 @@
      });
      return album;
     },
+    findByTitle: function(title){
+      var album;
+      _albums.forEach(function(a){
+        var albumStoreTitle = a.album_title.split().concat("-");
+        if (albumStoreTitle === title){ album = a;}
+      });
+      return album;
+    },
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);
     },

@@ -67,6 +67,15 @@ ApiUtil = {
       }
     });
   },
+  fetchSingleAlbum: function(albumId, callback){
+    $.ajax({
+      url: '/api/albums/' + albumId,
+      type: 'GET',
+      success: function(album){
+        ApiActions.receiveSingleAlbum(album);
+      }
+    });
+  },
   addToAlbum: function(data){
     $.ajax({
       url: '/api/albums',

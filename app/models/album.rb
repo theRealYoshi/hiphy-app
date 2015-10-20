@@ -12,7 +12,7 @@
 class Album < ActiveRecord::Base
   validates :album_title, presence: true
 
-  belongs_to :users
+  belongs_to :user
   has_many :albumings
   has_many :gifs, through: :albumings
 

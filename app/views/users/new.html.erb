@@ -21,6 +21,17 @@
           <div class='form-row'>
           <input
             class='form-control'
+            type="text"
+            name="user[username]"
+            placeholder='Username'
+            value="<%= @user.username %>"
+            id="user_username">
+          </div>
+
+
+          <div class='form-row'>
+          <input
+            class='form-control'
             type="password"
             name="user[password]"
             placeholder='Choose a password'
