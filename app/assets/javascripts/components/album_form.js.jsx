@@ -6,18 +6,24 @@ var AlbumForm = React.createClass({
   getInitialState: function(){
     return {
       albumTitle: "",
+      albumId: 0,
       albums: this._getAllAlbums()
     };
   },
   componentDidMount: function(){
     AlbumStore.addChangeListener(this._albumsChanged);
+    AlbumStore.addSingleChangeListener(this._albumsChanged);
     ApiUtil.fetchAlbums({user_id: CURRENT_USER_ID});
   },
   componentWillUnmount: function(){
     AlbumStore.removeChangeListener(this._albumsChanged);
+    AlbumStore.removeSingleChangeListener(this._albumsChanged);
   },
   _albumsChanged: function(){
-    this.setState({ albums: this._getAllAlbums()});
+    this.setState({
+      albums: this._getAllAlbums(),
+      albumTitle: ""
+    });
   },
   _addAlbum: function(event){
     event.preventDefault();
@@ -27,6 +33,32 @@ var AlbumForm = React.createClass({
     };
     ApiUtil.createAlbum(data);
   },
+  _addToAlbum: function(event){
+    event.preventDefault();
+    var albumId = event.currentTarget.value;
+    var data = {
+      gif_id: this.props.gifId,
+      album_id: albumId
+    };
+    ApiUtil.addToAlbum(data);
+  },
+  _returnAddButtonOrDiv: function(album){
+    var added = false;
+    var gifId = parseInt(this.props.gifId);
+    album.gifs.forEach(function(gif){
+      if (gif.id === gifId){
+        added = true;
+      }
+    });
+    if (added){
+      return <div className='added-icon'>Added+</div>;
+    } else {
+      return <button className="add-to-album-button"
+                    onClick={this._addToAlbum}
+                    value={album.id}>
+                    Add to Album</button>;
+    }
+  },
   render: function(){
     return (
       <div className="album-container">
@@ -35,17 +67,16 @@ var AlbumForm = React.createClass({
               this.state.albums.map(function(album){
                 return (
                   <ul>
-                    <li>{album.id}</li>
                     <li>{album.album_title}</li>
+                    {this._returnAddButtonOrDiv(album)}
                   </ul>
                 );
-              })
+              }.bind(this))
             }
         </ul>
         <form className="upload-form" onSubmit={this._addAlbum}>
           <input type='text' valueLink={this.linkState("albumTitle")} />
         </form>
-        <button className="add-to-album-button" onClick={this._addToAlbum}>Add to Album</button>
       </div>
     );
   }

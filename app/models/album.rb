@@ -18,7 +18,7 @@ class Album < ActiveRecord::Base
 
   def self.create_albuming_association(album_id, gif_id)
     album = Albuming.create(album_id: album_id, gif_id: gif_id)
-    Album.find(album.album_id)
+    Album.includes(:gifs).where(id: album_id).first
   end
 
 end

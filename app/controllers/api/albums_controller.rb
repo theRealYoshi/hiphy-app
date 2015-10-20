@@ -3,22 +3,22 @@ class Api::AlbumsController < ApplicationController
 
   def index
     if params[:user_id]
-      @albums = Album.includes(:gifs, :users).references(:users).where("users.id = ? ", params[:user_id])
+      @albums = Album.includes(:gifs).where(user_id: params[:user_id])
     else
-      @albums = Album.includes(:gifs, :users)
+      @albums = Album.includes(:gifs)
     end
   end
 
   def create
-    album = Album.where("album_title = ? AND user_id = ? ",
-                        params[:album][:album_title],
-                        current_user.id)
-    if album.empty?
+    if params[:album][:album_id].blank?
       @album = Album.create(
               album_title: params[:album][:album_title],
               user_id: current_user.id)
       if @album.save
-        Album.create_albuming_association(@album.id, params[:album][:gif_id])
+        Album.transaction do
+          Album.create_albuming_association(@album.id, params[:album][:gif_id])
+          @album.save!
+        end
         @album
         render :show
       else
@@ -26,7 +26,7 @@ class Api::AlbumsController < ApplicationController
       end
     else
       @album = Album.create_albuming_association(
-                        album.first.id, params[:album][:gif_id])
+                        params[:album][:album_id], params[:album][:gif_id])
       render :show
     end
   end

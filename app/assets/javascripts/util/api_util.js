@@ -53,16 +53,29 @@ ApiUtil = {
       }
     });
   },
-  createAlbum: function(data, callback){
+  createAlbum: function(data){
     $.ajax({
       url: '/api/albums',
       type: 'POST',
       data: { album: data },
       success: function (album) {
-        console.log(album);
-        //update collections flash update
-        // ApiActions.receiveSingleGif(gif);
-        // callback(gif.id);
+        ApiActions.receiveSingleAlbum(album);
+        console.log("album created!");
+      },
+      error: function () {
+        console.log("this is the error");
+      }
+    });
+  },
+  addToAlbum: function(data){
+    $.ajax({
+      url: '/api/albums',
+      type: 'POST',
+      data: { album: data },
+      success: function (album) {
+        ApiActions.removeSingleAlbum(album);
+        ApiActions.receiveSingleAlbum(album);
+        console.log("added to Album");
       },
       error: function () {
         console.log("this is the error");

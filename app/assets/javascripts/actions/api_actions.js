@@ -28,5 +28,17 @@ ApiActions = {
       actionType: AlbumConstants.ALBUMS_RECEIVED,
       albums: albums
     });
+  },
+  receiveSingleAlbum: function(album){
+    AppDispatcher.dispatch({
+      actionType: AlbumConstants.ALBUM_RECEIVED,
+      album: album
+    });
+  },
+  removeSingleAlbum: function(album){
+    AppDispatcher.dispatch({
+      actionType: AlbumConstants.ALBUM_RECEIVED,
+      album: album
+    });
   }
 };
