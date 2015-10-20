@@ -42,5 +42,31 @@ ApiUtil = {
         console.log('error');
       }
     });
+  },
+  fetchAlbums: function(param){
+    $.ajax({
+      url: '/api/albums',
+      type: 'GET',
+      data: param,
+      success: function(albums){
+        ApiActions.receiveAllAlbums(albums);
+      }
+    });
+  },
+  createAlbum: function(data, callback){
+    $.ajax({
+      url: '/api/albums',
+      type: 'POST',
+      data: { album: data },
+      success: function (album) {
+        console.log(album);
+        //update collections flash update
+        // ApiActions.receiveSingleGif(gif);
+        // callback(gif.id);
+      },
+      error: function () {
+        console.log("this is the error");
+      }
+    });
   }
 };

@@ -45,6 +45,7 @@ var gifItem = React.createClass({
           })
         }
         <br />
+        <AlbumForm gifId={this.props.params.gifId} />
       </div>
     );
   }

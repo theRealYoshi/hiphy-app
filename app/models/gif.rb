@@ -16,6 +16,7 @@ class Gif < ActiveRecord::Base
   belongs_to :user, foreign_key: :submitter_id
   has_many :tags, through: :taggings
   has_many :taggings
+  has_many :albums, through: :albumings
 
 
 end

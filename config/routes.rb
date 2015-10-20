@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   namespace :api, defaults: {format: :json} do
-    resources :gifs, only: [:index, :new, :create, :show, :destroy]
+    resources :gifs, only: [:index, :create, :show, :destroy]
+    resources :albums, only: [:index, :create, :update, :destroy]
   end
 
 

@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015211438) do
+ActiveRecord::Schema.define(version: 20151019175715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albumings", force: :cascade do |t|
+    t.integer "album_id", null: false
+    t.integer "gif_id",   null: false
+  end
+
+  add_index "albumings", ["album_id"], name: "index_albumings_on_album_id", using: :btree
+  add_index "albumings", ["gif_id"], name: "index_albumings_on_gif_id", using: :btree
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "album_title", null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "albums", ["album_title", "user_id"], name: "index_albums_on_album_title_and_user_id", unique: true, using: :btree
 
   create_table "gifs", force: :cascade do |t|
     t.string   "title",         null: false

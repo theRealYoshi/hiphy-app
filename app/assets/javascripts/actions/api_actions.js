@@ -22,5 +22,11 @@ ApiActions = {
       actionType: GifConstants.UPDATE_TAG,
       tag: tag
     });
+  },
+  receiveAllAlbums: function(albums){
+    AppDispatcher.dispatch({
+      actionType: AlbumConstants.ALBUMS_RECEIVED,
+      albums: albums
+    });
   }
 };
