@@ -16,56 +16,144 @@
     min-width: 960px;
 }
 
+.header-row{
+  height: 100px;
+  max-height: 100px;
+  position: relative;
+  content: "";
+  display: block;
+  clear: both;
+}
 
-#user-content{
-  margin-top: 40px;
-  margin-bottom: auto;
-  img {
-    height: 240px;
-    width: 450px;
+.menu {
+  a.sign-up-form {
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 20px;
+    height: 50px;
+    padding: 25px;
+    float: right;
+    font-family: 'proxima-nova', 'Proxima Nova', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    border-color: #fff;
+    border-width: 2px;
+    letter-spacing: 3px;
+  }
+  a.sign-up-form:hover{
+    text-decoration: none;
+    color: #fff;
+  }
+  a.login-form {
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 20px;
+    height: 50px;
+    padding: 25px;
+    float: right;
+    font-family: 'proxima-nova', 'Proxima Nova', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    border-color: #fff;
+    border-width: 2px;
+    letter-spacing: 3px;
+  }
+  a.login-form:hover{
+    text-decoration: none;
+    color: #fff;
   }
 }
 
-.user-form {
-    margin-left: auto;
-    margin-right: auto;
-    .form-row {
+.modal {
+  text-align: center;
+  .modal-content {
+      margin-top: 25%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      vertical-align: middle;
+    .user-form {
+        margin-left: auto;
+        margin-right: auto;
+        .form-row {
 
-      .form-control{
-        height: 40px;
-        width: 350px;
-        margin: 10px 20px 20px 10px;
-        font-size: 16px;
-        font-stretch: normal;
-        font-style: normal;
-        font-variant: normal;
-        font-weight: normal;
-        box-sizing: border-box;
+          .form-control{
+            height: 40px;
+            margin: 10px 20px 20px 10px;
+            font-size: 16px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+          }
 
+        }
+        .btn-primary {
+          height: 40px;
+          margin: 0px 10px 0px 10px;
+          font-family: 'Open Sans', 'Helvetica Neue', helvetica, sans-serif;
+          font-size: 18px;
+          letter-spacing: 3px;
+
+        }
+    }
+  }
+  .modal-footer {
+      .signup-link {
+        margin-right: auto;
+        margin-left: auto;
+        letter-spacing: 1px;
+        text-align: center;
+        font-weight: 200;
+        text-transform: capitalize;
+        color: #565a5c;
       }
 
-    }
+      .login-link {
+        margin-right: auto;
+        margin-left: auto;
+        letter-spacing: 1px;
+        text-align: center;
+        font-weight: 200;
+        text-transform: capitalize;
+        color: #565a5c;
+      }
 
-  .btn-primary {
-    height: 40px;
-    width: 350px;
-    margin: 0px 10px 0px 10px;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, sans-serif;
-    font-size: 18px;
-    letter-spacing: 3px;
   }
 
-  .login-link {
-    height: 40px;
-    width: 350px;
-    margin-right: 70px;
-    letter-spacing: 1px;
+}
+#logo{
+  margin-bottom: auto;
+  img {
+    height: 50%;
+    width: 50%;
+  }
+}
+
+.container-splash-page {
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: auto;
+  .jumbotron {
+    height: 25%;
+    width: 33%;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background: transparent;
     text-align: center;
-    float: right;
-    font-weight: 200;
-    display: inline;
-    text-transform: capitalize;
     color: #fff;
+    h2 {
+      font-size: 60px;
+      letter-spacing: 10px;
+    }
+    p {
+      letter-spacing: 3px;
+      text-align: center;
+    }
   }
-
 }

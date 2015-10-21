@@ -11,14 +11,6 @@
   </script>
 </head>
 <body>
-<% if current_user %>
-  <ul>
-   <li><%= button_to "Logout", session_url, method: :delete %></li>
- </ul>
-<% else %>
-  <%= link_to "Sign in!", new_session_path %>
-  <br><br>
-<% end %>
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
     <%= error %>

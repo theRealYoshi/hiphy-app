@@ -8,6 +8,11 @@ var UploadForm = React.createClass({
       errors: ''
     };
   },
+  componentWillMount: function(){
+    if (CURRENT_USER_ID === -1){
+      this.history.pushState(null, "/", {});
+    }
+  },
   _validateTags: function(){
     var tagsValid = true;
     this.state.tags.split(",").forEach(function(tag){
