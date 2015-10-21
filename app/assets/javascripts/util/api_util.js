@@ -16,6 +16,7 @@ ApiUtil = {
       data: { gif: data },
       success: function (gif) {
         ApiActions.receiveSingleGif(gif);
+
         callback(gif.id);
       },
       error: function () {

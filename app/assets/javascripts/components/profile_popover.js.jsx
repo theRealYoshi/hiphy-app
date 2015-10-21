@@ -4,6 +4,8 @@ var ProfilePopOver = React.createClass({
     if (this.props.clicked){
       popover = <ul>
         <li>first item</li>
+        <li>first item</li>
+        <li>first item</li>
       </ul>;
     } else {
       popover = <div></div>;

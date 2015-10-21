@@ -37,7 +37,7 @@ var ProfileIcon = React.createClass({
     }
     return (
       <div className='profile'>
-        <div className='profile-button-container'>
+        <div className='dropdown profile-button-container'>
           <a className='profile-button'
               onClick={this._popOverActivate}
               onMouseOver={this._handleMouseOver}
