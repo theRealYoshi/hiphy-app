@@ -25,9 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    if logged_in?
-      render json: {}, status: 403
-    end
+    render json: {}, status: 403 unless logged_in?
   end
 
   def require_log_out
