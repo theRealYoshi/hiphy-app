@@ -19,7 +19,8 @@ ApiUtil = {
         callback(gif.id);
       },
       error: function () {
-        console.log("this is the error");
+        console.log("You Must Be logged In to perform this action");
+        window.location = "/session/new";
       }
     });
   },

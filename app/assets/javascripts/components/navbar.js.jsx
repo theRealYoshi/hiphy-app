@@ -5,7 +5,8 @@
       return {
         profileHovered: false,
         uploadHovered: false,
-        logoHovered: false
+        logoHovered: false,
+        loggedIn: false
       };
     },
     _handleMouseOver: function(event){
@@ -37,22 +38,17 @@
       this.history.pushState(null,'/profile/' + CURRENT_USER_ID, {});
     },
     _navigateUpload: function(){
-      if (CURRENT_USER_ID !== -1){
-        this.history.pushState(null, "/upload", {});
+      if (CURRENT_USER_ID === -1){
+        window.location = "/session/new";
       } else {
-        this.history.pushState(null, "/", {});
+        this.history.pushState(null, "/upload", {});
       }
     },
     _navigateHome: function(){
       this.history.pushState(null, "/", {});
     },
     render: function(){
-      var profileImg, uploadImg;
-      if (this.state.profileHovered){
-        profileImg = <img className='image' src='/assets/thumbs-up.gif' />;
-      } else {
-        profileImg = <img className='image' src='/assets/thumbs-up.png'/>;
-      }
+      var uploadImg, logoImg, profileImg;
       if (this.state.uploadHovered){
         uploadImg = <img className='image' src='/assets/plus-blue.png' />;
       } else {
@@ -62,6 +58,11 @@
         logoImg = <img className='image' src="/assets/red-bridge-white.png" />;
       } else {
         logoImg = <img className='image' src="/assets/red-bridge-black.png" />;
+      }
+      if (CURRENT_USER_ID === -1){
+        profileImg = <LoginIcon />;
+      } else {
+        profileImg = <ProfileIcon />;
       }
       return (
         <div className='header'>
@@ -84,13 +85,7 @@
                     id="upload">
                   {uploadImg}
                 </a>
-                <a className='profile-button'
-                    onClick={this._navigateUser}
-                    onMouseOver={this._handleMouseOver}
-                    onMouseOut={this._handleMouseOut}
-                    id="profile">
-                  {profileImg}
-                </a>
+                {profileImg}
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ var UploadForm = React.createClass({
   },
   componentWillMount: function(){
     if (CURRENT_USER_ID === -1){
-      this.history.pushState(null, "/", {});
+      window.location = "session/new";
     }
   },
   _validateTags: function(){

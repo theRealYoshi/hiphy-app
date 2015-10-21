@@ -38,9 +38,12 @@ class Api::GifsController < ApplicationController
         submitter_id: current_user.id
       )
     if @gif.save
-      tags.each do |tag|
-        tag_id = Tag.find_by_tag_title(tag).id
-        Tagging.create!(gif_id: @gif.id, tag_id: tag_id)
+      Gif.transaction do
+        tags.each do |tag|
+          tag_id = Tag.find_by_tag_title(tag).id
+          Tagging.create!(gif_id: @gif.id, tag_id: tag_id)
+        end
+        @gif.save!
       end
       @gif
     end
