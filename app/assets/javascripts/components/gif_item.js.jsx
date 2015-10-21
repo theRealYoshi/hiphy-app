@@ -18,7 +18,7 @@ var GifItem = React.createClass({
   },
   componentWillUnmount: function(){
     GifStore.removeChangeListener(this._onChange);
-    AlbumStore.removeSingleChangeListener(this._onChange);
+    GifStore.removeSingleChangeListener(this._onChange);
   },
   _deleteLink: function(id){
     ApiUtil.deleteSingleGif(id, function(){

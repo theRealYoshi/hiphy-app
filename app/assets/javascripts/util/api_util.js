@@ -99,6 +99,21 @@ ApiUtil = {
       }
     });
   },
+  deleteSingleAlbum: function(albumId, callback){
+    $.ajax({
+      url: '/api/albums/' + albumId,
+      type: 'DELETE',
+      success: function (album) {
+        ApiActions.removeSingleAlbum(album);
+        debugger;
+        callback();
+        console.log("deleted Album");
+      },
+      error: function () {
+        console.log("this is the error");
+      }
+    });
+  },
   fetchSingleUser: function(userId){
     $.ajax({
       url: '/users/' + userId,

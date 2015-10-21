@@ -7,10 +7,10 @@ var AlbumForm = React.createClass({
     return {
       albumTitle: "",
       albumId: 0,
-      albums: this._getUserAlbums()
+      albums: []
     };
   },
-  componentDidMount: function(){
+  componentWillMount: function(){
     AlbumStore.addChangeListener(this._albumsChanged);
     AlbumStore.addSingleChangeListener(this._albumsChanged);
     ApiUtil.fetchUserAlbums(CURRENT_USER_ID);

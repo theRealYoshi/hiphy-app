@@ -37,7 +37,7 @@ ApiActions = {
   },
   removeSingleAlbum: function(album){
     AppDispatcher.dispatch({
-      actionType: AlbumConstants.ALBUM_RECEIVED,
+      actionType: AlbumConstants.ALBUM_REMOVED,
       album: album
     });
   },
