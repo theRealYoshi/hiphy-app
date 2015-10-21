@@ -18,7 +18,7 @@ def getUrl
 end
 
 10.times do |n|
-  User.create(email: "user#{n + 1}@user.com", password: "user#{n + 1}user#{n + 1}")
+  User.create(email: "user#{n + 1}@user.com", username: "user#{n + 1}", password: "user#{n + 1}user#{n + 1}")
   Album.create(album_title: "album#{n+1}", user_id: (n+1))
 end
 
