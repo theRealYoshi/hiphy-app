@@ -19,6 +19,7 @@ end
 
 10.times do |n|
   User.create(email: "user#{n + 1}@user.com", password: "user#{n + 1}user#{n + 1}")
+  Album.create(album_title: "album#{n+1}", user_id: (n+1))
 end
 
 50.times do |n|
@@ -26,10 +27,11 @@ end
   cloudinary_hash = Cloudinary::Uploader.upload(getUrl)
   fake_gif = Gif.create(
     title: fake_title,
-    submitter_id: ((n + 1) % 5),
+    submitter_id: ((n % 10) + 1),
     url: cloudinary_hash["url"],
     shortened_url: "http://hip.hy/#{SecureRandom.urlsafe_base64(6)}"
   )
+  Albuming.create(gif_id: fake_gif.id, album_id: ((n % 10) + 1))
   fake_tag1 = Tag.create( tag_title: Faker::Hacker.adjective)
   fake_tag2 = Tag.create( tag_title: Faker::Hacker.adjective)
   Tagging.create(gif_id: fake_gif.id, tag_id: fake_tag1.id)
