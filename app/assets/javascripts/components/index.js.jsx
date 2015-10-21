@@ -77,10 +77,14 @@ var Index = React.createClass({
     }
     return (
       <div className='index'>
-        {albumHeader}
-        {albumContainer}
-        {gifHeader}
-        {gifContainer}
+        <div className='index-albums-container'>
+          {albumHeader}
+          {albumContainer}
+        </div>
+        <div className='index-gifs-container'>  
+          {gifHeader}
+          {gifContainer}
+        </div>
       </div>
     );
   }

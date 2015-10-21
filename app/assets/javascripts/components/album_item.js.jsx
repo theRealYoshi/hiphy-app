@@ -7,9 +7,7 @@ var AlbumItem = React.createClass({
     return UserStore.find(parseInt(userId));
   },
   getInitialState: function(){
-    return {
-            album: this.getStateFromStore(),
-          };
+    return { album: this.getStateFromStore()};
   },
   _onChange: function(){
     var newAlbum = this.getStateFromStore();
@@ -42,7 +40,9 @@ var AlbumItem = React.createClass({
                               onClick={this._deleteAlbum}
                               value={album.id}>Delete</button>;
       }
-      username = album.user.username;
+      if (album.user){
+        username = album.user.username;
+      }
     }
     return (
       <div className="album-item">

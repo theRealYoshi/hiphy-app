@@ -1,51 +1,67 @@
 <div class='animated-background-wrapper-signup'>
 </div>
   <div class="row">
-    <div class="col-xs-6 col-md-4"></div>
+    <div class="col-xs-6 col-md-4">
+      <%= image_tag("red-bridge-white.png", :alt => "hiphy-logo") %>
+    </div>
     <div id='user-content' class="col-xs-6 col-md-4">
-      <div id='user-join' >
-        <%= image_tag("hiphy-logo-red.png", :alt => "hiphy-logo") %>
-        <form class='user-form' id='join-form' action="<%= users_url %>" method="post">
-          <input type="hidden" name="authenticity_token"
-                 value="<%= form_authenticity_token %>">
-          <div class='form-row'>
-          <input
-            class='form-control'
-            type="text"
-            name="user[email]"
-            placeholder='Email Address'
-            value="<%= @user.email %>"
-            id="user_username">
-          </div>
+      <h3>Hiphy</h3>
+    </div>
+    <div class="col-xs-6 col-md-4">
+      <!-- Trigger the modal with a button -->
+      <a data-toggle="modal" data-target="#myModal">Sign Up</a>
+          <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content signup" id="login-modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div id='user-join' >
+                <form class='user-form' id='join-form' action="<%= users_url %>" method="post">
+                  <input type="hidden" name="authenticity_token"
+                         value="<%= form_authenticity_token %>">
+                  <div class='form-row'>
+                  <input
+                    class='form-control'
+                    type="text"
+                    name="user[email]"
+                    placeholder='Email Address'
+                    value="<%= @user.email %>"
+                    id="user_username">
+                  </div>
+                  <div class='form-row'>
+                  <input
+                    class='form-control'
+                    type="text"
+                    name="user[username]"
+                    placeholder='Username'
+                    value="<%= @user.username %>"
+                    id="user_username">
+                  </div>
+                  <div class='form-row'>
+                  <input
+                    class='form-control'
+                    type="password"
+                    name="user[password]"
+                    placeholder='Choose a password'
+                    id="user_password">
+                  </div>
 
-          <div class='form-row'>
-          <input
-            class='form-control'
-            type="text"
-            name="user[username]"
-            placeholder='Username'
-            value="<%= @user.username %>"
-            id="user_username">
+                  <button class="btn btn-primary" type="submit" value='Join'>Join</button>
+                  <br />
+                  <div class='login-link'>
+                    Already a member? <%= link_to "Login", new_session_url %>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
           </div>
-
-
-          <div class='form-row'>
-          <input
-            class='form-control'
-            type="password"
-            name="user[password]"
-            placeholder='Choose a password'
-            id="user_password">
-          </div>
-
-          <button class="btn btn-primary" type="submit" value='Join'>Join</button>
-          <br />
-          <div class='login-link'>
-            <br />
-            Already a member? <%= link_to "Login", new_session_url %>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
-    <div class="col-xs-6 col-md-4"></div>
   </div>

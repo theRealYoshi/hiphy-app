@@ -105,7 +105,6 @@ ApiUtil = {
       type: 'DELETE',
       success: function (album) {
         ApiActions.removeSingleAlbum(album);
-        debugger;
         callback();
         console.log("deleted Album");
       },
