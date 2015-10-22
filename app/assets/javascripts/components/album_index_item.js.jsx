@@ -31,10 +31,16 @@ var AlbumIndexItem = React.createClass({
     var album = this.props.album;
     var gif = this.state.gif;
     var imgSrc = '';
-    if (this.state.hovered){
+    if (this.state.hovered && this.state.gif){
       imgSrc = gif.url;
-    } else {
+    } else if (!this.state.hovered && this.state.gif){
       imgSrc = gif.url.slice(0, -3) + 'png';
+    } else if ( this.state.hovered && !this.state.gif){
+      //hovered and no gifs in album
+      imgSrc =  "https://res.cloudinary.com/dpbquh1uj/image/upload/v1445537574/tumblr_n85k6gA6TG1tzyfmgo1_500_wzgtfn.gif";
+    } else {
+      // not hovered and no gifs
+      imgSrc = "https://res.cloudinary.com/dpbquh1uj/image/upload/v1445537574/tumblr_n85k6gA6TG1tzyfmgo1_500_wzgtfn.png";
     }
     return (
       <div className='album-index-item'>

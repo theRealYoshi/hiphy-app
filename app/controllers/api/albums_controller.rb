@@ -3,7 +3,7 @@ class Api::AlbumsController < ApplicationController
 
   def index
     if params[:tag].blank?
-      @albums = Album.includes(:gifs)
+      @albums = Album.non_empty
     else
       sql_str = "album_title LIKE ?"
       tags = params[:tag].split(" ").map {|tag| "%#{tag}%"}
@@ -12,7 +12,7 @@ class Api::AlbumsController < ApplicationController
           sql_str += " OR album_title LIKE ?"
         end
       end
-      @albums = Album.includes(:gifs).where(sql_str, *tags)
+      @albums = Album.includes(:gifs).where(sql_str, *tags).non_empty
     end
   end
 

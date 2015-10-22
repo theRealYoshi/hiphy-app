@@ -8,6 +8,10 @@
 
 require 'net/http'
 require 'json'
+
+
+Cloudinary::Api.delete_resources_by_tag('test_data')
+
 def getUrl
   keywords = ['san-francisco', 'bay-area', 'silicon-valley', 'oakland', 'hyphy', 'san-jose', 'cats']
   url = 'http://api.giphy.com/v1/gifs/translate?s=' + keywords.sample.to_s + '&api_key=dc6zaTOxFJmzC'
@@ -24,11 +28,11 @@ end
 
 50.times do |n|
   fake_title = Faker::Book.title
-  cloudinary_hash = Cloudinary::Uploader.upload(getUrl)
+  cloudinary_hash = Cloudinary::Uploader.upload(getUrl, :tags => ['test_data'])
   fake_gif = Gif.create(
     title: fake_title,
     submitter_id: ((n % 10) + 1),
-    url: cloudinary_hash["url"],
+    url: cloudinary_hash["secure_url"],
     shortened_url: "http://hip.hy/#{SecureRandom.urlsafe_base64(6)}"
   )
   Albuming.create(gif_id: fake_gif.id, album_id: ((n % 10) + 1))

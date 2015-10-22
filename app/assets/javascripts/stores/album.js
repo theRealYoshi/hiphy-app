@@ -10,7 +10,7 @@
   var addAlbum = function(album){
     var idx;
     for (var i = 0; i < _albums.length; i++) {
-     if (_albums[i].id === album.id) {
+     if (_albums[i].id === album.id && _albums[i].gifs.length > 0) {
        idx = i;
      }
     }

@@ -56,6 +56,7 @@ class Api::GifsController < ApplicationController
 
   def destroy
     @gif = Gif.find(params[:id])
+    #check to see if the album has any gifs? If not destroy
     @gif.destroy
     render json: @gif
   end

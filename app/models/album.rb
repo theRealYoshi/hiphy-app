@@ -13,7 +13,7 @@ class Album < ActiveRecord::Base
   validates :album_title, presence: true
 
   belongs_to :user
-  has_many :albumings
+  has_many :albumings, dependent: :destroy
   has_many :gifs, through: :albumings
 
   def self.create_albuming_association(album_id, gif_id)
@@ -21,4 +21,5 @@ class Album < ActiveRecord::Base
     Album.includes(:gifs).where(id: album_id).first
   end
 
+  scope :non_empty, -> { includes(:gifs).reject { |album| album.gifs.empty? } }
 end

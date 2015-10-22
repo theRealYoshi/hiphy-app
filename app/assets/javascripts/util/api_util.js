@@ -36,22 +36,24 @@ ApiUtil = {
       type: 'DELETE',
       success: function(gif){
         ApiActions.removeSingleGif(gif);
-        if (callback){
-          callback();
-        }
+        ApiUtil.fetchAlbums({}, callback);
+        // if (callback){
+        //   callback();
+        // }
       },
       error: function(){
         console.log('error');
       }
     });
   },
-  fetchAlbums: function(param){
+  fetchAlbums: function(param, callback){
     $.ajax({
       url: '/api/albums',
       type: 'GET',
       data: param,
       success: function(albums){
         ApiActions.receiveAllAlbums(albums);
+        callback && callback();
       }
     });
   },
@@ -123,6 +125,21 @@ ApiUtil = {
         ApiActions.receiveSingleUser(user);
       },
       error: function () {
+        console.log("this is the error");
+      }
+    });
+  },
+  removeSingleUser: function(callback){
+    $.ajax({
+      url: '/session/',
+      type: 'DELETE',
+      success: function (user) {
+        debugger;
+        ApiActions.removeSingleUser(user);
+        callback();
+      },
+      error: function () {
+        debugger;
         console.log("this is the error");
       }
     });

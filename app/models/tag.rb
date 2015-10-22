@@ -10,8 +10,8 @@
 
 class Tag < ActiveRecord::Base
   validates :tag_title, presence: true
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :gifs, through: :taggings
 
-    
+
 end

@@ -52,5 +52,11 @@ ApiActions = {
       actionType: UserConstants.USER_RECEIVED,
       user: user
     });
+  },
+  removeSingleUser: function(user){
+    AppDispatcher.dispatch({
+      actionType: UserConstants.USER_REMOVED,
+      user: user
+    });
   }
 };

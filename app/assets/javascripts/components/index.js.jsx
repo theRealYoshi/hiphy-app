@@ -60,7 +60,7 @@ var Index = React.createClass({
     if (albums.length > 0){
       albumHeader = <h3>Albums</h3>;
       albumContainer = this.state.albums.map(function(album){
-        return <AlbumIndexItem album={album} key={album.id} />;
+          return <AlbumIndexItem album={album} key={album.id} />;
       });
     } else {
       albumHeader = <div></div>;
@@ -81,7 +81,7 @@ var Index = React.createClass({
           {albumHeader}
           {albumContainer}
         </div>
-        <div className='index-gifs-container'>  
+        <div className='index-gifs-container'>
           {gifHeader}
           {gifContainer}
         </div>
