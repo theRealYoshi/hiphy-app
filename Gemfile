@@ -46,6 +46,8 @@ gem 'faker'
 gem 'bootstrap-sass'
 
 gem "mini_magick"
+
+gem 'seed_dump'
 group :development do
 
   gem 'binding_of_caller'

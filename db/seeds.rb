@@ -9,8 +9,16 @@
 require 'net/http'
 require 'json'
 
+case Rails.env
+  when "development"
+    cloudinary_tag = "development_seed_data"
+  when "production"
+    cloudinary_tag = "production_seed_data"
+  else
+    break
+end
 
-Cloudinary::Api.delete_resources_by_tag('test_data')
+Cloudinary::Api.delete_resources_by_tag(cloudinary_tag)
 
 def getUrl
   keywords = ['san-francisco', 'bay-area', 'silicon-valley', 'oakland', 'hyphy', 'san-jose', 'cats']
@@ -28,7 +36,7 @@ end
 
 50.times do |n|
   fake_title = Faker::Book.title
-  cloudinary_hash = Cloudinary::Uploader.upload(getUrl, :tags => ['test_data'])
+  cloudinary_hash = Cloudinary::Uploader.upload(getUrl, :tags => cloudinary_tag)
   fake_gif = Gif.create(
     title: fake_title,
     submitter_id: ((n % 10) + 1),
