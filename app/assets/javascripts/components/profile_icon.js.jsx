@@ -61,9 +61,9 @@ var ProfileIcon = React.createClass({
     }
     if (this.state.clicked){
       popOver = <ul>
-        <li><a onClick={this._navigateProfile}>My Profile</a></li>
-        <li><a onClick={this._navigateAlbums}>My Albums</a></li>
-        <li><a onClick={this._logOut}>Logout</a></li>
+        <li className='profile-popover-list' onClick={this._navigateProfile}><a>My Profile</a></li>
+        <li className='profile-popover-list' onClick={this._navigateAlbums}><a>My Albums</a></li>
+        <li className='profile-popover-list' onClick={this._logOut}><a>Logout</a></li>
       </ul>;
     } else {
       popOver = <div></div>;
