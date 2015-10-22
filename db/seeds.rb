@@ -19,6 +19,7 @@ case Rails.env
 end
 
 Cloudinary::Api.delete_resources_by_tag(cloudinary_tag)
+Cloudinary::Api.delete_resources_by_tag('test_data')
 
 def getUrl
   keywords = ['san-francisco', 'bay-area', 'silicon-valley', 'oakland', 'hyphy', 'san-jose', 'cats']
