@@ -6,6 +6,18 @@ var ProfileIcon = React.createClass({
       clicked: false
     };
   },
+  componentDidMount: function () {
+    window.addEventListener('click', this._pageClick, false);
+  },
+  componentWillUnmount: function () {
+    window.addEventListener('click', this._pageClick, false);
+  },
+  _pageClick: function(event){
+    if (this.getDOMNode().contains(event.target)){
+      return;
+    }
+    this.setState({clicked: false});
+  },
   _handleMouseOver: function(event){
     switch(event.currentTarget.id){
       case "profile":
@@ -26,18 +38,39 @@ var ProfileIcon = React.createClass({
     } else {
       this.setState({clicked: true});
     }
-    //this.history.pushState(null,'/profile/' + CURRENT_USER_ID, {});
+  },
+  _navigateProfile: function(){
+    this.history.pushState(null, '/profile/' + CURRENT_USER_ID, {});
+    this.setState({clicked: false});
+  },
+  _navigateAlbums: function(){
+    this.history.pushState(null, '/profile/' + CURRENT_USER_ID, {});
+    this.setState({clicked: false});
+  },
+  _logOut: function(){
+    ApiUtil.removeSingleUser(function(){
+      window.location = '/';
+    });
   },
   render: function(){
-    var profileImg;
+    var profileImg, popOver;
     if (this.state.profileHovered){
       profileImg = <img className='image' src='/assets/thumbs-up.gif' />;
     } else {
       profileImg = <img className='image' src='/assets/thumbs-up.png'/>;
     }
+    if (this.state.clicked){
+      popOver = <ul>
+        <li><a onClick={this._navigateProfile}>My Profile</a></li>
+        <li><a onClick={this._navigateAlbums}>My Albums</a></li>
+        <li><a onClick={this._logOut}>Logout</a></li>
+      </ul>;
+    } else {
+      popOver = <div></div>;
+    }
     return (
       <div className='profile'>
-        <div className='dropdown profile-button-container'>
+        <div className='dropdown-toggle profile-button-container'>
           <a className='profile-button'
               onClick={this._popOverActivate}
               onMouseOver={this._handleMouseOver}
@@ -46,7 +79,9 @@ var ProfileIcon = React.createClass({
             {profileImg}
           </a>
         </div>
-        <ProfilePopOver className='profile-popover' clicked={this.state.clicked}/>
+        <div className='profile-popover'>
+          {popOver}
+        </div>
       </div>
     );
   }

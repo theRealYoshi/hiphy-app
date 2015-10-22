@@ -17,29 +17,19 @@ var UserProfile = React.createClass({
   _userChanged: function(){
     this.setState({user: this._getUser()});
   },
-  _navigateAlbum: function(event){
-    event.preventDefault();
-    this.props.history.pushState(null, 'album/' + event.currentTarget.value, {} );
-  },
   render: function(){
     var user = this.state.user;
     var gifs, albums;
     if (user){
       email = user.email;
-      albums = user.albums.map(function(album){
-        return (
-          <button onClick={this._navigateAlbum} value={album.id} >{album.album_title}</button>
-        );
-      }.bind(this));
-      gifs = user.albums.map(function(album){
+      albums = user.albums;
+      gifs = albums.map(function(album){
         album.gifs.map(function(gif){
           return <li>{gif.title}</li>;
         });
       });
     } else {
       email = "";
-      gifs = <div></div>;
-      albums = <div></div>;
     }
     return (
       <div className='profile-container'>
@@ -48,10 +38,8 @@ var UserProfile = React.createClass({
         <ul>
           {gifs}
         </ul>
-        <h3>Albums</h3>
-        <ul>
-          {albums}
-        </ul>
+        <UserAlbums albums={albums}/>
+        {this.props.children}
       </div>
     );
   }

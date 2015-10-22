@@ -134,13 +134,11 @@ ApiUtil = {
       url: '/session/',
       type: 'DELETE',
       success: function (user) {
-        debugger;
         ApiActions.removeSingleUser(user);
-        callback();
+        callback && callback();
       },
       error: function () {
-        debugger;
-        console.log("this is the error");
+        console.log("logout error");
       }
     });
   }

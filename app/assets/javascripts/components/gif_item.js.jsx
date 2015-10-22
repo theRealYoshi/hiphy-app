@@ -26,9 +26,13 @@ var GifItem = React.createClass({
     }.bind(this));
   },
   render: function(){
+    var deleteLink, albumForm;
     if(this.state.gif === undefined) { return <div></div>; }
+    if (CURRENT_USER_ID){
+      albumForm = <AlbumForm gifId={this.props.params.gifId} />;
+    }
     if(this.state.gif.submitter_id === CURRENT_USER_ID) {
-      var delete_link = <button onClick={this._deleteLink.bind(null, this.state.gif.id)}>Delete</button>;
+      deleteLink = <button onClick={this._deleteLink.bind(null, this.state.gif.id)}>Delete</button>;
     } // use this .props for index?
     var gif = this.state.gif;
     return (
@@ -38,7 +42,7 @@ var GifItem = React.createClass({
         Url: {gif.url},
         Submitter: {gif.submitter},
         shortened_url: {gif.shortened_url},
-        {delete_link}
+        {deleteLink}
         <br />
         {
           gif.tags.map(function(tag){
@@ -46,7 +50,7 @@ var GifItem = React.createClass({
           })
         }
         <br />
-        <AlbumForm gifId={this.props.params.gifId} />
+        {albumForm}
       </div>
     );
   }
