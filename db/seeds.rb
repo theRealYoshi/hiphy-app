@@ -14,8 +14,6 @@ case Rails.env
     cloudinary_tag = "development_seed_data"
   when "production"
     cloudinary_tag = "production_seed_data"
-  else
-    break
 end
 
 Cloudinary::Api.delete_resources_by_tag(cloudinary_tag)
