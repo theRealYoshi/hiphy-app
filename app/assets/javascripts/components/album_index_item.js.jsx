@@ -43,16 +43,15 @@ var AlbumIndexItem = React.createClass({
       imgSrc = "https://res.cloudinary.com/dpbquh1uj/image/upload/v1445537574/tumblr_n85k6gA6TG1tzyfmgo1_500_wzgtfn.png";
     }
     return (
-      <div className='album-index-item'>
-        {album.album_title}
-        <br />
-        Url: {imgSrc}
-        <br />
-        <img src={imgSrc}
-             onMouseEnter={this._onHover}
-             onMouseOut={this._onHoverOut}
-             onClick={this._navigateShow}/>
-        <br />
+      <div className="col-sm-4">
+        <div className='album-index-item' >
+          <img src={imgSrc}
+               onMouseEnter={this._onHover}
+               onMouseOut={this._onHoverOut}
+               onClick={this._navigateShow}
+               className="album-index-item-image"/>
+          <br />
+        </div>
       </div>
     );
   }

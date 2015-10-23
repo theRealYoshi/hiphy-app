@@ -1,3 +1,33 @@
 // Place all the styles related to the Albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-albums-container {
+  .container{
+    width: inherit;
+    .album-index-item{
+      margin-left: auto;
+      margin-right: auto;
+      max-width: inherit;
+      height: 200px;
+      position:relative;
+
+      .album-index-item-image {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: relative;
+        cursor: pointer;
+        max-width: inherit;
+      }
+
+    }
+
+  }
+}
+
+.album-item{
+  margin-left: auto;
+  margin-right: auto;
+  width: 967px;
+}
