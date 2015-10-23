@@ -36,7 +36,9 @@ var UploadForm = React.createClass({
     var data = {
       tags: this.state.tags.split(','),
       title: this.state.title,
-      url: result.secure_url
+      url: result.url,
+      secure_url: result.secure_url,
+      public_id: result.public_id
     };
     ApiUtil.createGif(data, function(id){
       this.history.pushState(null, 'gifs/' + id, {});

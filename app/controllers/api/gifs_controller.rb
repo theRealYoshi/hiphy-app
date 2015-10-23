@@ -34,6 +34,8 @@ class Api::GifsController < ApplicationController
     @gif = Gif.create(
         title: params[:gif][:title],
         url: params[:gif][:url],
+        secure_url: params[:gif][:secure_url],
+        gif_tag: params[:gif][:public_id],
         shortened_url: create_shorten_url,
         submitter_id: current_user.id
       )

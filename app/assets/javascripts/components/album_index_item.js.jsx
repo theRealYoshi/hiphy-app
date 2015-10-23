@@ -27,6 +27,12 @@ var AlbumIndexItem = React.createClass({
                   '/album/' + albumId,
                   {});
   },
+  _concatImgSrc: function(imgSrc){
+      var splitArr = imgSrc.split("/image/upload");
+      splitArr.splice(1,0,"/image/upload");
+      splitArr.splice(2,0,"/w_300,h_208,c_fill");
+      return splitArr.join("");
+  },
   render: function(){
     var album = this.props.album;
     var gif = this.state.gif;
@@ -37,15 +43,16 @@ var AlbumIndexItem = React.createClass({
       imgSrc = gif.url.slice(0, -3) + 'png';
     } else if ( this.state.hovered && !this.state.gif){
       //hovered and no gifs in album
-      imgSrc =  "https://res.cloudinary.com/dpbquh1uj/image/upload/v1445537574/tumblr_n85k6gA6TG1tzyfmgo1_500_wzgtfn.gif";
+      imgSrc =  "http://res.cloudinary.com/dpbquh1uj/image/upload/v1445537574/tumblr_n85k6gA6TG1tzyfmgo1_500_wzgtfn.gif";
     } else {
       // not hovered and no gifs
-      imgSrc = "https://res.cloudinary.com/dpbquh1uj/image/upload/v1445537574/tumblr_n85k6gA6TG1tzyfmgo1_500_wzgtfn.png";
+      imgSrc = "http://res.cloudinary.com/dpbquh1uj/image/upload/v1445537574/tumblr_n85k6gA6TG1tzyfmgo1_500_wzgtfn.png";
     }
+    fittedImg = this._concatImgSrc(imgSrc);
     return (
       <div className="col-sm-4">
         <div className='album-index-item' >
-          <img src={imgSrc}
+          <img src={fittedImg}
                onMouseEnter={this._onHover}
                onMouseOut={this._onHoverOut}
                onClick={this._navigateShow}
