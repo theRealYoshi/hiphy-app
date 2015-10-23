@@ -13,7 +13,7 @@
 #
 
 class Gif < ActiveRecord::Base
-  validates :title, :submitter_id, :url, :shortened_url, :secure_url, :public_id, presence: true
+  validates :title, :submitter_id, :url, :shortened_url, :secure_url, :gif_tag, presence: true
   belongs_to :user, foreign_key: :submitter_id
   has_many :tags, through: :taggings
   has_many :taggings, dependent: :destroy

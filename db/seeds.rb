@@ -20,12 +20,14 @@ Cloudinary::Api.delete_resources_by_tag(cloudinary_tag)
 Cloudinary::Api.delete_resources_by_tag('test_data')
 
 def getUrl
-  keywords = ['san-francisco', 'bay-area', 'silicon-valley', 'oakland', 'hyphy', 'san-jose', 'cats']
+  keywords = ['san-francisco', 'bay-area', 'silicon-valley',
+    'oakland', 'hyphy', 'san-jose', 'cats', 'warriors', '49ers', 'sf-giants', 'oakland-as',
+   'golden-gate-bridge']
   url = 'http://api.giphy.com/v1/gifs/translate?s=' + keywords.sample.to_s + '&api_key=dc6zaTOxFJmzC'
   resp = Net::HTTP.get_response(URI.parse(url))
   buffer = resp.body
   result = JSON.parse(buffer)
-  result['data']['images']['fixed_height']['url'].to_s
+  result['data']['images']['original']['url'].to_s
 end
 
 10.times do |n|
@@ -39,7 +41,9 @@ end
   fake_gif = Gif.create(
     title: fake_title,
     submitter_id: ((n % 10) + 1),
-    url: cloudinary_hash["secure_url"],
+    url: cloudinary_hash["url"],
+    secure_url: cloudinary_hash["secure_url"],
+    gif_tag: cloudinary_hash["public_id"],
     shortened_url: "http://hip.hy/#{SecureRandom.urlsafe_base64(6)}"
   )
   Albuming.create(gif_id: fake_gif.id, album_id: ((n % 10) + 1))
