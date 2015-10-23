@@ -9,6 +9,11 @@ function getRandomSubarray(arr, size) {
   return shuffled.slice(0, size);
 }
 
+function getRandomColCount(){
+  var intArr = [2,8]; // add 5
+  return intArr[Math.floor(Math.random() * intArr.length)];
+}
+
 var Index = React.createClass({
   mixins: [ReactRouter.History],
   _getAllGifs: function(){
@@ -53,10 +58,29 @@ var Index = React.createClass({
     ApiUtil.fetchAlbums({tag: nextProps.params.query});
     ApiUtil.fetchGifs({tag: nextProps.params.query});
   },
+  _getGifsRows: function(gifs){
+    var randNum, rowContainer, GifIndexItem, tempGif;
+    var rowContainArr = [];
+    var gifCount = 0;
+    var tempGifs = gifs.slice(0);
+    while (gifCount < gifs.length){
+      var tempRow = [];
+      currentRowBlockCount = getRandomColCount();
+      for (var i = 0; i < currentRowBlockCount; i++) {
+        if (gifCount >= gifs.length){
+          break;
+        }
+        tempRow.push(tempGifs.shift());
+        gifCount += 1;
+      }
+      rowContainArr.push(tempRow);
+    }
+    return rowContainArr;
+  },
   render: function(){
     var albums = this.state.albums;
     var albumContainer, gifContainer;
-    var albumHeader, gifHeader;
+    var albumHeader, gifHeader, gifRows;
     if (albums.length > 0){
       albumHeader = <h3>Albums</h3>;
       albumContainer = this.state.albums.map(function(album){
@@ -68,12 +92,13 @@ var Index = React.createClass({
     }
     if (this.state.gifs.length > 0){
       gifHeader = <h3>Gifs</h3>;
-      gifContainer = this.state.gifs.map(function(gif){
-        return <IndexItem gif={gif} key={gif.id} />;
-      });
+      gifContainer = this._getGifsRows(this.state.gifs);
+      // gifContainer = this.state.gifs.map(function(gif){
+      //   return <IndexItem gif={gif} key={gif.id} />;
+      // });
     } else {
       gifHeader = <div></div>;
-      gifContainer = <div></div>;
+      gifContainer = [[]];
     }
     return (
       <div className='index'>
@@ -86,8 +111,16 @@ var Index = React.createClass({
           </div>
         </div>
         <div className='index-gifs-container'>
-          {gifHeader}
-          {gifContainer}
+          <div className='container'>
+            {gifHeader}
+            {
+              gifContainer.map(function(row){
+                return(
+                  <GifRow rowGifs={row} />
+                );
+              })
+            }
+          </div>
         </div>
       </div>
     );

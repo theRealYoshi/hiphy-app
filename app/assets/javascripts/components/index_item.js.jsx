@@ -1,4 +1,4 @@
-var IndexItem = React.createClass({
+var GifIndexItem = React.createClass({
   mixins: [ReactRouter.History],
   getInitialState: function(){
     return {hovered: false};
@@ -12,10 +12,20 @@ var IndexItem = React.createClass({
   _navigateShow:function(){
     this.history.pushState(null, '/gifs/' + this.props.gif.id, {});
   },
-  _deleteLink: function(id){
-    ApiUtil.deleteSingleGif(parseInt(id), function(){
-      this.history.pushState(null, '/', {});
-    }.bind(this));
+  _concatImgSrc: function(imgSrc){
+      var splitArr = imgSrc.split("/image/upload");
+      var widthHeight;
+      splitArr.splice(1,0,"/image/upload");
+      switch(this.props.size){
+        case 2:
+          widthHeight = "/w_481,h_271,c_fill";
+          break;
+        case 8:
+          widthHeight = "/w_240,h_133,c_fill";
+          break;
+      }
+      splitArr.splice(2,0,widthHeight);
+      return splitArr.join("");
   },
   render: function(){
     var gif = this.props.gif;
@@ -25,29 +35,24 @@ var IndexItem = React.createClass({
     } else {
       imgSrc = gif.url.slice(0, -3) + 'png';
     }
-    if(gif.submitter_id === CURRENT_USER_ID) {
-      var delete_link = <button onClick={this._deleteLink.bind(null, gif.id)}>Delete</button>;
-    }
+    fittedImg = this._concatImgSrc(imgSrc);
     return (
-      <div className='index-item'>
-        {gif.title}
-        <br />
-        Url: {imgSrc}
-        <br />
-        <img src={imgSrc}
-             onMouseEnter={this._onHover}
-             onMouseOut={this._onHoverOut}
-             onClick={this._navigateShow}/>
-        <br />
-        {
-          gif.tags.map(function(tag){
-            return "#" + tag.tag_title;
-          })
-        }
-        <br />
-        {
-          {delete_link}
-        }
+      <div className={this.props.bootStrap}>
+        <div className='gif-index-item'>
+          {gif.title}
+          <br />
+          <img src={fittedImg}
+               onMouseEnter={this._onHover}
+               onMouseOut={this._onHoverOut}
+               onClick={this._navigateShow}
+               className="gif-index-item-image"/>
+          <br />
+          {
+            gif.tags.map(function(tag){
+              return "#" + tag.tag_title;
+            })
+          }
+        </div>
       </div>
     );
   }

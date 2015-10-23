@@ -27,7 +27,7 @@ def getUrl
   resp = Net::HTTP.get_response(URI.parse(url))
   buffer = resp.body
   result = JSON.parse(buffer)
-  result['data']['images']['original']['url'].to_s
+  result['data']['images']['fixed_height']['url'].to_s
 end
 
 10.times do |n|

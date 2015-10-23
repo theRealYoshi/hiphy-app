@@ -42,7 +42,7 @@
           <div className='searchBar'>
             <form className='searchBar-form' onSubmit={this._handleSubmit}>
               <input
-                class='search-query'
+                className='search-query'
                 id='search-input'
                 onChange={this._handleInput}
                 value={this.state.inputVal}/>
