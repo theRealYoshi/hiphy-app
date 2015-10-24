@@ -9,18 +9,24 @@ var GifIndexItem = React.createClass({
   _onHoverOut: function(){
     this.setState({hovered: false});
   },
-  _navigateShow:function(){
+  _navigateShow: function(){
     this.history.pushState(null, '/gifs/' + this.props.gif.id, {});
   },
   _concatImgSrc: function(imgSrc){
       var splitArr = imgSrc.split("/image/upload");
       var widthHeight;
       splitArr.splice(1,0,"/image/upload");
-      switch(this.props.size){
-        case 2:
+      switch(this.props.bootStrap){
+        case "col-sm-6":
           widthHeight = "/w_481,h_271,c_fill";
           break;
-        case 8:
+        case "col-sm-3":
+          widthHeight = "/w_240,h_133,c_fill";
+          break;
+        case "col-sm-6 nested":
+          widthHeight = "/w_240,h_133,c_fill";
+          break;
+        case "col-sm-12 nested":
           widthHeight = "/w_240,h_133,c_fill";
           break;
       }

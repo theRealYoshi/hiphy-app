@@ -10,7 +10,7 @@ function getRandomSubarray(arr, size) {
 }
 
 function getRandomColCount(){
-  var intArr = [2,8]; // add 5
+  var intArr = [2,5,8]; // add 5
   return intArr[Math.floor(Math.random() * intArr.length)];
 }
 
