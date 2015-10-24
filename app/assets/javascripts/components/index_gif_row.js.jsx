@@ -22,6 +22,19 @@ var GifRow = React.createClass({
   render: function(){
     var gifItemArr = [];
     switch(this.props.rowGifs.length){
+      case 1:
+        var nestedGif = this.props.rowGifs[0];
+        oneNestedGif = this._handleNestedGifs([nestedGif], "col-sm-12 only-nested");
+        oneNestedContainer =
+          <div className='col-sm-6'>
+            {
+              oneNestedGif.map(function(oneNestedGif){
+                return oneNestedGif;
+              })
+            }
+          </div>;
+          gifItemArr.push(oneNestedContainer);
+        break;
       case 2:
         this.props.rowGifs.forEach(function(gif, idx){
           gifItemArr.push(<GifIndexItem gif={gif} key={gif.id} bootStrap="col-sm-6" />);

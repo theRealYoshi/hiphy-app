@@ -30,7 +30,7 @@ var AlbumIndexItem = React.createClass({
   _concatImgSrc: function(imgSrc){
       var splitArr = imgSrc.split("/image/upload");
       splitArr.splice(1,0,"/image/upload");
-      splitArr.splice(2,0,"/w_300,h_208,c_fill");
+      splitArr.splice(2,0,"/w_292,h_200,c_fill");
       return splitArr.join("");
   },
   render: function(){
