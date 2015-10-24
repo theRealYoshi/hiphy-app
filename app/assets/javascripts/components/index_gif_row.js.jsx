@@ -75,6 +75,7 @@ var GifRow = React.createClass({
             gifItemArr.push(largeImageDiv);
             break;
           case 2:
+            var largeMiddleImageDiv = <GifIndexItem gif={largeImageGif} key={largeImageGif.id} bootStrap='col-sm-6 middle' middle="middle" />;
             firstNested = this.props.rowGifs.slice(0,2);
             firstNestedGifs = this._handleNestedGifs(firstNested, "col-sm-12 nested");
             firstNestedContainer =
@@ -96,7 +97,7 @@ var GifRow = React.createClass({
                 }
               </div>;
             gifItemArr.push(firstNestedContainer);
-            gifItemArr.push(largeImageDiv);
+            gifItemArr.push(largeMiddleImageDiv);
             gifItemArr.push(secondNestedContainer);
         }
         break;

@@ -8,10 +8,17 @@
     .row {
       height: 271px;
       position: relative;
+      .col-sm-12{
+        padding: 0;
+      }
       .col-sm-6 {
         position: relative;
         height: 271px;
-        padding: 2px 2px 2px 2px;
+        padding: 0;
+        #middle {
+          padding: 2px;
+          height: 270px;
+        }
         .gif-index-item{
           margin-left: auto;
           margin-right: auto;
@@ -20,9 +27,10 @@
           position:relative;
           float: left;
         }
-        .nested{
+        .nested {
           height: 133px;
           .gif-index-item {
+            padding: 2px 2px 2px 2px;
             margin-left: auto;
             margin-right: auto;
             max-width: inherit;
@@ -34,14 +42,28 @@
       }
       .col-sm-3 {
         height: 133px;
-        padding: 2px 2px 2px 2px;
+        padding: 0;
         .gif-index-item{
+          padding: 2px 2px 2px 2px;
           margin-left: auto;
           margin-right: auto;
           max-width: 100%;
           max-height: 100%;
           position:relative;
           float: left;
+        }
+        .col-sm-12 {
+          max-height: 100%;
+          .nested{
+            .gif-index-item{
+              margin-left: auto;
+              margin-right: auto;
+              max-width: 100%;
+              max-height: 100%;
+              position:relative;
+              float: left;
+            }
+          }
         }
       }
     }

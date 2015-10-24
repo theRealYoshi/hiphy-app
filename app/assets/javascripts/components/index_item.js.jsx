@@ -18,10 +18,13 @@ var GifIndexItem = React.createClass({
       splitArr.splice(1,0,"/image/upload");
       switch(this.props.bootStrap){
         case "col-sm-12 only-nested":
-          widthHeight = "/w_460,h_265,c_fill";
+          widthHeight = "/w_482,h_270,c_fill";
           break;
         case "col-sm-6":
-          widthHeight = "/w_460,h_265,c_fill";
+          widthHeight = "/w_482,h_270,c_fill";
+          break;
+        case "col-sm-6 middle":
+          widthHeight = "/w_482,h_266,c_fill";
           break;
         case "col-sm-3":
           widthHeight = "/w_240,h_132,c_fill";
@@ -47,7 +50,7 @@ var GifIndexItem = React.createClass({
     fittedImg = this._concatImgSrc(imgSrc);
     return (
       <div className={this.props.bootStrap}>
-        <div className='gif-index-item'>
+        <div className='gif-index-item' id={this.props.middle}>
           <img src={fittedImg}
                onMouseEnter={this._onHover}
                onMouseOut={this._onHoverOut}
