@@ -1,10 +1,31 @@
+
 var GifIndexItem = React.createClass({
   mixins: [ReactRouter.History],
   getInitialState: function(){
-    return {hovered: false};
+    return {
+      hovered: false,
+      loading: false,
+      gif: this.props.gif,
+      gif_url: this.props.gif.url
+    };
+  },
+  _onImageLoad: function() {
+    console.log("loaded");
+    console.log(Date.now());
+    this.setState({loading: false});
+    console.log(this.refs.img.getDOMNode().className);
   },
   _onHover: function(){
     this.setState({hovered: true});
+    this.setState({loading: true});
+    console.log(this.refs.img.getDOMNode().className);
+    console.log(Date.now());
+    console.log("hovering");
+    // You may want to rename the component if the <Image> definition
+    // overrides window.Image
+    var img = new window.Image();
+    img.src = this.state.gif_url;
+    img.onload = this._onImageLoad;
   },
   _onHoverOut: function(){
     this.setState({hovered: false});
@@ -40,22 +61,28 @@ var GifIndexItem = React.createClass({
       return splitArr.join("");
   },
   render: function(){
-    var gif = this.props.gif;
-    var imgSrc = '';
+    var className = "gif-index-item";
+    var imageClassName = "gif-index-item-image";
+    var imgSrc, nyanLoad;
+    if (this.state.loading){
+      nyanLoad = <img src="assets/nyan_cat.gif" className="loading"/>;
+    }
     if (this.state.hovered){
-      imgSrc = gif.url;
+      imgSrc = this.state.gif_url;
     } else {
-      imgSrc = gif.url.slice(0, -3) + 'png';
+      imgSrc = this.state.gif_url.slice(0, -3) + 'png';
     }
     fittedImg = this._concatImgSrc(imgSrc);
     return (
       <div className={this.props.bootStrap}>
-        <div className='gif-index-item' id={this.props.middle}>
+        <div className={className} id={this.props.middle}>
+          {nyanLoad}
           <img src={fittedImg}
+               ref="img"
                onMouseEnter={this._onHover}
                onMouseOut={this._onHoverOut}
                onClick={this._navigateShow}
-               className="gif-index-item-image"/>
+               className={imageClassName}/>
         </div>
       </div>
     );
