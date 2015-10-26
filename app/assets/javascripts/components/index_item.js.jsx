@@ -4,27 +4,15 @@ var GifIndexItem = React.createClass({
   getInitialState: function(){
     return {
       hovered: false,
-      loading: false
     };
-  },
-  _onImageLoad: function() {
-    this.setState({
-      hovered: true,
-      loading: false
-    });
   },
   _onHover: function(){
     this.setState({
-      hovered: true,
-      loading: true
+      hovered: true
     });
-    var img = new window.Image();
-    img.src = this.props.gif.url;
-    img.onload = this._onImageLoad;
   },
   _onHoverOut: function(){
     this.setState({
-      loading: false,
       hovered: false
     });
   },
@@ -62,9 +50,6 @@ var GifIndexItem = React.createClass({
     var className = "gif-index-item";
     var imageClassName = "gif-index-item-image";
     var imgSrc, nyanLoad;
-    if (this.state.loading){
-      nyanLoad = <img src="assets/nyan_cat.gif" className="loading"/>;
-    }
     if (this.state.hovered){
       imgSrc = this.props.gif.url;
     } else {
@@ -74,13 +59,13 @@ var GifIndexItem = React.createClass({
     return (
       <div className={this.props.bootStrap}>
         <div className={className} id={this.props.middle}>
-          {nyanLoad}
           <img src={fittedImg}
-               ref="img"
                onMouseEnter={this._onHover}
                onMouseOut={this._onHoverOut}
                onClick={this._navigateShow}
-               className={imageClassName}/>
+               className={imageClassName}>
+               {this.props.gif.gif_tag}
+          </img>
         </div>
       </div>
     );
