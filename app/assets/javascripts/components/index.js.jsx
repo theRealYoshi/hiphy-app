@@ -93,9 +93,6 @@ var Index = React.createClass({
     if (this.state.gifs.length > 0){
       gifHeader = <h3>Gifs</h3>;
       gifContainer = this._getGifsRows(this.state.gifs);
-      // gifContainer = this.state.gifs.map(function(gif){
-      //   return <IndexItem gif={gif} key={gif.id} />;
-      // });
     } else {
       gifHeader = <div></div>;
       gifContainer = [[]];

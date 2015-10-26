@@ -5,9 +5,7 @@ function getRandomArrCount(){
 var GifRow = React.createClass({
   getInitialState: function(){
     return {
-      gifs: this.props.rowGifs,
-      first: "",
-      last: "",
+      gifs: this.props.rowGifs
     };
   },
   componentWillReceiveProps: function(){
