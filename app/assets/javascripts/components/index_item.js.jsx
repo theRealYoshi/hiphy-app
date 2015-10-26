@@ -4,31 +4,29 @@ var GifIndexItem = React.createClass({
   getInitialState: function(){
     return {
       hovered: false,
-      loading: false,
-      gif: this.props.gif,
-      gif_url: this.props.gif.url
+      loading: false
     };
   },
   _onImageLoad: function() {
-    console.log("loaded");
-    console.log(Date.now());
-    this.setState({loading: false});
-    console.log(this.refs.img.getDOMNode().className);
+    this.setState({
+      hovered: true,
+      loading: false
+    });
   },
   _onHover: function(){
-    this.setState({hovered: true});
-    this.setState({loading: true});
-    console.log(this.refs.img.getDOMNode().className);
-    console.log(Date.now());
-    console.log("hovering");
-    // You may want to rename the component if the <Image> definition
-    // overrides window.Image
+    this.setState({
+      hovered: true,
+      loading: true
+    });
     var img = new window.Image();
-    img.src = this.state.gif_url;
+    img.src = this.props.gif.url;
     img.onload = this._onImageLoad;
   },
   _onHoverOut: function(){
-    this.setState({hovered: false});
+    this.setState({
+      loading: false,
+      hovered: false
+    });
   },
   _navigateShow: function(){
     this.history.pushState(null, '/gifs/' + this.props.gif.id, {});
@@ -68,9 +66,9 @@ var GifIndexItem = React.createClass({
       nyanLoad = <img src="assets/nyan_cat.gif" className="loading"/>;
     }
     if (this.state.hovered){
-      imgSrc = this.state.gif_url;
+      imgSrc = this.props.gif.url;
     } else {
-      imgSrc = this.state.gif_url.slice(0, -3) + 'png';
+      imgSrc = this.props.gif.url.slice(0, -3) + 'png';
     }
     fittedImg = this._concatImgSrc(imgSrc);
     return (
