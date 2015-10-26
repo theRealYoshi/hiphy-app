@@ -34,6 +34,7 @@ var AlbumIndexItem = React.createClass({
       return splitArr.join("");
   },
   render: function(){
+    var className = "album-index-item";
     var album = this.props.album;
     var gif = this.state.gif;
     var imgSrc = '';
@@ -56,7 +57,9 @@ var AlbumIndexItem = React.createClass({
                onMouseEnter={this._onHover}
                onMouseOut={this._onHoverOut}
                onClick={this._navigateShow}
-               className="album-index-item-image"/>
+               className="album-index-item-image">
+               {this.props.album.album_title}
+          </img>
           <br />
         </div>
       </div>
