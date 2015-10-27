@@ -58,5 +58,11 @@ ApiActions = {
       actionType: UserConstants.USER_REMOVED,
       user: user
     });
+  },
+  receiveTagSearch: function(gifs){
+    AppDispatcher.dispatch({
+      actionType: GifConstants.TAG_SEARCHED,
+      gifs: gifs
+    });
   }
 };

@@ -11,6 +11,7 @@
       $( "#search-input" ).focus(function() {
         $("#submit-button").addClass("active");
       });
+      
     },
     _handleInput: function (event) {
       event.preventDefault();

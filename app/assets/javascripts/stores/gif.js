@@ -68,6 +68,10 @@
           var singleRemove = removeGif(payload.gif);
           GifStore.emit(SINGLE_CHANGE_EVENT);
           break;
+        case GifConstants.TAG_SEARCHED:
+          var newSearch = resetGifs(payload.gifs);
+          GifStore.emit(CHANGE_EVENT);
+          break;
       }
     })
   });

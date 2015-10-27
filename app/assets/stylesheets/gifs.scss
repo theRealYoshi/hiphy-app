@@ -116,7 +116,6 @@
   width: 805px;
   background-color: #212121;
   position: relative;
-  margin-bottom: 20px;
   label {
     top: 50%;
     left: 0;
@@ -147,6 +146,33 @@
   }
 }
 
+.tags-container{
+  margin: 0;
+  padding: 20px 0;
+  text-align: left;
+  .tag {
+    display: inline-block;
+    margin: 0 1px 5px 0;
+    position: relative;
+    cursor: pointer;
+    a {
+    background: #7b7b7b;
+    border: 0;
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 40px;
+    margin: 0;
+    min-width: 140px;
+    padding: 0 20px;
+    text-align: center;
+    text-transform: lowercase;
+    width: auto;
+    }
+  }
+}
 
 .loaded-nyan-cat{
   opacity: 0;

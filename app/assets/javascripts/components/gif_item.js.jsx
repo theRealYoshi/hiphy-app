@@ -28,6 +28,11 @@ var GifItem = React.createClass({
       splitArr.splice(2,0,"/w_805,h_380,c_fit");
       return splitArr.join("");
   },
+  _handleTagSearch: function(searchTerm){
+    ApiUtil.fetchGifs({tag: searchTerm}, "tagClick");
+    //have search listen for new gifs from params store?
+    // grab new set of
+  },
   render: function(){
     var deleteLink, albumForm, imgSrc, gif, gifTitle, gifSubmitter, gifShort;
     if(this.state.gif) {
@@ -63,13 +68,19 @@ var GifItem = React.createClass({
                  readOnly="true"
                  value={gif.shortened_url} />
         </div>
+        <div className="tags-container">
         <h4>Tags</h4>
         {
           gif.tags.map(function(tag){
-            return <h6>#{tag.tag_title}</h6>;
-          })
+            return (
+              <h6 className="tag" >
+                <a onClick={this._handleTagSearch.bind(null, tag.tag_title)} >#{tag.tag_title}</a>
+              </h6>
+            );
+          }.bind(this))
         }
         <br />
+        </div>
         {albumForm}
       </div>
     );

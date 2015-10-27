@@ -1,11 +1,12 @@
 ApiUtil = {
-  fetchGifs: function(param){
+  fetchGifs: function(param, tagSearch){
     $.ajax({
       url: '/api/gifs',
       type: 'GET',
       data: param,
       success: function(gifs){
         ApiActions.receiveAll(gifs);
+        callback && callback();
       }
     });
   },
@@ -16,7 +17,6 @@ ApiUtil = {
       data: { gif: data },
       success: function (gif) {
         ApiActions.receiveSingleGif(gif);
-
         callback(gif.id);
       },
       error: function () {
