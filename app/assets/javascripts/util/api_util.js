@@ -5,8 +5,11 @@ ApiUtil = {
       type: 'GET',
       data: param,
       success: function(gifs){
-        ApiActions.receiveAll(gifs);
-        callback && callback();
+        if (tagSearch){
+          ApiActions.receiveTagSearch(gifs);
+        } else {
+          ApiActions.receiveAll(gifs);
+        }
       }
     });
   },

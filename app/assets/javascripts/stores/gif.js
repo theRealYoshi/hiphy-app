@@ -1,6 +1,7 @@
 (function(root) {
   var _gifs = [];
   var CHANGE_EVENT = "CHANGE";
+  var TAG_CHANGE_EVENT = "TAG_CHANGE";
   var SINGLE_CHANGE_EVENT = "SINGLE_CHANGE_EVENT";
 
   var resetGifs = function(gifs){
@@ -42,6 +43,12 @@
      });
      return gif;
     },
+    addTagChangeListener: function(callback){
+      this.on(TAG_CHANGE_EVENT, callback);
+    },
+    removeTagChangeListener: function(callback){
+      this.removeListener(TAG_CHANGE_EVENT, callback);
+    },
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);
     },
@@ -70,7 +77,7 @@
           break;
         case GifConstants.TAG_SEARCHED:
           var newSearch = resetGifs(payload.gifs);
-          GifStore.emit(CHANGE_EVENT);
+          GifStore.emit(TAG_CHANGE_EVENT);
           break;
       }
     })

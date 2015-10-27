@@ -29,9 +29,8 @@ var GifItem = React.createClass({
       return splitArr.join("");
   },
   _handleTagSearch: function(searchTerm){
-    ApiUtil.fetchGifs({tag: searchTerm}, "tagClick");
-    //have search listen for new gifs from params store?
-    // grab new set of
+    ApiUtil.fetchGifs({tag: searchTerm}, true);
+    this.history.pushState(null, "/search/" + searchTerm, {});
   },
   render: function(){
     var deleteLink, albumForm, imgSrc, gif, gifTitle, gifSubmitter, gifShort;

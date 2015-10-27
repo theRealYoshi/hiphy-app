@@ -36,12 +36,12 @@ var Index = React.createClass({
     this.setState({ albums: this._getThreeAlbums()});
   },
   componentWillMount: function(){
-    ApiUtil.fetchAlbums({tag: this.state.query});
-    ApiUtil.fetchGifs({tag: this.state.query});
     AlbumStore.addChangeListener(this._albumsChanged);
     AlbumStore.addSingleChangeListener(this._albumsChanged);
     GifStore.addChangeListener(this._gifsChanged);
     GifStore.addSingleChangeListener(this._gifsChanged);
+    ApiUtil.fetchAlbums({tag: this.state.query});
+    ApiUtil.fetchGifs({tag: this.state.query});
   },
   componentWillUnmount: function(){
     AlbumStore.removeChangeListener(this._albumsChanged);

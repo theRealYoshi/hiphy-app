@@ -17,9 +17,9 @@ ApiActions = {
       gif: gif
     });
   },
-  updateTag: function(tag){
+  receiveSingleTag: function(tag){
     AppDispatcher.dispatch({
-      actionType: GifConstants.UPDATE_TAG,
+      actionType: GifConstants.TAG_SEARCHED,
       tag: tag
     });
   },
