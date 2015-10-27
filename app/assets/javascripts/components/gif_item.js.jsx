@@ -46,20 +46,27 @@ var GifItem = React.createClass({
         shortened_url: "",
         tags: []
       };
-      imgSrc = "assets/nyan_cat.gif";
+      imgSrc = "";
     }
     fittedImg = this._concatImgSrc(imgSrc);
     return (
       <div className='gif-index-item'>
+        {deleteLink}
         <h3>{gif.title}</h3>
         <h4>Submitted by: {gif.submitter}</h4>
-        <img src={fittedImg} />
-
-        shortened_url: {gif.shortened_url},
-        {deleteLink}
+        <div className='gif-index-item-image-container'>
+          <img src={fittedImg} />
+        </div>
+        <div className="share-container">
+          <label>Share:</label>
+          <input type="text"
+                 readOnly="true"
+                 value={gif.shortened_url} />
+        </div>
+        <h4>Tags</h4>
         {
           gif.tags.map(function(tag){
-            return "#" + tag.tag_title;
+            return <h6>#{tag.tag_title}</h6>;
           })
         }
         <br />

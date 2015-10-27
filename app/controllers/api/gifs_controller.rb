@@ -3,17 +3,16 @@ class Api::GifsController < ApplicationController
 
   def index
     if params[:tag].blank?
-      @gifs = Gif.includes(:tags)
+      @gifs = Gif.includes(:tags, :user)
     else
-      sql_str = "tags.tag_title LIKE ?"
+      sql_str = "tags.tag_title LIKE ? "
       tags = params[:tag].split(" ").map {|tag| "%#{tag}%"}
       if tags.count > 1
-        (1..(tags.count - 1)).each do
+        (1..(tags.count - 1)).each do |n|
           sql_str += " OR tags.tag_title LIKE ?"
         end
       end
-      @gifs = Gif.includes(:tags).references(:tags).where(sql_str, *tags)
-      # @gifs = Gif.includes(:tags).references(:tags).where("tags.tag_title LIKE ?", "%#{params[:tag]}%")
+      @gifs = Gif.includes(:tags, :user).references(:tags).where(sql_str, *tags)
     end
   end
 
