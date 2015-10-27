@@ -57,10 +57,12 @@ var AlbumIndexItem = React.createClass({
                onMouseEnter={this._onHover}
                onMouseOut={this._onHoverOut}
                onClick={this._navigateShow}
-               className="album-index-item-image">
+               className="album-index-item-image" />
+           <h6>
+             <span className='album-index-item-title'>
                {this.props.album.album_title}
-          </img>
-          <br />
+             </span>
+           </h6>
         </div>
       </div>
     );

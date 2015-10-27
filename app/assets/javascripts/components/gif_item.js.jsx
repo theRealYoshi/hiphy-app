@@ -11,10 +11,7 @@ var GifItem = React.createClass({
   },
   componentWillMount: function(){
     ApiUtil.fetchSingleGif(parseInt(this.props.params.gifId));
-  },
-  componentDidMount: function () {
     GifStore.addSingleChangeListener(this._onChange);
-    ApiUtil.fetchSingleGif(parseInt(this.props.params.gifId));
   },
   componentWillUnmount: function(){
     GifStore.removeChangeListener(this._onChange);
@@ -32,28 +29,34 @@ var GifItem = React.createClass({
       return splitArr.join("");
   },
   render: function(){
-    var deleteLink, albumForm, imgSrc, gif;
-    if(this.state.gif === undefined) {
-      imgSrc = "http://res.cloudinary.com/dpbquh1uj/image/upload/v1445537574/tumblr_n85k6gA6TG1tzyfmgo1_500_wzgtfn.gif";
-    } else {
+    var deleteLink, albumForm, imgSrc, gif, gifTitle, gifSubmitter, gifShort;
+    if(this.state.gif) {
       gif = this.state.gif;
       imgSrc = this.state.gif.url;
+      if(this.state.gif.submitter_id === CURRENT_USER_ID) {
+        deleteLink = <button onClick={this._deleteLink.bind(null, this.state.gif.id)}>Delete</button>;
+      } // use this .props for index?
+      if (CURRENT_USER_ID !== -1){
+        albumForm = <AlbumForm gifId={this.props.params.gifId} />;
+      }
+    } else {
+      gif = {
+        title: "",
+        submitter: "",
+        shortened_url: "",
+        tags: []
+      };
+      imgSrc = "assets/nyan_cat.gif";
     }
-    if (CURRENT_USER_ID){
-      albumForm = <AlbumForm gifId={this.props.params.gifId} />;
-    }
-    if(this.state.gif.submitter_id === CURRENT_USER_ID) {
-      deleteLink = <button onClick={this._deleteLink.bind(null, this.state.gif.id)}>Delete</button>;
-    } // use this .props for index?
     fittedImg = this._concatImgSrc(imgSrc);
     return (
       <div className='gif-index-item'>
-        {gif.title}
+        <h3>{gif.title}</h3>
+        <h4>Submitted by: {gif.submitter}</h4>
         <img src={fittedImg} />
-        Submitter: {gif.submitter},
+
         shortened_url: {gif.shortened_url},
         {deleteLink}
-        <br />
         {
           gif.tags.map(function(tag){
             return "#" + tag.tag_title;

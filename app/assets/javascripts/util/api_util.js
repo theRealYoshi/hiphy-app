@@ -26,8 +26,12 @@ ApiUtil = {
     });
   },
   fetchSingleGif: function(id){
-    $.get('/api/gifs/' + id, function(gif){
-      ApiActions.receiveSingleGif(gif);
+    $.ajax({
+        url: '/api/gifs/' + id,
+        type: 'GET',
+        success: function(gif){
+          ApiActions.receiveSingleGif(gif);
+        }
     });
   },
   deleteSingleGif: function(id, callback){
@@ -37,9 +41,6 @@ ApiUtil = {
       success: function(gif){
         ApiActions.removeSingleGif(gif);
         ApiUtil.fetchAlbums({}, callback);
-        // if (callback){
-        //   callback();
-        // }
       },
       error: function(){
         console.log('error');
@@ -77,6 +78,7 @@ ApiUtil = {
       type: 'GET',
       success: function(album){
         ApiActions.receiveSingleAlbum(album);
+        ApiActions.receiveAll(album.gifs);
       }
     });
   },

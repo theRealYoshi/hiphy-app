@@ -3,6 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .index-albums-container {
+  h2 {
+    color: #b2b2b2;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+  }
   .container{
     width: inherit;
     .album-index-item{
@@ -10,15 +18,32 @@
       margin-right: auto;
       max-width: inherit;
       height: 200px;
+      margin-bottom: 70px;
       position:relative;
 
       .album-index-item-image {
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -0%);
         position: relative;
         cursor: pointer;
         max-width: inherit;
+      }
+
+      h6 .album-index-item-title{
+        margin: 0;
+        font-size: 24px;
+        position: absolute;
+        text-align: center;
+        top: 0px;
+        left: 0;
+        width: 40%;
+        color: #b2b2b2;
+        font-weight: 600;
+        letter-spacing: -1px;
+        background: rgb(0, 0, 0); /* fallback color */
+        background: rgba(0, 0, 0, 0.7);
+        padding: 5px;
       }
 
     }
@@ -26,8 +51,77 @@
   }
 }
 
+
 .album-item{
   margin-left: auto;
   margin-right: auto;
   width: 967px;
+  .container{
+    width: inherit;
+    .row {
+      height: 271px;
+      position: relative;
+      .col-sm-12{
+        padding: 0;
+      }
+      .gif-index-item {
+        cursor: pointer;
+      }
+      .col-sm-6 {
+        position: relative;
+        height: 271px;
+        padding: 0;
+        #middle {
+          padding: 2px;
+          height: 270px;
+        }
+        .gif-index-item{
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 100%;
+          max-height: 100%;
+          position:relative;
+          float: left;
+        }
+        .nested {
+          height: 133px;
+          .gif-index-item {
+            padding: 2px 2px 2px 2px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: inherit;
+            height: 100%;
+            position:relative;
+            float: left;
+          }
+        }
+      }
+      .col-sm-3 {
+        height: 133px;
+        padding: 0;
+        .gif-index-item{
+          padding: 2px 2px 2px 2px;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 100%;
+          max-height: 100%;
+          position:relative;
+          float: left;
+        }
+        .col-sm-12 {
+          max-height: 100%;
+          .nested{
+            .gif-index-item{
+              margin-left: auto;
+              margin-right: auto;
+              max-width: 100%;
+              max-height: 100%;
+              position:relative;
+              float: left;
+            }
+          }
+        }
+      }
+    }
+  }
 }

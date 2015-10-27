@@ -36,16 +36,12 @@ var Index = React.createClass({
     this.setState({ albums: this._getThreeAlbums()});
   },
   componentWillMount: function(){
-    ApiUtil.fetchGifs({tag: this.state.query});
     ApiUtil.fetchAlbums({tag: this.state.query});
-  },
-  componentDidMount: function(){
+    ApiUtil.fetchGifs({tag: this.state.query});
     AlbumStore.addChangeListener(this._albumsChanged);
     AlbumStore.addSingleChangeListener(this._albumsChanged);
     GifStore.addChangeListener(this._gifsChanged);
     GifStore.addSingleChangeListener(this._gifsChanged);
-    ApiUtil.fetchAlbums({tag: this.state.query});
-    ApiUtil.fetchGifs({tag: this.state.query});
   },
   componentWillUnmount: function(){
     AlbumStore.removeChangeListener(this._albumsChanged);
@@ -82,7 +78,7 @@ var Index = React.createClass({
     var albumContainer, gifContainer;
     var albumHeader, gifHeader, gifRows;
     if (albums.length > 0){
-      albumHeader = <h3>Albums</h3>;
+      albumHeader = <h2>Albums</h2>;
       albumContainer = this.state.albums.map(function(album){
           return <AlbumIndexItem album={album} key={album.id} />;
       });
@@ -91,7 +87,7 @@ var Index = React.createClass({
       albumContainer = <div></div>;
     }
     if (this.state.gifs.length > 0){
-      gifHeader = <h3>Gifs</h3>;
+      gifHeader = <h2>Gifs</h2>;
       gifContainer = this._getGifsRows(this.state.gifs);
     } else {
       gifHeader = <div></div>;

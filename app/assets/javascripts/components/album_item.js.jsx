@@ -55,7 +55,7 @@ var AlbumItem = React.createClass({
     var album = this.state.album;
     var albumTitle, albumGifs, deleteAlbum, username, gifHeader, gifContainer;
     if (album){
-      albumTitle = <li>{album.album_title}</li>;
+      albumTitle = album.album_title;
       albumGifs = album.gifs.map(function(gif){
         return <li>{gif.title}</li>;
       });
@@ -79,11 +79,9 @@ var AlbumItem = React.createClass({
     }
     return (
       <div className="album-item">
-        <h3>Album</h3>
-        <h6>{username}</h6>
-        <h6>{albumTitle}</h6>
+        <h3>Album: {albumTitle}</h3>
+        <h4>By: {username}</h4>
         <div className='container'>
-          {gifHeader}
           {
             gifContainer.map(function(row){
               return row.length > 0 ? <GifRow rowGifs={row} /> : <div></div>;
