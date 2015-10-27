@@ -73,8 +73,6 @@ function getRandomSubarray(arr, size) {
               <button id='submit-button' type="submit" value="search"/>
             </form>
           </div>
-          <div className="searchContent">
-          </div>
           {searchTag}
           {this.props.children}
         </div>

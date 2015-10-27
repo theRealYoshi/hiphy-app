@@ -73,10 +73,26 @@ var Index = React.createClass({
     }
     return rowContainArr;
   },
+  _getGifTags: function(){
+    var tagTitles = [];
+    this.state.gifs.map(function(gif){
+      gif.tags.forEach(function(tag){
+        if (tagTitles.indexOf(tag.tag_title) === -1){
+          tagTitles.push(tag.tag_title);
+        }
+      });
+    });
+    return getRandomSubarray(tagTitles, getRandomColCount());
+  },
+  _handleTagSearch: function(searchTerm){
+    ApiUtil.fetchGifs({tag: searchTerm}, true);
+    this.history.pushState(null, "/search/" + searchTerm, {});
+  },
   render: function(){
     var albums = this.state.albums;
     var albumContainer, gifContainer;
     var albumHeader, gifHeader, gifRows;
+    var gifTags = [];
     if (albums.length > 0){
       albumHeader = <h2>Albums</h2>;
       albumContainer = this.state.albums.map(function(album){
@@ -88,13 +104,28 @@ var Index = React.createClass({
     }
     if (this.state.gifs.length > 0){
       gifHeader = <h2>Gifs</h2>;
+      gifTags = this._getGifTags();
       gifContainer = this._getGifsRows(this.state.gifs);
     } else {
       gifHeader = <div></div>;
+      gifTags = [[]];
       gifContainer = [[]];
     }
     return (
       <div className='index'>
+        <div className='tags-container'>
+          <ul>
+          {
+            gifTags.map(function(tagTitle){
+              return (
+                <h6 className='tag'>
+                  <a onClick={this._handleTagSearch.bind(null, tagTitle)} >#{tagTitle}</a>
+                </h6>
+              );
+            }.bind(this))
+          }
+          </ul>
+        </div>
         <div className='index-albums-container'>
           <div className='container'>
             {albumHeader}
