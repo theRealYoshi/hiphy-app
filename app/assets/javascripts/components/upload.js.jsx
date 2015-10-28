@@ -70,23 +70,40 @@ var UploadForm = React.createClass({
       var error = this.state.errors;
     }
     return (
-      <div className="upload-container">
-        <p>{this.state.errors}</p>
-        <div className="upload-content">
-          <h3>Upload</h3>
-           <form className="upload-form" onSubmit={this._uploadGif}>
-             <label>Title</label>
-             <input type="text" valueLink={this.linkState('title')}/>
-             <br/>
-
-             <p>Separate your tags with commas!</p>
-             <br/>
-             <label>Tags</label>
-             <input type="text" valueLink={this.linkState('tags')}/>
-             <br />
-             <input type="submit" value="upload"/>
-           </form>
-         </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div className="upload-container">
+            <p>{this.state.errors}</p>
+            <div className="upload-content">
+              <h3>Upload</h3>
+               <form className="upload-form" onSubmit={this._uploadGif}>
+                 <div className="form-group">
+                   <label>Title</label>
+                   <input type="text"
+                          className="form-control"
+                          placeholder="Title"
+                          valueLink={this.linkState('title')}/>
+                 </div>
+                 <div className="form-group">
+                   <label>Tags</label>
+                   <input type="text"
+                          className="form-control"
+                          placeholder="Tags (separate by comma)"
+                          valueLink={this.linkState('tags')}/>
+                 </div>
+                 <br />
+                 <button type="submit"
+                         className="btn btn-default btn-lg">
+                         Upload
+                         <span className="glyphicon glyphicon-upload"
+                               aria-hidden="true"></span>
+                 </button>
+               </form>
+             </div>
+           </div>
+        </div>
+        <div class="col-md-4"></div>
       </div>
     );
   }
