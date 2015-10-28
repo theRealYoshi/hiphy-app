@@ -43,10 +43,6 @@ var ProfileIcon = React.createClass({
     this.history.pushState(null, '/profile/' + CURRENT_USER_ID, {});
     this.setState({clicked: false});
   },
-  _navigateAlbums: function(){
-    this.history.pushState(null, '/profile/' + CURRENT_USER_ID, {});
-    this.setState({clicked: false});
-  },
   _logOut: function(){
     ApiUtil.removeSingleUser(function(){
       window.location = '/';
@@ -62,7 +58,6 @@ var ProfileIcon = React.createClass({
     if (this.state.clicked){
       popOver = <ul>
         <li className='profile-popover-list' onClick={this._navigateProfile}><a>My Profile</a></li>
-        <li className='profile-popover-list' onClick={this._navigateAlbums}><a>My Albums</a></li>
         <li className='profile-popover-list' onClick={this._logOut}><a>Logout</a></li>
       </ul>;
     } else {

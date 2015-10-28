@@ -125,3 +125,23 @@
     }
   }
 }
+
+.album-container {
+  button {
+    margin: 0 10px;
+  }
+  .album-container-form {
+    margin-top: 15px;
+    height: 150px;
+    position: relative;
+    h4 {
+      margin: 0;
+    }
+    .form-inline{
+      margin: 10px;
+      .form-control{
+        width: 40%;
+      }
+    }
+  }
+}

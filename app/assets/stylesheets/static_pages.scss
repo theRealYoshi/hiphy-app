@@ -178,6 +178,18 @@
   }
 }
 
+.delete-container {
+  width: 100%;
+  h5 {
+    display: inline-block;
+    margin-right: 10px;
+    width: 100%;
+  }
+  button {
+    float: right;
+  }
+}
+
 .upload-container {
   margin-top: -10px;
   position: relative;

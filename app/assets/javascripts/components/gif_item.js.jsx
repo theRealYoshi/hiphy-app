@@ -38,7 +38,14 @@ var GifItem = React.createClass({
       gif = this.state.gif;
       imgSrc = this.state.gif.url;
       if(this.state.gif.submitter_id === CURRENT_USER_ID) {
-        deleteLink = <button onClick={this._deleteLink.bind(null, this.state.gif.id)}>Delete</button>;
+        deleteLink = <h5>Delete gif?
+        <button type="button"
+                className="btn btn-default btn-xs"
+                onClick={this._deleteLink.bind(null, this.state.gif.id)}>
+                <span className='glyphicon glyphicon-remove'
+                      aria-hidden="true"></span>
+        </button>
+        </h5>;
       } // use this .props for index?
       if (CURRENT_USER_ID !== -1){
         albumForm = <AlbumForm gifId={this.props.params.gifId} />;
@@ -55,9 +62,9 @@ var GifItem = React.createClass({
     fittedImg = this._concatImgSrc(imgSrc);
     return (
       <div className='gif-index-item'>
-        {deleteLink}
         <h3>{gif.title}</h3>
         <h4>Submitted by: {gif.submitter}</h4>
+        {deleteLink}
         <div className='gif-index-item-image-container'>
           <img src={fittedImg} />
         </div>

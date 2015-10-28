@@ -66,9 +66,16 @@ var AlbumItem = React.createClass({
         gifHeader = <div></div>;
       }
       if (album.user_id === CURRENT_USER_ID){
-        deleteAlbum = <button className="album-delete-button"
+        deleteAlbum =
+                      <h5>Delete album?
+                      <button type="button"
+                              className="btn btn-default btn-xs"
                               onClick={this._deleteAlbum}
-                              value={album.id}>Delete</button>;
+                              value={album.id}>
+                              <span className='glyphicon glyphicon-remove'
+                                    aria-hidden="true"></span>
+                      </button>
+                      </h5>;
       }
       if (album.user){
         username = album.user.username;
@@ -81,6 +88,9 @@ var AlbumItem = React.createClass({
       <div className="album-item">
         <h3>Album: {albumTitle}</h3>
         <h4>By: {username}</h4>
+        <div className="delete-container">
+          {deleteAlbum}
+        </div>
         <div className='container'>
           {
             gifContainer.map(function(row){
@@ -88,7 +98,6 @@ var AlbumItem = React.createClass({
             })
           }
         </div>
-        {deleteAlbum}
       </div>
     );
   }

@@ -51,32 +51,43 @@ var AlbumForm = React.createClass({
       }
     });
     if (added){
-      return <div className='added-icon'>Added+</div>;
+      return <button type="button"
+                    className="btn btn-default btn-lg">
+                {album.album_title + " "}
+                <span className='glyphicon glyphicon-ok'></span>
+              </button>;
     } else {
-      return <button className="add-to-album-button"
+      return <button type="button"
+                    className="btn btn-default btn-lg"
                     onClick={this._addToAlbum}
                     value={album.id}>
-                    Add to Album</button>;
+                    {album.album_title + " "}
+                    <span className='glyphicon glyphicon-plus'
+                          aria-hidden="true"></span>
+            </button>;
     }
   },
   render: function(){
     return (
       <div className="album-container">
-        <ul>
-            {
-              this.state.albums.map(function(album){
-                return (
-                  <ul>
-                    <li>{album.album_title}</li>
-                    {this._returnAddButtonOrDiv(album)}
-                  </ul>
-                );
-              }.bind(this))
-            }
-        </ul>
-        <form className="upload-form" onSubmit={this._addAlbum}>
-          <input type='text' valueLink={this.linkState("albumTitle")} />
-        </form>
+        <h4>Add to Album: </h4>
+          {
+            this.state.albums.map(function(album){
+              return this._returnAddButtonOrDiv(album);
+            }.bind(this))
+          }
+        <div className="album-container-form">
+          <h4>Create an Album: </h4>
+            <form className="form-inline" role="form" onSubmit={this._addAlbum}>
+              <div class="form-group">
+                  <input type='text'
+                         className="form-control"
+                         valueLink={this.linkState("albumTitle")}
+                         placeholder="Album Name"
+                         aria-describedby="sizing-addon1"/>
+              </div>
+            </form>
+        </div>
       </div>
     );
   }
