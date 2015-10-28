@@ -1,25 +1,25 @@
 # Hiphy
 
-[Hiphy][hiphy] - A SF/ Bay Area themed gif viewer and sharer.
+[Hiphy][hiphy] - Search for San Francisco / Bay Area themed gifs and share.
 
 [hiphy]: https://hiphy-app.herokuapp.com/
 
 ## Minimum Viable Product
 
-Hiphy is a web application inspired by [giphy.com][giphy] built using Ruby on Rails
+Hiphy is a web application inspired by [giphy.com][giphy] built on Ruby on Rails
 and React.js. Hiphy allows users to:
 
 [giphy]: http://www.giphy.com/
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create an account
-- [ ] Log in / Log out
-- [ ] Upload gifs
-- [ ] Tag gifs with multiple tags and search gifs by tag
-- [ ] Share, tag gifs on the show page
-- [ ] Organize gifs within Collections
-- [ ] View on hover gifs on the index page
+- [x] Create an account
+- [x] Log in / Log out
+- [x] Upload gifs
+- [x] Tag gifs with multiple tags and search gifs by tag
+- [x] Share, tag gifs
+- [x] Organize gifs within Albums
+- [x] View on hover gifs on the main page
 - [ ] Share through gifs on facebook messenger
 
 ## Design Docs
