@@ -21,38 +21,41 @@ Cloudinary::Api.delete_resources_by_tag('test_data')
 
 
 def getUrl(keyword)
-  url = 'http://api.giphy.com/v1/gifs/translate?s=' + keyword.to_s + '&api_key=dc6zaTOxFJmzC'
+  url = 'http://api.giphy.com/v1/gifs/translate?s=' + keyword + '&api_key=dc6zaTOxFJmzC'
   resp = Net::HTTP.get_response(URI.parse(url))
   buffer = resp.body
   result = JSON.parse(buffer)
-  result['data']['images']['fixed_height']['url'].to_s
+  res = result['data']['images']['fixed_height']['url'].to_s
+  return res, result['data']['url'], result['data']['id']
 end
 
 10.times do |n|
   User.create(email: "user#{n + 1}@user.com", username: "user#{n + 1}", password: "user#{n + 1}user#{n + 1}")
-  Album.create(album_title: keyword, user_id: (n+1))
+  Album.create(album_title: "album#{n+1}", user_id: (n+1))
 end
 
-50.times do |n|
+100.times do |n|
   keywords = [
       'san-francisco', 'bay-area', 'silicon-valley', 'stephen-curry',
       'san-jose-sharks', 'oakland', 'hyphy', 'san-jose',
       'cats', 'warriors', '49ers', 'sf-giants', 'oakland-as',
-      'golden-gate-bridge', 'coit-tower', 'alcatraz', 'thizz',
+      'golden-gate-bridge', 'alcatraz', 'thizz',
       'steve-jobs', 'berkeley', 'stanford', 'palo-alto',
       'fishermans-wharf', 'earthquake', 'california', 'man-francisco',
-      'blue-bottle-coffee', 'philz', 'colin-kapernick', 'tech',
-      'barry-bonds', 'jerry-rice', 'gold-rush', 'madison-bumgartner',
-      'startup', 'bay-area']
+      'colin-kaepernick', 'tech', 'barry-bonds', 'jerry-rice',
+      'gold-rush', 'startup', 'bay-area']
   keyword = keywords.sample.to_s
-  giphy_hash = Cloudinary::Uploader.upload(getUrl(keyword),
+  url, title, public_id = getUrl(keyword)
+  title = title.gsub("http://giphy.com/gifs/","")
+  title = title.gsub("-#{public_id}", "")
+  cloudinary_hash= Cloudinary::Uploader.upload(url,
                           :tags => cloudinary_tag)
   fake_gif = Gif.create(
-    title: giphy_hash["caption"],
+    title: title,
     submitter_id: ((n % 10) + 1),
-    url: giphy_hash["url"],
-    secure_url: giphy_hash["secure_url"],
-    gif_tag: giphy_hash["public_id"],
+    url: cloudinary_hash["url"],
+    secure_url: cloudinary_hash["secure_url"],
+    gif_tag: cloudinary_hash["public_id"],
     shortened_url: "http://hip.hy/#{SecureRandom.urlsafe_base64(6)}"
   )
   Albuming.create(gif_id: fake_gif.id, album_id: ((n % 10) + 1))
