@@ -150,6 +150,13 @@
   margin: 0;
   padding: 20px 0;
   text-align: left;
+  label {
+    margin-right: 20px;
+    font-size: 14px;
+    color: #b2b2b2;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
   .tag {
     display: inline-block;
     margin: 0 1px 5px 0;

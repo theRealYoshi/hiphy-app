@@ -164,7 +164,6 @@
     }
     button.active{
       cursor: pointer;
-      background-image: url('search_gradient_slow.gif');
     }
   }
 
@@ -174,6 +173,8 @@
     margin-right: auto;
     height: 60px;
     width: 967px;
+    font-family: 'proxima-nova', 'Proxima Nova', sans-serif;
+    color: #7b7b7b;
   }
 }
 

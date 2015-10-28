@@ -114,7 +114,7 @@ var Index = React.createClass({
     return (
       <div className='index'>
         <div className='tags-container'>
-          <ul>
+          <label>Popular Tags:</label>
           {
             gifTags.map(function(tagTitle){
               return (
@@ -124,7 +124,6 @@ var Index = React.createClass({
               );
             }.bind(this))
           }
-          </ul>
         </div>
         <div className='index-albums-container'>
           <div className='container'>

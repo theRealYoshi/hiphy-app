@@ -58,7 +58,7 @@ function getRandomSubarray(arr, size) {
       if (this.state.inputVal){
         searchTag = <div className='searchContent'><h2>Searching for: {this.state.inputVal}</h2></div>;
       } else {
-        searchTag = <div className='searchContent'><h2></h2></div>;
+        searchTag = <div></div>;
       }
       console.log(this.state.inputVal);
       return (
