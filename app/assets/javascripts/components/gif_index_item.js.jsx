@@ -68,7 +68,11 @@ var GifIndexItem = React.createClass({
 
           <h6>
             <span className='gif-index-item-tag'>
-              #{this.props.gif.tags[0].tag_title}
+              {
+                this.props.gif.tags.map(function(tag){
+                  return "#" + tag.tag_title + " ";
+                })
+              }
             </span>
           </h6>
         </div>
