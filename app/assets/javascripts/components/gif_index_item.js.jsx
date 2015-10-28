@@ -65,7 +65,7 @@ var GifIndexItem = React.createClass({
                onMouseOut={this._onHoverOut}
                onClick={this._navigateShow}
                className={imageClassName}/>
-             <h5>fjdkjaflkdjsafkljdsa</h5>
+        </div>
           <h6>
             <span className='gif-index-item-tag'>
               {
@@ -75,7 +75,6 @@ var GifIndexItem = React.createClass({
               }
             </span>
           </h6>
-        </div>
       </div>
     );
   }
