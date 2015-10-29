@@ -22,6 +22,19 @@ and React.js. Hiphy allows users to:
 - [x] View on hover gifs on the main page
 - [ ] Share through gifs on facebook messenger
 
+## Key Features
+
+- Search instantaneously with tag search and album search.
+  - Each keystroke logs an ajax request to the server which filters based on a
+    SQL "LIKE" query
+- Hover to play the gif
+  - Simple as switching from a .png file to .gif file using Cloudinary's image
+    transformation service and switching the hovered state from false to true in
+    the React Component.
+-
+
+
+
 ## Design Docs
 * [View Wireframes][view]
 * [DB schema][schema]
