@@ -37,19 +37,23 @@ and React.js. Hiphy allows users to:
   - Simple as switching from a .png file to .gif file using Cloudinary's image
     transformation service and switching the hovered state from false to true in
     the React Component.
-    ```javascript
+  - ```javascript
     _onHover: function(){
       this.setState({
         hovered: true
       });
-    },
+    }
     ```
+  - On hover:
+    - ![hover]
 - Randomized image sizing on main page
 
 
 [image_search]: https://cloud.githubusercontent.com/assets/1275250/10827123/725f757e-7e2a-11e5-8309-cb16072398b4.gif
 [album_search]: https://cloud.githubusercontent.com/assets/1275250/10827390/e56d9c48-7e2b-11e5-833e-5f047b119996.gif
-[any_search]: https://cloud.githubusercontent.com/assets/1275250/10826236/faca9768-7e25-11e5-94ba-3a40de0af440.gif
+[any_search]: https://cloud.githubusercontent.com/assets/1275250/10827518/b27bfd24-7e2c-11e5-8560-4157ef14ee6e.gif
+[hover]: https://cloud.githubusercontent.com/assets/1275250/10827687/7df345ac-7e2d-11e5-9493-126578be8f6a.gif
+
 
 
 
