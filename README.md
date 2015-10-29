@@ -4,24 +4,6 @@
 
 [hiphy]: https://hiphy-app.herokuapp.com/
 
-## Minimum Viable Product
-
-Hiphy is a web application inspired by [giphy.com][giphy] built on Ruby on Rails
-and React.js. Hiphy allows users to:
-
-[giphy]: http://www.giphy.com/
-
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
-- [x] Create an account
-- [x] Log in / Log out
-- [x] Upload gifs
-- [x] Tag gifs with multiple tags and search gifs by tag
-- [x] Share, tag gifs
-- [x] Organize gifs within Albums
-- [x] View on hover gifs on the main page
-- [ ] Share through gifs on facebook messenger
-
 ## Key Features
 
 - Search instantaneously with tag search and album search.
@@ -49,13 +31,30 @@ and React.js. Hiphy allows users to:
 - Randomized image sizing on main page
 
 
+## Minimum Viable Product
+
+Hiphy is a web application inspired by [giphy.com][giphy] built on Ruby on Rails
+and React.js. Hiphy allows users to:
+
+[giphy]: http://www.giphy.com/
+
+<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
+
+- [x] Create an account
+- [x] Log in / Log out
+- [x] Upload gifs
+- [x] Tag gifs with multiple tags and search gifs by tag
+- [x] Share, tag gifs
+- [x] Organize gifs within Albums
+- [x] View on hover gifs on the main page
+- [ ] Share through gifs on facebook messenger
+
+
+
 [image_search]: https://cloud.githubusercontent.com/assets/1275250/10827123/725f757e-7e2a-11e5-8309-cb16072398b4.gif
 [album_search]: https://cloud.githubusercontent.com/assets/1275250/10827390/e56d9c48-7e2b-11e5-833e-5f047b119996.gif
 [any_search]: https://cloud.githubusercontent.com/assets/1275250/10827518/b27bfd24-7e2c-11e5-8560-4157ef14ee6e.gif
 [hover]: https://cloud.githubusercontent.com/assets/1275250/10827687/7df345ac-7e2d-11e5-9493-126578be8f6a.gif
-
-
-
 
 
 ## Design Docs
