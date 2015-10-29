@@ -27,17 +27,17 @@ and React.js. Hiphy allows users to:
 - Search instantaneously with tag search and album search.
   - Each keystroke logs an ajax request to the server which filters based on a
     SQL "LIKE" query
-    Tag Search:
+    - Tag Search:
       - ![image_search]
-    Album Search:
+    - Album Search:
       - ![album_search]
-    Search from any page on the website:
+    - Search from any page on the website:
       - ![any_search]
 - Hover to play the gif
   - Simple as switching from a .png file to .gif file using Cloudinary's image
     transformation service and switching the hovered state from false to true in
     the React Component.
-    ```
+    ```javascript
     _onHover: function(){
       this.setState({
         hovered: true
@@ -48,7 +48,7 @@ and React.js. Hiphy allows users to:
 
 
 [image_search]: https://cloud.githubusercontent.com/assets/1275250/10827123/725f757e-7e2a-11e5-8309-cb16072398b4.gif
-[album_search]: https://cloud.githubusercontent.com/assets/1275250/10826236/faca9768-7e25-11e5-94ba-3a40de0af440.gif
+[album_search]: https://cloud.githubusercontent.com/assets/1275250/10827390/e56d9c48-7e2b-11e5-833e-5f047b119996.gif
 [any_search]: https://cloud.githubusercontent.com/assets/1275250/10826236/faca9768-7e25-11e5-94ba-3a40de0af440.gif
 
 
