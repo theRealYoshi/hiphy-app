@@ -10,11 +10,11 @@
   - Each keystroke logs an ajax request to the server which filters based on a
     SQL "LIKE" query
     - Tag Search:
-      ![image_search]
+      - ![image_search]
     - Album Search:
-      ![album_search]
+      - ![album_search]
     - Search from any page on the website:
-      ![any_search]
+      - ![any_search]
 - Hover to play the gif
   - Simple as switching from a .png file to .gif file using Cloudinary's image
     transformation service and switching the hovered state from false to true in
