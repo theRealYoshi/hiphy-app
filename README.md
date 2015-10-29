@@ -40,7 +40,10 @@ and React.js. Hiphy allows users to:
     ```
 - Randomized image sizing on main page
 
-![https://cloud.githubusercontent.com/assets/1275250/10826236/faca9768-7e25-11e5-94ba-3a40de0af440.gif]
+![sf]
+
+[sf]: https://cloud.githubusercontent.com/assets/1275250/10826236/faca9768-7e25-11e5-94ba-3a40de0af440.gif
+
 
 
 
