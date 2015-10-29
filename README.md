@@ -40,6 +40,7 @@ and React.js. Hiphy allows users to:
     ```
 - Randomized image sizing on main page
 
+![alt tag] http://www.catgifs.org/wp-content/uploads/2014/08/215_ears_cat_gifs.gif
 
 
 
