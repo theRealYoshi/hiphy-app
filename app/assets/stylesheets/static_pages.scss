@@ -21,7 +21,6 @@
       top: 0;
       left: -11px;
       cursor: pointer;
-
       img {
         width: 200px;
         height: 86px;
@@ -43,76 +42,115 @@
       height: 60px;
       width: 500px;
       margin: 10px 0 0;
-      .upload-button {
+      .upload-button{
         cursor: pointer;
-        vertical-align: center;
-        line-height: 38px;
-        display: inline-block;
         margin-left: 30px;
         margin-right: 30px;
         float: right;
-        .image{
-          max-height: 60px;
-          border-radius: 50%;
-        }
+        background: #7b7b7b;
+        border: 0;
+        display: block;
+        font-size: 20px;
+        margin: 0;
+        min-width: 140px;
+        text-align: center;
+        text-transform: uppercase;
+        width: auto;
+        height: 50px;
+        transform: translate(0%, 15%);
+        color: #fff;
+        font-weight: 700;
+        font-size: 20px;
+        display: block;
+        padding: 10px;
+      }
+      .upload-button:hover {
+        background: red;
+        text-decoration: none;
       }
 
       .profile-button {
         cursor: pointer;
-        vertical-align: center;
-        line-height: 38px;
-        display: inline-block;
         margin-left: 30px;
         margin-right: 30px;
         float: right;
-        position: relative;
-        .image{
-          max-height: 60px;
-          border-radius: 50%;
-        }
+        background: #525252;
+        border: 0;
+        display: block;
+        font-size: 20px;
+        margin: 0;
+        min-width: 140px;
+        text-align: center;
+        text-transform: uppercase;
+        width: auto;
+        height: 50px;
+        transform: translate(0%, 15%);
+        color: #fff;
+        font-weight: 700;
+        font-size: 20px;
+        display: block;
+        padding: 10px;
+      }
+      .profile-button:hover {
+        background: #696969;
+        text-decoration: none;
       }
       .login-button {
         cursor: pointer;
-        vertical-align: center;
-        line-height: 38px;
-        display: inline-block;
         margin-left: 30px;
         margin-right: 30px;
         float: right;
-        .image{
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-        }
+        background: #525252;
+        border: 0;
+        display: block;
+        font-size: 20px;
+        margin: 0;
+        min-width: 140px;
+        text-align: center;
+        text-transform: uppercase;
+        width: auto;
+        height: 50px;
+        transform: translate(0%, 15%);
+        color: #fff;
+        font-weight: 700;
+        font-size: 20px;
+        display: block;
+        padding: 10px;
+      }
+      .login-button:hover {
+        background: #696969;
+        text-decoration: none;
       }
     }
   }
 }
 
 .profile-popover {
-  top: 65px;
-  width: 150px;
+  top: 58px;
+  width: 140px;
   background: #fff;
-  border-radius: 5px;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.15),0 1px 3px 0 rgba(0,0,0,0.25);
   z-index: 101;
   color: black;
   position: relative;
-  left: 250px;
+  left: 220px;
   ul {
     list-style-type: none;
     padding-left: 0;
     li.profile-popover-list{
       cursor: pointer;
       width:100%;
-      padding-left: 40px;
+      padding-left: 20px;
+      border-color: #bbbbbb;
       a {
         cursor: pointer;
         width: 100%;
-        color: #bbbbbb;
+        color: #696969;
         font-size: 16px;
         line-height: 38px;
         text-decoration: none;
+        text-transform: uppercase;
+
 
       }
     }

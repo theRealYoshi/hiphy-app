@@ -49,11 +49,6 @@
     },
     render: function(){
       var uploadImg, logoImg, profileImg;
-      if (this.state.uploadHovered){
-        uploadImg = <img className='image' src='/assets/plus-blue.png' />;
-      } else {
-        uploadImg = <img className='image' src='/assets/plus-yellow.png' />;
-      }
       if (this.state.logoHovered){
         logoImg = <img className='image' src="/assets/red-bridge-white.png" />;
       } else {
@@ -83,7 +78,7 @@
                     onMouseOver={this._handleMouseOver}
                     onMouseOut={this._handleMouseOut}
                     id="upload">
-                  {uploadImg}
+                  Upload
                 </a>
                 {profileImg}
               </div>

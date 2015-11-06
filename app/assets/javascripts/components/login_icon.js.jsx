@@ -21,19 +21,13 @@ var LoginIcon = React.createClass({
     window.location = "/session/new";
   },
   render: function(){
-    var loginImg;
-    if (this.state.loginHovered){
-      loginImg = <img className='image' src='/assets/login.gif' />;
-    } else {
-      loginImg = <img className='image' src='/assets/login.png'/>;
-    }
     return (
       <a className='login-button'
           onClick={this._navigateLoginPage}
           onMouseOver={this._handleMouseOver}
           onMouseOut={this._handleMouseOut}
           id="login">
-        {loginImg}
+        Login To Upload
       </a>
     );
   }

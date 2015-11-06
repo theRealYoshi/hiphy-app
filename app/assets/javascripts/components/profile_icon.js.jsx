@@ -49,12 +49,7 @@ var ProfileIcon = React.createClass({
     });
   },
   render: function(){
-    var profileImg, popOver;
-    if (this.state.profileHovered){
-      profileImg = <img className='image' src='/assets/thumbs-up.gif' />;
-    } else {
-      profileImg = <img className='image' src='/assets/thumbs-up.png'/>;
-    }
+    var popOver;
     if (this.state.clicked){
       popOver = <ul>
         <li className='profile-popover-list' onClick={this._navigateProfile}><a>My Profile</a></li>
@@ -71,7 +66,7 @@ var ProfileIcon = React.createClass({
               onMouseOver={this._handleMouseOver}
               onMouseOut={this._handleMouseOut}
               id="profile">
-            {profileImg}
+            Profile
           </a>
         </div>
         <div className='profile-popover'>
