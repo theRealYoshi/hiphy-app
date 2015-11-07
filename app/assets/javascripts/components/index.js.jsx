@@ -103,7 +103,7 @@ var Index = React.createClass({
       albumContainer = <div></div>;
     }
     if (this.state.gifs.length > 0){
-      gifHeader = <h2>jfadgjakljgadad</h2>;
+      gifHeader = <h2>Gifs</h2>;
       gifTags = this._getGifTags();
       gifContainer = this._getGifsRows(this.state.gifs);
     } else {
