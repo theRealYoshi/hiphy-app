@@ -54,24 +54,26 @@ var GifIndexItem = React.createClass({
     }
   },
   render: function(){
-    console.log(this.props.gif.tags);
     return (
-      <div className={this.props.bootStrap}>
-        <div className="gif-index-item" id={this.props.middle}>
-          <img src={this._getImageSrc()}
-               onMouseEnter={this._onHover}
-               onMouseOut={this._onHoverOut}
-               onClick={this._navigateShow}
-               className="gif-index-item-image"/>
-          <h6>
-            <span className='gif-index-item-tag'>
-              {
-                this.props.gif.tags.map(function(tag){
-                  return "#";
-                })
-              }
-            </span>
-          </h6>
+      <div>
+        is an object
+        <div className={this.props.bootStrap}>
+          <div className="gif-index-item" id={this.props.middle}>
+            <img src={this._getImageSrc()}
+                 onMouseEnter={this._onHover}
+                 onMouseOut={this._onHoverOut}
+                 onClick={this._navigateShow}
+                 className="gif-index-item-image"/>
+            <h6>
+              <span className='gif-index-item-tag'>
+                {
+                  this.props.gif.tags.map(function(tag){
+                    return "#" + tag.tag_title.toString() + " ";
+                  })
+                }
+              </span>
+            </h6>
+          </div>
         </div>
       </div>
     );
