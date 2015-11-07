@@ -56,7 +56,6 @@ var GifIndexItem = React.createClass({
   render: function(){
     return (
       <div>
-        is an object
         <div className={this.props.bootStrap}>
           <div className="gif-index-item" id={this.props.middle}>
             <img src={this._getImageSrc()}

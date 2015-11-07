@@ -107,8 +107,8 @@ var GifRow = React.createClass({
     return (
       <div className="row">
         {
-          gifItemArr.map(function(gif){
-            return gif;
+          gifItemArr.map(function(gifIndexItem){
+            return {gifIndexItem};
           })
         }
       </div>
