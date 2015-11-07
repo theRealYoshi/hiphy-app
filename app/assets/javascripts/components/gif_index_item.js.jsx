@@ -54,6 +54,7 @@ var GifIndexItem = React.createClass({
     }
   },
   render: function(){
+    console.log(this.props.gif.tags);
     return (
       <div className={this.props.bootStrap}>
         <div className="gif-index-item" id={this.props.middle}>
@@ -66,7 +67,7 @@ var GifIndexItem = React.createClass({
             <span className='gif-index-item-tag'>
               {
                 this.props.gif.tags.map(function(tag){
-                  return "#" + tag.tag_title.toString() + " ";
+                  return "#";
                 })
               }
             </span>
