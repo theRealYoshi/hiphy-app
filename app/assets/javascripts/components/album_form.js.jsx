@@ -1,5 +1,5 @@
 var AlbumForm = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
+  mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
   _getUserAlbums: function(){
     return AlbumStore.all();
   },
@@ -31,7 +31,9 @@ var AlbumForm = React.createClass({
       gif_id: this.props.gifId,
       album_title: this.state.albumTitle
     };
-    ApiUtil.createAlbum(data);
+    ApiUtil.createAlbum(data, function(id){
+      this.history.pushState(null, "/album/" + id, {} )
+    }.bind(this));
   },
   _addToAlbum: function(event){
     event.preventDefault();
@@ -40,7 +42,9 @@ var AlbumForm = React.createClass({
       gif_id: this.props.gifId,
       album_id: albumId
     };
-    ApiUtil.addToAlbum(data);
+    ApiUtil.addToAlbum(data, function(id){
+      this.history.pushState(null, "/album/" + id, {} )
+    }.bind(this));
   },
   _returnAddButtonOrDiv: function(album){
     var added = false;

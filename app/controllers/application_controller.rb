@@ -32,4 +32,12 @@ class ApplicationController < ActionController::Base
     redirect_to user_url(current_user) unless logged_in?
   end
 
+  def check_visits
+    cookies[:visits] ||= 0
+    cookies[:visits] = cookies[:visits].to_i + 1
+    if cookies[:visits].to_i < 2
+      redirect_to [new_session_url, new_user_url].sample
+    end
+  end
+
 end

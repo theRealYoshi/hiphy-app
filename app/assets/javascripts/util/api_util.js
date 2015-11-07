@@ -61,13 +61,14 @@ ApiUtil = {
       }
     });
   },
-  createAlbum: function(data){
+  createAlbum: function(data, callback){
     $.ajax({
       url: '/api/albums',
       type: 'POST',
       data: { album: data },
       success: function (album) {
         ApiActions.receiveSingleAlbum(album);
+        callback && callback(album.id);
         console.log("album created!");
       },
       error: function () {
@@ -94,13 +95,14 @@ ApiUtil = {
       }
     });
   },
-  addToAlbum: function(data){
+  addToAlbum: function(data, callback){
     $.ajax({
       url: '/api/albums',
       type: 'POST',
       data: { album: data },
       success: function (album) {
         ApiActions.updateSingleAlbum(album);
+        callback && callback(album.id);
         console.log("added to Album");
       },
       error: function () {

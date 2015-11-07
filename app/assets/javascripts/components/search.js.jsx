@@ -60,7 +60,6 @@ function getRandomSubarray(arr, size) {
       } else {
         searchTag = <div></div>;
       }
-      console.log(this.state.inputVal);
       return (
         <div className='search'>
           <div className='searchBar'>
@@ -69,8 +68,8 @@ function getRandomSubarray(arr, size) {
                 className='search-query'
                 id='search-input'
                 onChange={this._handleInput}
+                placeholder="Search Tag Name Or Album Name"
                 value={this.state.inputVal}/>
-              <button id='submit-button' type="submit" value="search"/>
             </form>
           </div>
           {searchTag}
