@@ -13,7 +13,7 @@ var GifRow = React.createClass({
   },
   _handleNestedGifs: function(nestedArr, bootstrapClass){
     var htmlNested = nestedArr.map(function(gif){
-      return <GifIndexItem gif={gif} key={gif.id} bootStrap={bootstrapClass} />;
+      return <GifIndexItem gif={gif} key={gif.id} bootStrap={bootstrapClass} tags={gif.tags}/>;
     });
     return htmlNested;
   },
@@ -34,14 +34,18 @@ var GifRow = React.createClass({
           gifItemArr.push(oneNestedContainer);
         break;
       case 2:
-        this.props.rowGifs.forEach(function(gif, idx){
-          gifItemArr.push(<GifIndexItem gif={gif} key={gif.id} bootStrap="col-sm-6" />);
+        this.props.rowGifs.forEach(function(gif){
+          var gifItem = {
+            gif: gif,
+            bootStrap: "col-sm-6"
+          }
+          gifItemArr.push(<GifIndexItem gif={gif} key={gif.id} bootStrap="col-sm-6" tags={gif.tags}/>);
         });
         break;
       case 5:
         var largeImageIdx = getRandomArrCount();
         var largeImageGif = this.props.rowGifs[largeImageIdx];
-        var largeImageDiv = <GifIndexItem gif={largeImageGif} key={largeImageGif.id} bootStrap='col-sm-6' />;
+        var largeImageDiv = <GifIndexItem gif={largeImageGif} key={largeImageGif.id} bootStrap='col-sm-6' tags={largeImageGif.tags}/>;
         var nested, firstNested, secondNested, firstNestedContainer, secondNestedContainer;
         switch(largeImageIdx){
           case 0:
@@ -73,7 +77,7 @@ var GifRow = React.createClass({
             gifItemArr.push(largeImageDiv);
             break;
           case 2:
-            var largeMiddleImageDiv = <GifIndexItem gif={largeImageGif} key={largeImageGif.id} bootStrap='col-sm-6 middle' middle="middle" />;
+            var largeMiddleImageDiv = <GifIndexItem gif={largeImageGif} key={largeImageGif.id} bootStrap='col-sm-6 middle' middle="middle" tags={largeImageGif.tags}/>;
             firstNested = this.props.rowGifs.slice(0,2);
             firstNestedGifs = this._handleNestedGifs(firstNested, "col-sm-12 nested");
             firstNestedContainer =
@@ -101,7 +105,7 @@ var GifRow = React.createClass({
         break;
       default:
         this.props.rowGifs.forEach(function(gif, idx){
-          gifItemArr.push(<GifIndexItem gif={gif} key={gif.id} bootStrap="col-sm-3" />);
+          gifItemArr.push(<GifIndexItem gif={gif} key={gif.id} bootStrap="col-sm-3" tags={gif.tags}/>);
         });
     }
     return (

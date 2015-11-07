@@ -1,16 +1,4 @@
-var TagGifIndexItem = React.createClass({
-  render: function(){
-    return (
-      <div>
-        <h6>
-          <span className='gif-index-item-tag'>
-            Tags yo
-          </span>
-        </h6>
-      </div>
-    );
-  }
-});
+
 var GifIndexItem = React.createClass({
   mixins: [ReactRouter.History],
   getInitialState: function(){
@@ -74,11 +62,15 @@ var GifIndexItem = React.createClass({
                onMouseOut={this._onHoverOut}
                onClick={this._navigateShow}
                className="gif-index-item-image"/>
-          {
-            this.props.gif.tags.map(function(tag){
-              return <TagGifIndexItem />;
-            })
-          }
+          <h6>
+            <span className='gif-index-item-tag'>
+              {
+                this.props.tags.map(function(tag){
+                  return "#" + tag.tag_title.toString() + " ";
+                })
+              }
+            </span>
+          </h6>
         </div>
       </div>
     );
