@@ -76,7 +76,7 @@ var UploadForm = React.createClass({
           <div className="upload-container">
             <p>{this.state.errors}</p>
             <div className="upload-content">
-              <h3>Upload</h3>
+              <h3>Upload (Gifs Only)</h3>
                <form className="upload-form" onSubmit={this._uploadGif}>
                  <div className="form-group">
                    <label>Title</label>

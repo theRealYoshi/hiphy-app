@@ -19,6 +19,20 @@ class SessionsController < ApplicationController
     end
   end
 
+  def guest_login
+    @user = User.find_by_credentials(
+      "guest",
+      "guestguest"
+    )
+    if @user
+      log_in(@user)
+      redirect_to root_url
+    else
+      flash.now[:errors] = ["Invalid username or password."]
+      render :new
+    end
+  end
+
   def destroy
     log_out
     render json: current_user

@@ -68,12 +68,6 @@ var GifItem = React.createClass({
         <div className='gif-index-item-image-container'>
           <img src={fittedImg} />
         </div>
-        <div className="share-container">
-          <label>Share:</label>
-          <input type="text"
-                 readOnly="true"
-                 value={gif.shortened_url} />
-        </div>
         <div className="tags-container">
         <h4>Tags</h4>
         {

@@ -49,7 +49,7 @@
             </div>
             <div class="modal-footer">
               <div class='signup-link'>
-                <p>Not a member? <%= link_to "Sign up", new_user_url %></p>
+                Don't want to sign up? <%= link_to "Guest Login", guest_login_url %>
               </div>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -104,7 +104,7 @@
             </div>
             <div class="modal-footer">
               <div class='login-link'>
-                Already a member? <%= link_to "Login", new_session_url %>
+                Don't want to sign up? <%= link_to "Guest Login", guest_login_url %>
                 <br/>
               </div>
               <div class='close-btn'>

@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :albums, only: [:index, :create, :show, :destroy]
   end
 
-
   root to: 'static_pages#root'
+  get 'guest_login', to: 'sessions#guest_login'
 end

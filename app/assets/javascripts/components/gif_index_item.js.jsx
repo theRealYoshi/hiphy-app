@@ -66,14 +66,14 @@ var GifIndexItem = React.createClass({
                onClick={this._navigateShow}
                className={imageClassName}/>
 
+        </div>
+        <div className="gif-index-item-tag">
           <h6>
-            <span className='gif-index-item-tag'>
-              {
-                this.props.gif.tags.map(function(tag){
-                  return "#" + tag.tag_title + " ";
-                })
-              }
-            </span>
+            {
+              this.props.gif.tags.map(function(tag){
+                return "#" + tag.tag_title.toString() + " ";
+              })
+            }
           </h6>
         </div>
       </div>
