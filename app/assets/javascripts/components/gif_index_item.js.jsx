@@ -58,6 +58,19 @@ var GifIndexItem = React.createClass({
     var imageClassName = "gif-index-item-image";
     fittedImg = this._getImageSrc();
     return (
+      <div className={this.props.bootStrap}>
+        <div className={className} id={this.props.middle}>
+          <h6>
+            <span className='gif-index-item-tag'>
+              {
+                this.props.gif.tags.map(function(tag){
+                  return "#" + tag.tag_title.toString() + " ";
+                })
+              }
+            </span>
+          </h6>
+        </div>
+      </div>
     );
   }
 });
