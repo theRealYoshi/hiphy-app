@@ -1,4 +1,16 @@
-
+var TagGifIndexItem = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <h6>
+          <span className='gif-index-item-tag'>
+            Tags yo
+          </span>
+        </h6>
+      </div>
+    );
+  }
+});
 var GifIndexItem = React.createClass({
   mixins: [ReactRouter.History],
   getInitialState: function(){
@@ -55,24 +67,18 @@ var GifIndexItem = React.createClass({
   },
   render: function(){
     return (
-      <div>
-        <div className={this.props.bootStrap}>
-          <div className="gif-index-item" id={this.props.middle}>
-            <img src={this._getImageSrc()}
-                 onMouseEnter={this._onHover}
-                 onMouseOut={this._onHoverOut}
-                 onClick={this._navigateShow}
-                 className="gif-index-item-image"/>
-            <h6>
-              <span className='gif-index-item-tag'>
-                {
-                  this.props.gif.tags.map(function(tag){
-                    return "#" + tag.tag_title.toString() + " ";
-                  })
-                }
-              </span>
-            </h6>
-          </div>
+      <div className={this.props.bootStrap}>
+        <div className="gif-index-item" id={this.props.middle}>
+          <img src={this._getImageSrc()}
+               onMouseEnter={this._onHover}
+               onMouseOut={this._onHoverOut}
+               onClick={this._navigateShow}
+               className="gif-index-item-image"/>
+          {
+            this.props.gif.tags.map(function(tag){
+              return <TagGifIndexItem />;
+            })
+          }
         </div>
       </div>
     );
