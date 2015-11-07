@@ -59,14 +59,6 @@ var GifIndexItem = React.createClass({
     fittedImg = this._getImageSrc();
     return (
       <div className={this.props.bootStrap}>
-        <div className={className} id={this.props.middle}>
-          <img src={fittedImg}
-               onMouseEnter={this._onHover}
-               onMouseOut={this._onHoverOut}
-               onClick={this._navigateShow}
-               className={imageClassName}/>
-
-        </div>
         <div className="gif-index-item-tag">
           <h6>
             {
@@ -75,6 +67,13 @@ var GifIndexItem = React.createClass({
               })
             }
           </h6>
+        </div>
+        <div className={className} id={this.props.middle}>
+          <img src={fittedImg}
+               onMouseEnter={this._onHover}
+               onMouseOut={this._onHoverOut}
+               onClick={this._navigateShow}
+               className={imageClassName}/>
         </div>
       </div>
     );
