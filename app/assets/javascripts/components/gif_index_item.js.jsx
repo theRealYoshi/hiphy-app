@@ -62,17 +62,6 @@ var GifIndexItem = React.createClass({
                onMouseOut={this._onHoverOut}
                onClick={this._navigateShow}
                className="gif-index-item-image"/>
-              {
-                this.props.tags.map(function(tag){
-                  return (
-                        <h6>
-                          <span className='gif-index-item-tag'>
-                            #{tag.tag_title.toString()}
-                          </span>
-                      </h6>
-                    )
-                })
-              }
         </div>
       </div>
     );
