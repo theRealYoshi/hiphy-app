@@ -56,8 +56,8 @@ var GifIndexItem = React.createClass({
   render: function(){
     return (
       <div className={this.props.bootStrap}>
+        <TagGifIndexItem tags={this.props.tags} />
         <div className="gif-index-item" id={this.props.middle}>
-          <TagGifIndexItem tags={this.props.tags} />
           <img src={this._getImageSrc()}
                onMouseEnter={this._onHover}
                onMouseOut={this._onHoverOut}

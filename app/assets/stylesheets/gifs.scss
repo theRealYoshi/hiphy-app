@@ -97,6 +97,7 @@
   background: -moz-linear-gradient( rgba(0, 0, 0, 1), rgba(255, 255, 255, 0)); /* For Firefox 3.6 to 15 */
   background: linear-gradient( rgba(0, 0, 0, 1) , rgba(255, 255, 255, 0)); /* Standard syntax */
   padding: 10px;
+  z-index: 100;
 }
 
 .gif-index-item-image-container{
