@@ -9,10 +9,6 @@ var TagGifIndexItem = React.createClass({
               })
             }
           </div>
-          <div className="gif-index-item" id={this.props.middle}>
-            <img src={this.props.imgSrc}
-                 className="gif-index-item-image"/>
-          </div>
         </div>
       )
   }
