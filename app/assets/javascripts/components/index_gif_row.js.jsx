@@ -110,7 +110,7 @@ var GifRow = React.createClass({
         break;
       default:
         this.props.rowGifs.forEach(function(gif, idx){
-          gifItemArr.push(<div><GifIndexItem gif={gif} key={gif.id} bootStrap="col-sm-3" tags={gif.tags}/></div>);
+          gifItemArr.push(<GifIndexItem gif={gif} key={gif.id} bootStrap="col-sm-3" tags={gif.tags}><TagGifIndexItem tags={gif.tags}/></GifIndexItem>);
         });
     }
     return (

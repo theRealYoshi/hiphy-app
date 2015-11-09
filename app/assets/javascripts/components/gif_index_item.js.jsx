@@ -55,16 +55,16 @@ var GifIndexItem = React.createClass({
   },
   render: function(){
     return (
-      // <div className={this.props.bootStrap}>
-      //   <div className="gif-index-item" id={this.props.middle}>
-      //     <img src={this._getImageSrc()}
-      //          onMouseEnter={this._onHover}
-      //          onMouseOut={this._onHoverOut}
-      //          onClick={this._navigateShow}
-      //          className="gif-index-item-image"/>
-      //   </div>
-      // </div>
-      <div>{this.props.tags}</div>
+      <div className={this.props.bootStrap}>
+        <div className="gif-index-item" id={this.props.middle}>
+          <TagGifIndexItem tags={this.props.tags} />
+          <img src={this._getImageSrc()}
+               onMouseEnter={this._onHover}
+               onMouseOut={this._onHoverOut}
+               onClick={this._navigateShow}
+               className="gif-index-item-image"/>
+        </div>
+      </div>
     );
   }
 });
