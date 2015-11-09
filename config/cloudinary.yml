@@ -1,15 +1,15 @@
 ---
 development:
-  cloud_name: dpbquh1uj
-  api_key: '266814333641699'
-  api_secret: VfMtuVdsy96xRperHDRHBvf0Fdc
+  cloud_name: dddpr5h7i
+  api_key: '454844936118581'
+  api_secret: z5bDgDhtso71K3-C3_51SVowwt4
   enhance_image_tag: true
   static_image_support: false
-  
+
 production:
-  cloud_name: dpbquh1uj
-  api_key: '266814333641699'
-  api_secret: VfMtuVdsy96xRperHDRHBvf0Fdc
+  cloud_name: df4iquehg
+  api_key: '695912258914863'
+  api_secret: BY7rheSaJ8o-R1nC-6KwWHX47GU
   enhance_image_tag: true
   static_image_support: true
 test:
