@@ -53,22 +53,11 @@ var GifIndexItem = React.createClass({
       return this._concatImgSrc(this.props.gif.url.slice(0, -3) + 'png');
     }
   },
-  _tagsRender: function(){
-    var tags = this.props.tags.map(function(tag){
-      return "#" + tag.tag_title + " ";
-    });
-    return tags;
-  },
   render: function(){
     return (
       <div className={this.props.bootStrap}>
         <div className="gif-index-item" id={this.props.middle}>
-          <p>{this._tagsRender()}</p>
-          <img src={this._getImageSrc()}
-               onMouseEnter={this._onHover}
-               onMouseOut={this._onHoverOut}
-               onClick={this._navigateShow}
-               className="gif-index-item-image"/>
+          <TagGifIndexItem tags={this.props.tags} imgSrc={this._getImageSrc()}/>
         </div>
       </div>
     );
