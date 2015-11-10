@@ -30,6 +30,9 @@ def getUrl(keyword)
 end
 
 User.create(email: "guest@guest.com", username: "guest", password: "guestguest")
+10.times do |n|
+  User.create(email: "user@user#{ n + 1}.com", username: "user#{n+1}", password: "user#{n+1}user#{n+1}")
+end
 
 200.times do |n|
   keywords = [
