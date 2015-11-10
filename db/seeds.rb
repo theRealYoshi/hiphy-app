@@ -31,22 +31,18 @@ end
 
 User.create(email: "guest@guest.com", username: "guest", password: "guestguest")
 
-10.times do |n|
-  User.create(email: "user#{n + 1}@user.com", username: "user#{n + 1}", password: "user#{n + 1}user#{n + 1}")
-end
-
 200.times do |n|
   keywords = [
-      'san francisco', 'bay area', 'silicon valley', 'stephen curry',
-      'san jose sharks', 'oakland', 'hyphy', 'san jose',
-      'cats', 'warriors', '49ers', 'sf giants', 'oakland as', 'raiders',
-      'golden gate bridge', 'alcatraz', 'thizz',
-      'steve jobs', 'berkeley', 'stanford', 'palo alto',
-      'fishermans wharf', 'earthquake', 'california', 'man francisco',
-      'colin kaepernick', 'tech', 'barry bonds', 'jerry rice',
-      'gold rush', 'startup', 'bay area', 'grateful dead', 'jim harbaugh',
-      'full house', 'funny cat', 'chinatown', 'the rock nicolas cage',
-      'escape alcatraz', 'godzilla 2014', 'vertigo hitchcock', 'foggy']
+      'san-francisco', 'bay-area', 'silicon-valley', 'stephen-curry',
+      'san-jose-sharks', 'oakland', 'hyphy', 'san-jose',
+      'cats', 'warriors', '49ers', 'sf-giants', 'oakland-as', 'raiders',
+      'golden-gate-bridge', 'alcatraz', 'thizz',
+      'steve-jobs', 'berkeley', 'stanford', 'palo-alto',
+      'fishermans-wharf', 'earthquake', 'california', 'man-francisco',
+      'colin-kaepernick', 'tech', 'barry-bonds', 'jerry-rice',
+      'gold-rush', 'startup', 'bay-area', 'grateful-dead', 'jim-harbaugh',
+      'full-house', 'funny-cat', 'chinatown', 'the-rock-nicolas-cage',
+      'escape-alcatraz', 'godzilla-2014', 'vertigo-hitchcock', 'foggy']
   keyword = keywords.sample.to_s
   url, title, public_id = getUrl(keyword)
   title = title.gsub("http://giphy.com/gifs/","")
