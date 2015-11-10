@@ -51,16 +51,20 @@ end
   url, title, public_id = getUrl(keyword)
   title = title.gsub("http://giphy.com/gifs/","")
   title = title.gsub("-#{public_id}", "")
-  cloudinary_hash= Cloudinary::Uploader.upload(url,
+  begin
+    cloudinary_hash= Cloudinary::Uploader.upload(url,
                           :tags => cloudinary_tag)
-  fake_gif = Gif.create(
-    title: title,
-    submitter_id: ((n % 10) + 1),
-    url: cloudinary_hash["url"],
-    secure_url: cloudinary_hash["secure_url"],
-    gif_tag: cloudinary_hash["public_id"],
-    shortened_url: "http://hip.hy/#{SecureRandom.urlsafe_base64(6)}"
-  )
-  fake_tag1 = Tag.create( tag_title: keyword)
-  Tagging.create(gif_id: fake_gif.id, tag_id: fake_tag1.id)
+    fake_gif = Gif.create(
+      title: title,
+      submitter_id: ((n % 10) + 1),
+      url: cloudinary_hash["url"],
+      secure_url: cloudinary_hash["secure_url"],
+      gif_tag: cloudinary_hash["public_id"],
+      shortened_url: "http://hip.hy/#{SecureRandom.urlsafe_base64(6)}"
+    )
+    fake_tag1 = Tag.create( tag_title: keyword)
+    Tagging.create(gif_id: fake_gif.id, tag_id: fake_tag1.id)
+  rescue
+    puts "file too large or error occurred"
+  end
 end
