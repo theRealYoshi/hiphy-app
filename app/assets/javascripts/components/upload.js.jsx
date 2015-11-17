@@ -47,7 +47,7 @@ var UploadForm = React.createClass({
   _uploadGif: function(event){
     event.preventDefault();
     if (this._validateTitle() && this._validateTags() ){
-      cloudinary.openUploadWidget({ cloud_name: 'dpbquh1uj', upload_preset: 'mnoe1mgq',
+      cloudinary.openUploadWidget({ cloud_name: 'df4iquehg', upload_preset: 'oze4lhas',
                                     sources: ['local', 'url'], max_files: 1,
                                     client_allowed_formats: ['gif'],
                                     min_image_height: 200,
