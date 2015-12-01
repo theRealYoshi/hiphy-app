@@ -1,3 +1,18 @@
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  }
+}
+
 function getRandomSubarray(arr, size) {
   var shuffled = arr.slice(0), i = arr.length, temp, index;
   while (i--) {
@@ -25,25 +40,36 @@ function getRandomSubarray(arr, size) {
       $( "#search-input" ).focus(function() {
         $("#submit-button").addClass("active");
       });
-      GifStore.addTagChangeListener(this._tagChanged);
+      GifStore.addTagChangeListener(debounce(this._tagChanged, 1000));
     },
     componentWillUnmount: function(){
-      GifStore.removeTagChangeListener(this._tagChanged);
+      GifStore.removeTagChangeListener(debounce(this._tagChanged, 1000));
+    },
+    componentWillReceiveProps: function(nextProps){
+      var clearSearch = nextProps.location.state;
+      if(clearSearch && clearSearch.params === "home"){
+        this.setState({inputVal: ""});
+      }
     },
     _tagChanged: function(){
       var searchTerm = this.props.params.query;
       this.setState({inputVal: searchTerm });
-      this.history.pushState(null, "/search/" + searchTerm, {});
+      debounce(function(){
+        this.history.pushState(null, "/search/" + searchTerm, {});
+      }.bind(this), 500);
     },
     _handleInput: function (event) {
       event.preventDefault();
       var str = event.currentTarget.value;
-      if (str === ""){
-        this.history.pushState(null, "/", {});
-      } else {
-        this.history.pushState(null, "/search/" + str, {});
-      }
       this.setState({ inputVal: str});
+      debounce(this._pushState(str), 500, true);
+    },
+    _pushState: function(str){
+        if (str === ""){
+          this.history.pushState(null, "/", {});
+        } else {
+          this.history.pushState(null, "/search/" + str, {});
+        }
     },
     _handleSubmit: function (event) {
       event.preventDefault();

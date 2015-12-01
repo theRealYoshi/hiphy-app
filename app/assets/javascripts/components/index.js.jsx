@@ -1,3 +1,18 @@
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  }
+}
+
 function getRandomSubarray(arr, size) {
   var shuffled = arr.slice(0), i = arr.length, temp, index;
   while (i--) {
@@ -36,10 +51,10 @@ var Index = React.createClass({
     this.setState({ albums: this._getThreeAlbums()});
   },
   componentWillMount: function(){
-    AlbumStore.addChangeListener(this._albumsChanged);
-    AlbumStore.addSingleChangeListener(this._albumsChanged);
-    GifStore.addChangeListener(this._gifsChanged);
-    GifStore.addSingleChangeListener(this._gifsChanged);
+    AlbumStore.addChangeListener(debounce(this._albumsChanged,500));
+    AlbumStore.addSingleChangeListener(debounce(this._albumsChanged,500));
+    GifStore.addChangeListener(debounce(this._gifsChanged, 500));
+    GifStore.addSingleChangeListener(debounce(this._gifsChanged, 500));
     ApiUtil.fetchAlbums({tag: this.state.query});
     ApiUtil.fetchGifs({tag: this.state.query});
   },

@@ -45,7 +45,7 @@
       }
     },
     _navigateHome: function(){
-      this.history.pushState(null, "/", {});
+      this.history.pushState({params: "home"}, "/", {});
     },
     render: function(){
       var uploadImg, logoImg, profileImg;
