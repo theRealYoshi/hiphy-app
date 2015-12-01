@@ -30,11 +30,14 @@ describe Gif, type: :model do
     it { should validate_presence_of(:submitter_id) }
     it { should validate_presence_of(:url) }
     it { should validate_presence_of(:secure_url) }
+    it { should validate_presence_of(:gif_tag) }
   end
 
   context "when is invalid" do
     it "should require at least 3 letters" do
-      expect(FactoryGirl.build(:tag, tag_title: "ab")).not_to be_valid
+      expect(FactoryGirl.build(:gif, title: "ab")).not_to be_valid
+      expect(FactoryGirl.build(:gif, secure_url: "ab")).not_to be_valid
+      expect(FactoryGirl.build(:gif, gif_tag: "ab")).not_to be_valid
     end
   end
 end
