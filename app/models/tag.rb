@@ -10,6 +10,7 @@
 
 class Tag < ActiveRecord::Base
   validates :tag_title, presence: true
+  validates :tag_title, length: { minimum: 3}
   has_many :taggings, dependent: :destroy
   has_many :gifs, through: :taggings
 

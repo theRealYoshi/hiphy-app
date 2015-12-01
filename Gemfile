@@ -38,8 +38,6 @@ gem 'flux-rails-assets'
 
 gem 'newrelic_rpm'
 
-gem 'factory_girl_rails', :require => false
-gem 'faker'
 
 #image manipulation
 
@@ -48,8 +46,10 @@ gem 'bootstrap-sass'
 gem "mini_magick"
 
 gem 'seed_dump'
-group :development do
-
+group :development, :test do
+  gem 'byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', :require => false
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'pry-rails'
@@ -59,15 +59,13 @@ group :development do
 end
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
 
 group :test do
 
+  gem 'faker'
   gem 'capybara'
   gem 'launchy'
-  gem 'shoulda-matchers'
-  gem 'rspec-rails', '~> 3.1.0'
-
+  gem 'shoulda-matchers', require: false
+  gem 'guard-rspec', require: false
 
 end

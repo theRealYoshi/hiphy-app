@@ -19,6 +19,7 @@ describe User do
   subject(:user) do
     FactoryGirl.build(:user,
       email: "jonathan@user.com",
+      username: "jonathan",
       password: "good_password")
   end
 
@@ -64,7 +65,7 @@ describe User do
     before { user.save! }
 
     it "returns user given good credentials" do
-      expect(User.find_by_credentials("jonathan@user.com", "good_password")).to eq(user)
+      expect(User.find_by_username("jonathan")).to eq(user)
     end
 
     it "returns nil given bad credentials" do
